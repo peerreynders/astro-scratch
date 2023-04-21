@@ -1,0 +1,31 @@
+{
+  "name": "astro-scratch",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peerreynders/astro-scratch"
+  },
+  "keywords": [],
+  "author": "Peer Reynders",
+  "license": "MIT",
+  "homepage": "https://github.com/peerreynders/astro-scratch#readme",
+  "bugs": {
+    "url": "https://github.com/peerreynders/astro-scratch/issues"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7",
+    "prettier-plugin-astro": "^0.8.0"
+  },
+  "dependencies": {
+    "astro": "^2.3.0"
+  }
+}

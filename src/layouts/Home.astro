@@ -1,0 +1,15 @@
+---
+// file: src/layouts/Home.astro
+import Base from './Base.astro';
+
+const {
+	frontmatter: { title },
+} = Astro.props;
+---
+
+<Base title={title}>
+	<article>
+		<h1>{title}</h1>
+		<slot />
+	</article>
+</Base>
