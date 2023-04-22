@@ -16,6 +16,29 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ### Lesson 4
 
+- Removed double quotes around the braces for attribute expressions.
+- Moved `images/` under the `public/` folder. 
+
+- Never been a fan of the [brackets for grouping class names](https://andy-bell.co.uk/cube-css/#heading-grouping). It's nice that web technologies are resilent but knowingly exploiting that towards non-standard ends? (I feel the same way about [ASI](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion)). Navigate the browser to [`issue33`](https://issue33.com/). Open the web developer tools and run the following code in the JavaScript console:
+
+```JavaScript
+const articles = document.querySelectorAll('article');
+const tokenList = articles[1].classList
+console.log(`length: ${tokenList.length} value: ${tokenList.value}`);
+for (const [key, value] of tokenList.entries()) console.log(`[${key}]: ${value}`);
+
+// length: 7 value: [ cta ] [ dot-shadow panel ] [ bg-dark-shade color-light ]
+// [0]: [
+// [1]: cta
+// [2]: ]
+// [3]: dot-shadow
+// [4]: panel
+// [5]: bg-dark-shade
+// [6]: color-light
+```
+
+The brackets pollute the `class` token list and only their first occurence is tracked as later duplicates are removed. It's a case of author time convenience introducing “runtime noise”.
+
 ---
 
 ### Lesson 3
@@ -45,18 +68,17 @@ const { title } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="{Astro.generator}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
-
 ```
 
 - [Markdown Layout Props](https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props)
@@ -72,10 +94,10 @@ const {
 ---
 
 <Base title={title}>
-	<article>
-		<h1>{title}</h1>
-		<slot />
-	</article>
+  <article>
+    <h1>{title}</h1>
+    <slot />
+  </article>
 </Base>
 ```
 
@@ -109,4 +131,4 @@ npm create astro@latest -- --template minimal
 
 ### Lesson 1
 
-Acquired the [starter files](https://learneleventyfromscratch.com/lesson/1.html#getting-some-starter-files).
+Acquired the [starter files](https://learneleventyfromscratch.com/lesson/1.html#getting-some-starter-files) ([front end](https://piccalilli.s3.eu-west-2.amazonaws.com/eleventy-from-scratch/eleventy-from-scratch-front-end-build-starter-files.zip)).
