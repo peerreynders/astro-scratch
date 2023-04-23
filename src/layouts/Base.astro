@@ -1,6 +1,6 @@
 ---
 // file: src/layouts/Base.astro
-
+import SiteHead from '../components/SiteHead.astro';
 const { title } = Astro.props;
 ---
 
@@ -13,6 +13,9 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<SiteHead />
+		<main tabindex="-1" id="main-content">
+			<slot />
+		</main>
 	</body>
 </html>

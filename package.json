@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "lint:types": "astro check",
     "format": "prettier --write ."
   },
   "repository": {
