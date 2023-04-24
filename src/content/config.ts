@@ -2,8 +2,10 @@
 // Use `npx astro sync` to generate the `astro:content` module
 //
 import { defineCollection } from 'astro:content';
-import { posts } from '../schemas';
+import { people, posts, work } from '../schemas';
 
 export const collections = {
+	people: defineCollection({ schema: people }),
 	posts: defineCollection({ schema: posts }),
+	work: defineCollection({ schema: work }),
 };

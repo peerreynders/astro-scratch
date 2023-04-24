@@ -3,6 +3,24 @@
 import Brand from './Brand.astro';
 import config from '../site-config';
 const { siteName } = config;
+
+const navigations = [
+	['/','Home'],
+	['/about-us','About'],
+	['/work','Work'],
+	['/blog','Blog'],
+	['/contact','Contact'],
+];
+
+const activeProps = (targetPath: string, current: string) => {
+	const props: Record<string,string> = {};
+
+	if (targetPath === current) props['aria-current'] = 'page';
+
+	if (targetPath.length > 1 && current.startsWith(targetPath)) props['data-active'] = 'active';
+
+	return props;
+};
 ---
 
 <a class="skip-link button" href="#main-content">Skip to content</a>
@@ -14,12 +32,11 @@ const { siteName } = config;
 			</a>
 			<nav class="nav site-head__nav font-sans" aria-label="Primary">
 				<ul class="nav__list">
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/work">Work</a>
-					</li>
+					{navigations.map(([pathname, name]) => (
+						<li>
+							<a href={pathname} {...activeProps(pathname, Astro.url.pathname)} >{ name }</a>
+						</li>
+					))}
 				</ul>
 			</nav>
 		</div>

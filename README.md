@@ -18,6 +18,20 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 … in reverse chronological order:
 
+---
+
+### Lesson 8
+
+…temporarily parked…
+
+- [`astro sync`](https://docs.astro.build/en/reference/cli-reference/#astro-sync)
+- [Defining a collection schema](https://docs.astro.build/en/guides/content-collections/#defining-a-collection-schema)
+- [Defining datatypes with Zod](https://docs.astro.build/en/guides/content-collections/#defining-datatypes-with-zod)
+- [Building for static output](https://docs.astro.build/en/guides/content-collections/#building-for-static-output-default)
+- [Static (SSG) Mode](https://docs.astro.build/en/core-concepts/routing/#static-ssg-mode)
+
+---
+
 ### Lesson 7
 
 Rather than focusing exploring a [tool feature](https://www.11ty.dev/docs/data-global/) here it is more important to identify the most appropriate (afaik) feature to solve the underlying problem especially as Astro supports [JSON imports](https://docs.astro.build/en/guides/imports/#json).
@@ -82,11 +96,67 @@ Astro supports [dynamic routes](https://docs.astro.build/en/core-concepts/routin
 
 However given this scenario [static routes](https://docs.astro.build/en/core-concepts/routing/#static-routes) seems to be the way to go … if it wasn't for [content collections](https://docs.astro.build/en/guides/content-collections/#generating-routes-from-content) introduced with [Astro 2.0](https://github.com/withastro/astro/releases/tag/astro%402.0.0).
 
-- [`astro sync`](https://docs.astro.build/en/reference/cli-reference/#astro-sync)
-- [Defining a collection schema](https://docs.astro.build/en/guides/content-collections/#defining-a-collection-schema)
-- [Defining datatypes with Zod](https://docs.astro.build/en/guides/content-collections/#defining-datatypes-with-zod)
-- [Building for static output](https://docs.astro.build/en/guides/content-collections/#building-for-static-output-default)
-- [Static (SSG) Mode](https://docs.astro.build/en/core-concepts/routing/#static-ssg-mode)
+But that is a topic for lesson 8. 
+
+So for the time being this will have to do:
+
+```Astro
+---
+// file: src/components/SiteHead.astro
+import Brand from './Brand.astro';
+import config from '../site-config';
+const { siteName } = config;
+
+const navigations = [
+	['/','Home'],
+	['/about-us','About'],
+	['/work','Work'],
+	['/blog','Blog'],
+	['/contact','Contact'],
+];
+
+const activeProps = (targetPath: string, current: string) => {
+	const props: Record<string,string> = {};
+
+	if (targetPath === current) props['aria-current'] = 'page';
+
+	if (targetPath.length > 1 && current.startsWith(targetPath)) props['data-active'] = 'active';
+
+	return props;
+};
+---
+
+<a class="skip-link button" href="#main-content">
+  Skip to content
+</a>
+<header role="banner" class="site-head">
+  <div class="wrapper">
+    <div class="site-head__inner">
+      <a href="/" aria-label={`${siteName} - home`} class="site-head__brand">
+        <Brand />
+      </a>
+      <nav class="nav site-head__nav font-sans" aria-label="Primary">
+        <ul class="nav__list">
+          {navigations.map(([pathname, name]) => (
+            <li>
+              <a
+                href={pathname}
+                {...activeProps(pathname, Astro.url.pathname)}
+              >
+                {name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+```
+
+- [`Astro.url`](https://docs.astro.build/en/reference/api-reference/#astrourl)
+
+…to be continued…
 
 ---
 
