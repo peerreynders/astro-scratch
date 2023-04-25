@@ -1,0 +1,100 @@
+@use 'sass:map';
+
+@import '@fontsource/literata/index.css';
+@import '@fontsource/literata/400-italic.css';
+@import '@fontsource/literata/400.css';
+@import '@fontsource/literata/900.css';
+@import '@fontsource/red-hat-display/index.css';
+@import '@fontsource/red-hat-display/400.css';
+@import '@fontsource/red-hat-display/900.css';
+
+/* --- settings --- */
+$base-size: 1rem;
+
+$size-scale: (
+	'500': $base-size * 1.33,
+	'600': $base-size * 1.77,
+);
+
+$color: (
+	'dark-light': #505c73,
+	'dark': #38445b,
+	'dark-dark': #263147,
+	'light-light': #fff6d7,
+	'light': #f9f4e3,
+	'light-dark': #fdfbf3,
+);
+
+@function from-map($ref, $map-name, $key-name, $default-value, $key) {
+	$result: map.get($ref, $key);
+	@if ($result) {
+		@return $result;
+	}
+
+	@warn #{$key-name + ' "' + $key + '" not found in ' + $map-name};
+
+	@return $default-value;
+}
+
+@function from-size($key) {
+	@return from-map($size-scale, '$size-scale', 'Size', $base-size, $key);
+}
+
+@function from-color($key) {
+	@return from-map($color, '$color', 'Color', null, $key);
+}
+
+/* --- mixins --- */
+
+@mixin font-base {
+	font-family: 'Literata', Georgia, serif;
+}
+
+/* --- reset --- */
+
+/* Box sizing rules */
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Set core root defaults */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+/* --- critical --- */
+:root {
+	--flow-space: #{from-size('600')};
+}
+
+body {
+	background: from-color('light');
+	color: from-color('dark-dark');
+	font-size: from-size('500');
+	@include font-base;
+}

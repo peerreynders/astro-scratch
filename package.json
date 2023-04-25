@@ -23,8 +23,11 @@
     "url": "https://github.com/peerreynders/astro-scratch/issues"
   },
   "devDependencies": {
+    "@fontsource/literata": "^4.5.13",
+    "@fontsource/red-hat-display": "^4.5.12",
     "prettier": "^2.8.7",
-    "prettier-plugin-astro": "^0.8.0"
+    "prettier-plugin-astro": "^0.8.0",
+    "sass": "^1.62.0"
   },
   "dependencies": {
     "astro": "^2.3.0"

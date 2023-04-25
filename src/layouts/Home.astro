@@ -1,9 +1,10 @@
 ---
 // file: src/layouts/Home.astro
 import Base from './Base.astro';
+import Cta from '../components/Cta.astro';
 
 const {
-	frontmatter: { title, intro },
+	frontmatter: { title, intro, primaryCTA },
 } = Astro.props;
 ---
 
@@ -25,4 +26,6 @@ const {
 			<img class="intro__image radius" src={intro.image} alt={intro.imageAlt} />
 		</div>
 	</article>
+	<Cta cta={primaryCTA} />
+	<Cta />
 </Base>

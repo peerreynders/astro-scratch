@@ -1,0 +1,26 @@
+---
+// file: src/components/Cta.astro
+import { getEntryBySlug } from 'astro:content';
+const { cta: ctaProp } = Astro.props;
+const cta = ctaProp ? ctaProp : (await getEntryBySlug('cta', 'global')).data;
+---
+
+{
+	cta && (
+		<article class="cta dot-shadow panel bg-dark-shade color-light">
+			<div class="wrapper">
+				<div class="cta__inner flow">
+					<h2 class="cta__heading headline" data-highlight="quaternary">
+						{cta.title}
+					</h2>
+					<p class="cta__summary measure-short">{cta.summary}</p>
+					<div class="cta__action">
+						<a class="button" data-variant="ghost" href={cta.buttonUrl}>
+							{cta.buttonText}
+						</a>
+					</div>
+				</div>
+			</div>
+		</article>
+	)
+}

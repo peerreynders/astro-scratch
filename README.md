@@ -20,7 +20,25 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
+### Lesson 20
+
+…temporarily parked…
+
+[Fontsource](https://github.com/fontsource/fontsource)
+
+---
+
+### Lesson 19
+
+…temporarily parked…
+
+[Sass and SCSS](https://docs.astro.build/en/guides/styling/#sass-and-scss)
+
+---
+
 ### Lesson 8
+
+To be continued…
 
 …temporarily parked…
 
@@ -34,7 +52,7 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ### Lesson 7
 
-Rather than focusing exploring a [tool feature](https://www.11ty.dev/docs/data-global/) here it is more important to identify the most appropriate (afaik) feature to solve the underlying problem especially as Astro supports [JSON imports](https://docs.astro.build/en/guides/imports/#json).
+Rather than focusing exploring a [tool feature](https://www.11ty.dev/docs/data-global/) here it is more important to identify the most appropriate (afaik) feature to solve the underlying problem especially as Astro supports [JSON imports](https://docs.astro.build/en/guides/imports/#json) out-of-the-box.
 
 In Astro the final site url belongs in the [`astro.config.mjs`](https://docs.astro.build/en/guides/configuring-astro/) under the [`site` property](https://docs.astro.build/en/reference/configuration-reference/#site). That url is then available via [Astro.site](https://docs.astro.build/en/reference/api-reference/#astrosite).
 
@@ -96,7 +114,7 @@ Astro supports [dynamic routes](https://docs.astro.build/en/core-concepts/routin
 
 However given this scenario [static routes](https://docs.astro.build/en/core-concepts/routing/#static-routes) seems to be the way to go … if it wasn't for [content collections](https://docs.astro.build/en/guides/content-collections/#generating-routes-from-content) introduced with [Astro 2.0](https://github.com/withastro/astro/releases/tag/astro%402.0.0).
 
-But that is a topic for lesson 8. 
+But that is a topic for lesson 8.
 
 So for the time being this will have to do:
 
@@ -108,21 +126,22 @@ import config from '../site-config';
 const { siteName } = config;
 
 const navigations = [
-	['/','Home'],
-	['/about-us','About'],
-	['/work','Work'],
-	['/blog','Blog'],
-	['/contact','Contact'],
+  ['/', 'Home'],
+  ['/about-us', 'About'],
+  ['/work', 'Work'],
+  ['/blog', 'Blog'],
+  ['/contact', 'Contact'],
 ];
 
 const activeProps = (targetPath: string, current: string) => {
-	const props: Record<string,string> = {};
+  const props: Record<string, string> = {};
 
-	if (targetPath === current) props['aria-current'] = 'page';
+  if (targetPath === current) props['aria-current'] = 'page';
 
-	if (targetPath.length > 1 && current.startsWith(targetPath)) props['data-active'] = 'active';
+  if (targetPath.length > 1 && current.startsWith(targetPath))
+    props['data-active'] = 'active';
 
-	return props;
+  return props;
 };
 ---
 
@@ -156,7 +175,164 @@ const activeProps = (targetPath: string, current: string) => {
 
 - [`Astro.url`](https://docs.astro.build/en/reference/api-reference/#astrourl)
 
-…to be continued…
+JSON files can be easily loaded at build time like this:
+
+```TypeScript
+// file: tweet-info.ts
+import tweets from '../data/tweet-info.data.json';
+import type { TweetInfo } from '../lib/tweet-types';
+
+function tweetInfo(id: string): TweetInfo | undefined {
+  return (tweets as Record<string, TweetInfo>)[id];
+}
+```
+
+Since Astro 2.0 content data can be handled with [Content Collections](https://docs.astro.build/en/guides/content-collections/).
+
+Define a schema ([Defining a collection schema](https://docs.astro.build/en/guides/content-collections/#defining-a-collection-schema)):
+
+```TypeScript
+// file: src/schemas.ts
+import { z } from 'astro/zod';
+
+const cta = z.object({
+  title: z.string(),
+  summary: z.string(),
+  buttonText: z.string(),
+  buttonUrl: z.string(),
+});
+
+// …
+```
+
+Define a collection in the configuration ([`astro sync`](https://docs.astro.build/en/reference/cli-reference/#astro-sync)):
+
+```TypeScript
+// file: src/content/config.ts
+// Use `npx astro sync` to generate the `astro:content` module
+//
+import { defineCollection } from 'astro:content';
+import { cta, people, posts, work } from '../schemas';
+
+export const collections = {
+  cta: defineCollection({ schema: cta }),
+  people: defineCollection({ schema: people }),
+  posts: defineCollection({ schema: posts }),
+  work: defineCollection({ schema: work }),
+};
+```
+
+Place the data in markdown frontmatter:
+
+```Markdown
+---
+# file: src/content/cta/global.md
+title: 'Get in touch if we seem like a good fit'
+summary: 'Vestibulum id ligula porta felis euismod semper. Praesent
+  commodo cursus magna, vel scelerisque nisl consectetur et. Cras
+  justo odio, dapibus ac facilisis in, egestas eget quam. Donec
+  ullamcorper nulla non metus auctor fringilla.'
+buttonText: 'Start a new project'
+buttonUrl: '/contact'
+---
+```
+
+Select it via its file [`slug`](https://docs.astro.build/en/reference/api-reference/#slug) ([`getEntryBySlug()`](https://docs.astro.build/en/reference/api-reference/#getentrybyslug)):
+
+```TypeScript
+---
+// file: src/components/Cta.astro
+import { getEntryBySlug } from 'astro:content';
+const { cta: ctaProp } = Astro.props;
+const cta = ctaProp ? ctaProp : (await getEntryBySlug('cta', 'global')).data;
+---
+
+{
+  cta && (
+    <article class="cta dot-shadow panel bg-dark-shade color-light">
+      <div class="wrapper">
+        <div class="cta__inner flow">
+          <h2 class="cta__heading headline" data-highlight="quaternary">
+            {cta.title}
+          </h2>
+          <p class="cta__summary measure-short">{cta.summary}</p>
+          <div class="cta__action">
+            <a class="button" data-variant="ghost" href={cta.buttonUrl}>
+              {cta.buttonText}
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+```
+
+Finally nest it in the container component (note that only one of them uses the `cta` prop):
+
+```TypeScript
+// file: src/layouts/Home.astro
+import Base from './Base.astro';
+import Cta from '../components/Cta.astro';
+
+const {
+  frontmatter: { title, intro, primaryCTA },
+} = Astro.props;
+---
+
+<Base title={title}>
+  <article class="intro">
+    <div class="intro__header radius frame">
+      <h1 class="intro__heading weight-normal text-400 md:text-600">
+        {intro.eyebrow}
+        <em class="text-800 md:text-900 lg:text-major weight-bold">
+          {intro.main}
+        </em>
+      </h1>
+    </div>
+    <div class="intro__content flow">
+      <p class="intro__summary">{intro.summary}</p>
+      <a href={intro.buttonUrl} class="button">
+        {intro.buttonText}
+      </a>
+    </div>
+    <div class="intro__media radius dot-shadow">
+      <img class="intro__image radius" src={intro.image} alt={intro.imageAlt} />
+    </div>
+  </article>
+  <Cta cta={primaryCTA} />
+  <Cta />
+</Base>
+```
+
+… while adding the alternate (`primaryCTA`) to the frontmatter of the page markdown.
+
+```Markdown
+---
+# file: src/pages/index.md
+title: Issue 33
+layout: ../layouts/Home.astro
+intro:
+  eyebrow: Digital Marketing is our
+  main: Bread & Butter
+  summary: 'Let us help you create the perfect campaign with
+	  our multi-faceted team of talented creatives.'
+  buttonText: See our work
+  buttonUrl: /work
+  image: /images/bg/toast.jpg
+  imageAlt: Buttered toasted white bread
+primaryCTA:
+  title: 'This is an agency that doesn’t actually exist'
+  summary: 'This is the project site you build when you take the “Learn
+    Eleventy From Scratch” course so it is all made up as a pretend
+    context. You will learn a lot about Eleventy by building this site
+    though. Take the course today!'
+  buttonText: 'Buy a copy'
+  buttonUrl: 'https://learneleventyfromscratch.com'
+---
+
+This is pretty _rad_, right?
+```
 
 ---
 
