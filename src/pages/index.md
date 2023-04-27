@@ -29,5 +29,3 @@ featuredWork:
 studioFeed:
   title: From inside the studio
 ---
-
-This is pretty _rad_, right?

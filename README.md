@@ -43,9 +43,29 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
-### Lesson 9
+### Lesson 11
 
 To be continued…
+
+---
+
+### Lesson 10
+
+- Add the `<div>` wrapper around the `<article>` in the `Home` layout.
+
+[Details](docs/lessons/10.md)
+
+---
+
+### Lesson 9
+
+- Define a minimal DIY `cachedFetch()` function.
+- Have `studio` pass the fetch url and file paths.
+- Use the `studio` wrapper in the `StudioFeed` component.
+- Add the `studioFeed` `title` to the markdown front matter.
+- Add the `StudioFeed` component to the `Home` layout.
+
+[Details](docs/lessons/09.md)
 
 ---
 
