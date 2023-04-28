@@ -16,6 +16,10 @@ $size-scale: (
 	'400': $base-size,
 	'500': $base-size * 1.33,
 	'600': $base-size * 1.77,
+	'700': $base-size * 2.36,
+	'800': $base-size * 3.15,
+	'900': $base-size * 4.2,
+	'major': $base-size * 5.6,
 );
 
 $color: (
@@ -25,16 +29,20 @@ $color: (
 	'dark-light': #505c73,
 	'dark': #38445b,
 	'dark-dark': #263147,
-  'quaternary-light': #fe9476,
-  'quaternary': #ff7f5c,
-  'quaternary-dark': #f96841,
-  'quinary-light': #f26c7f,
-  'quinary': #fa576e,
-  'quinary-dark': #fc3e59,
+	'tertiary-light': #ffdeaa,
+	'tertiary': #ffd490,
+	'tertiary-dark': #ffca77,
+	'quaternary-light': #fe9476,
+	'quaternary': #ff7f5c,
+	'quaternary-dark': #f96841,
+	'quinary-light': #f26c7f,
+	'quinary': #fa576e,
+	'quinary-dark': #fc3e59,
 );
 
 $breakpoint-target: (
 	'md': '(min-width: 37em)',
+	'lg': '(min-width: 62em)',
 );
 
 @function from-map($ref, $map-name, $key-name, $default-value, $key) {
@@ -56,16 +64,15 @@ $breakpoint-target: (
 	@return from-map($color, '$color', 'Color', null, $key);
 }
 
-
 // --- mixins ---
 
 @mixin at-breakpoint($key) {
 	$target: map.get($breakpoint-target, $key);
 
 	@if $target {
-    @media #{ $target } {
-      @content;
-    }	
+		@media #{ $target } {
+			@content;
+		}
 	} @else {
 		@warn #{ 'Breakpoint, ‘' + $key + '’ not found in `$breakpoint-target`.' };
 	}
@@ -76,33 +83,61 @@ $breakpoint-target: (
 }
 
 @mixin font-sans {
-	font-family: 'Red Hat Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+	font-family: 'Red Hat Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+		sans-serif;
+}
+
+@mixin weight-normal {
+	font-weight: 400;
 }
 
 @mixin weight-bold {
-	font-weight: 900
+	font-weight: 900;
+}
+
+@mixin define-font-size($name, $size) {
+	.#{$name} {
+		font-size: $size;
+	}
+}
+
+@mixin text-size($size-key, $bp-key: null) {
+	$size: from-size($size-key);
+	$name: 'text-' + $size-key;
+	@if $bp-key {
+		$target: map.get($breakpoint-target, $bp-key);
+		@media #{$target} {
+			@include define-font-size($bp-key + '\\:'+ $name, $size);
+		}
+	} @else {
+		@include define-font-size($name, $size);
+	}
+}
+
+@mixin leading-flat {
+	line-height: 1.1;
 }
 
 // placeholder hack
 // https://csswizardry.com/2014/01/extending-silent-classes-in-sass//
 // --- silent-classes ---
 
-.radius, 
+.radius,
 %radius {
-  border-radius: 0.25rem;
+	border-radius: 0.25rem;
 }
 
-.visually-hidden, 
+.visually-hidden,
 %visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: auto;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
 }
 
 /* --- reset --- */
@@ -146,8 +181,8 @@ body {
 /* Remove list styles on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
-  padding: 0;
-  list-style: none;
+	padding: 0;
+	list-style: none;
 }
 
 /* --- critical --- */
@@ -166,19 +201,29 @@ body {
 }
 
 a:not([class]) {
-  text-decoration-skip-ink: auto;
-  color: currentColor;
-  text-decoration-color: from-color('quinary');
+	text-decoration-skip-ink: auto;
+	color: currentColor;
+	text-decoration-color: from-color('quinary');
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: 900;
+
+	@include font-sans;
+	@include leading-flat;
 }
 
 // High contrast selection because it can help visually-impaired
 // folks read the text easier
 ::selection {
-  color: from-color('light');
+	color: from-color('light');
 
-  // We set this as an RGBA because that’s how you get a solid color, by using 0.99
-  // alpha value. Browsers are wild.
-  background: rgba(from-color('dark-dark'), 0.99);
+	// We set this as an RGBA because that’s how you get a solid color, by using 0.99
+	// alpha value. Browsers are wild.
+	background: rgba(from-color('dark-dark'), 0.99);
 }
 
 /* --- blocks --- */
@@ -186,103 +231,103 @@ a:not([class]) {
 .site-head {
 	padding: from-size('600') 0;
 
-  &__inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+	}
 
 	&__brand {
-    flex-shrink: 0;
-    margin-inline-end: from-size('600'); // Prevents nav bunching up to the logo
+		flex-shrink: 0;
+		margin-inline-end: from-size('600'); // Prevents nav bunching up to the logo
 
-    // Optical adjustment to account for the offset the sunken 3s create
-    transform: translateY(0.25rem);
+		// Optical adjustment to account for the offset the sunken 3s create
+		transform: translateY(0.25rem);
 
-    svg {
-      width: 100px;
-    }
-  }
+		svg {
+			width: 100px;
+		}
+	}
 
-  &__nav {
-    padding: from-size('300') 0;
-  }	
+	&__nav {
+		padding: from-size('300') 0;
+	}
 
 	@include at-breakpoint('md') {
-    &__brand {
-      svg {
-        width: 160px;
-      }
-    }	
+		&__brand {
+			svg {
+				width: 160px;
+			}
+		}
 	}
 }
 
 .nav {
-  line-height: 1;
-  font-weight: 900;
-  margin-top: -#{from-size('400')};
-  margin-inline-start: -#{from-size('400')};
+	line-height: 1;
+	font-weight: 900;
+	margin-top: -#{from-size('400')};
+	margin-inline-start: -#{from-size('400')};
 
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
 
-    > * {
-      padding-top: from-size('400');
-      padding-inline-start: from-size('400');
-    }
-  }
+		> * {
+			padding-top: from-size('400');
+			padding-inline-start: from-size('400');
+		}
+	}
 
-  a {
-    text-decoration: none;
-    display: block;
-    position: relative;
+	a {
+		text-decoration: none;
+		display: block;
+		position: relative;
 
-    // Adds the fake border to active state items
-    &[data-state='active'],
-    &[aria-current='page'] {
-      &:before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 0.25rem;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        margin-top: 0.25rem;
-        background: from-color('quinary-dark');
-      }
-    }
-  }
+		// Adds the fake border to active state items
+		&[data-state='active'],
+		&[aria-current='page'] {
+			&:before {
+				content: '';
+				display: block;
+				width: 100%;
+				height: 0.25rem;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				margin-top: 0.25rem;
+				background: from-color('quinary-dark');
+			}
+		}
+	}
 }
 
 // lesson 24
 .button {
-  @extend %radius;
+	@extend %radius;
 
-  display: inline-block;
-  padding: 0.5rem 2rem;
-  background: from-color('quaternary-light');
-  color: from-color('dark-dark');
-  border: 2px solid;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
+	display: inline-block;
+	padding: 0.5rem 2rem;
+	background: from-color('quaternary-light');
+	color: from-color('dark-dark');
+	border: 2px solid;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
 	@include font-sans;
 	@include weight-bold;
 
 	// Make sure hover state trumps all variants with a good ol’ important
-  &:hover {
-    background: from-color('quaternary') !important;
-    color: from-color('dark-dark') !important;
-  }
+	&:hover {
+		background: from-color('quaternary') !important;
+		color: from-color('dark-dark') !important;
+	}
 
-  // Add a ghost modifier
-  &[data-variant='ghost'] {
-    background: transparent;
-    color: get-color('quaternary-light');
-  }
+	// Add a ghost modifier
+	&[data-variant='ghost'] {
+		background: transparent;
+		color: get-color('quaternary-light');
+	}
 }
 
 .skip-link {
@@ -296,6 +341,93 @@ a:not([class]) {
 	}
 }
 
+.intro {
+	// Default is a single column layout where the header overlaps the media
+	display: grid;
+	grid-template-rows: from-size('700') minmax(0, 1fr) from-size('700') auto;
+	gap: from-size('500');
+
+	// Force items to span 1 column
+	> * {
+		grid-column: 1;
+	}
+
+	&__header {
+		padding: from-size('300') from-size('500');
+		background: rgba(from-color('tertiary'), 0.95);
+		z-index: 1;
+		grid-row: 2;
+		margin: 0 from-size('500'); // Adds a horizontal gutter
+
+		// Prevents it from stretching to fill the space
+		align-self: center;
+	}
+
+	&__heading {
+		em {
+			font-style: normal;
+			display: block;
+
+			// The weight change creates a weird indent, so this
+			// optical adjustment fixes it
+			transform: translateX(-3px);
+		}
+	}
+
+	&__media {
+		grid-row: 1/4;
+		position: relative;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__content {
+		grid-row: 4;
+
+		p {
+			max-width: 30ch;
+		}
+	}
+
+	// Switch to an inline layout with some vert space
+	// above the header and content
+	@include at-breakpoint('md') {
+		grid-template-rows: from-size('500') auto auto auto;
+		grid-template-columns: minmax(15rem, 1fr) 2fr;
+
+		&__header {
+			padding: from-size('500');
+			margin: 0;
+			grid-column: 1/3;
+			justify-self: start;
+			align-self: end;
+		}
+
+		&__media {
+			grid-column: 3/2;
+			grid-row: 1/5;
+		}
+
+		&__content {
+			grid-row: 3/4;
+			grid-column: 1;
+		}
+	}
+
+	// Flip the ratio for larger breakpoints
+	@include at-breakpoint('lg') {
+		grid-template-columns: 1fr minmax(44rem, 1fr);
+
+		// Because it's so large, it make sense to limit the image height too
+		&__media {
+			height: 28rem;
+		}
+	}
+}
 
 /* --- utilities --- */
 .font-sans {
@@ -303,9 +435,56 @@ a:not([class]) {
 }
 
 .wrapper {
-  max-width: 70rem;
-  padding: 0 from-size('500');
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
+	max-width: 70rem;
+	padding: 0 from-size('500');
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
 }
+
+.frame {
+	position: relative;
+
+	&::before {
+		@extend %radius;
+
+		content: '';
+		pointer-events: none;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: -0.25rem;
+		left: -0.25rem;
+		border: 0.125rem solid from-color('dark');
+		z-index: 1;
+
+		@include at-breakpoint('md') {
+			top: -0.5rem;
+			left: -0.5rem;
+			border-width: 0.25rem;
+		}
+	}
+
+	// For each color, create a variant
+	@each $frame-color in ('primary', 'secondary', 'quaternary', 'quinary') {
+		&[data-frame='#{$frame-color}'] {
+			&::before {
+				border-color: get-color($frame-color);
+			}
+		}
+	}
+}
+
+.weight-normal {
+	@include weight-normal;
+}
+
+.weight-bold {
+	@include weight-bold;
+}
+
+@include text-size('400');
+@include text-size('800');
+@include text-size('600', 'md');
+@include text-size('900', 'md');
+@include text-size('major', 'lg');
