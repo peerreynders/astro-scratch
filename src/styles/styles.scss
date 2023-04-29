@@ -23,12 +23,18 @@ $size-scale: (
 );
 
 $color: (
-	'light-light': #fff6d7,
+	'light-light': #fdfbf3,
 	'light': #f9f4e3,
-	'light-dark': #fdfbf3,
+	'light-dark': #fff6d7,
 	'dark-light': #505c73,
 	'dark': #38445b,
 	'dark-dark': #263147,
+	'primary-light': #654ac9,
+	'primary': #513aa6,
+	'primary-dark': #432e92,
+	'secondary-light': #98e2d8,
+	'secondary': #6ac2b6,
+	'secondary-dark': #35a495,
 	'tertiary-light': #ffdeaa,
 	'tertiary': #ffd490,
 	'tertiary-dark': #ffca77,
@@ -43,6 +49,12 @@ $color: (
 $breakpoint-target: (
 	'md': '(min-width: 37em)',
 	'lg': '(min-width: 62em)',
+);
+
+$measure-value: (
+	'micro': 10ch,
+	'compact': 30ch,
+	'short': 40ch,
 );
 
 @function from-map($ref, $map-name, $key-name, $default-value, $key) {
@@ -64,19 +76,11 @@ $breakpoint-target: (
 	@return from-map($color, '$color', 'Color', null, $key);
 }
 
-// --- mixins ---
-
-@mixin at-breakpoint($key) {
-	$target: map.get($breakpoint-target, $key);
-
-	@if $target {
-		@media #{ $target } {
-			@content;
-		}
-	} @else {
-		@warn #{ 'Breakpoint, ‘' + $key + '’ not found in `$breakpoint-target`.' };
-	}
+@function from-measure($key) {
+	@return from-map($measure-value, '$measure-value', 'Measure', null, $key);
 }
+
+// --- mixins ---
 
 @mixin font-base {
 	font-family: Literata, Georgia, serif;
@@ -93,6 +97,46 @@ $breakpoint-target: (
 
 @mixin weight-bold {
 	font-weight: 900;
+}
+
+@mixin leading-flat {
+	line-height: 1.1;
+}
+
+@mixin color-light {
+	color: from-color('light');
+}
+
+@mixin color-quinary-dark {
+	color: from-color('quinary-dark');
+}
+
+@mixin bg-light-light {
+	background: from-color('light-light');
+}
+
+@mixin bg-dark-dark {
+	background: from-color('dark-dark');
+}
+
+@mixin flow-space-300 {
+	--flow-space: #{from-size('300')};
+}
+
+@mixin flow-space-700 {
+	--flow-space: #{from-size('700')};
+}
+
+@mixin at-breakpoint($key) {
+	$target: map.get($breakpoint-target, $key);
+
+	@if $target {
+		@media #{ $target } {
+			@content;
+		}
+	} @else {
+		@warn #{ 'Breakpoint, ‘' + $key + '’ not found in `$breakpoint-target`.' };
+	}
 }
 
 @mixin define-font-size($name, $size) {
@@ -114,8 +158,23 @@ $breakpoint-target: (
 	}
 }
 
-@mixin leading-flat {
-	line-height: 1.1;
+@mixin define-measure($name, $width) {
+	.#{$name} {
+		max-width: $width;
+	}
+}
+
+@mixin measure-width($width-key, $bp-key: null) {
+	$width: from-measure($width-key);
+	$name: 'measure-' + $width-key;
+	@if $bp-key {
+		$target: map.get($breakpoint-target, $bp-key);
+		@media #{$target} {
+			@include define-measure($bp-key + '\\:'+ $name, $width);
+		}
+	} @else {
+		@include define-measure($name, $width);
+	}
 }
 
 // placeholder hack
@@ -185,6 +244,29 @@ ol[class] {
 	list-style: none;
 }
 
+/* Make images easier to work with */
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01s !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01s !important;
+		scroll-behavior: auto !important;
+	}
+}
 /* --- critical --- */
 
 /* --- global (lesson 22) --- */
@@ -206,6 +288,15 @@ a:not([class]) {
 	text-decoration-color: from-color('quinary');
 }
 
+:focus {
+	outline: 2px dashed from-color('primary');
+	outline-offset: 0.25rem;
+}
+
+main:focus {
+	outline: none;
+}
+
 h1,
 h2,
 h3,
@@ -224,6 +315,176 @@ h4 {
 	// We set this as an RGBA because that’s how you get a solid color, by using 0.99
 	// alpha value. Browsers are wild.
 	background: rgba(from-color('dark-dark'), 0.99);
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+	height: 1rem;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+	border: 1px solid from-color('dark-light');
+	border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: from-color('dark');
+	border-radius: 0.25rem;
+}
+
+/* --- utilities --- */
+.font-sans {
+	@include font-sans;
+}
+
+.wrapper {
+	max-width: 70rem;
+	padding: 0 from-size('500');
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+.weight-normal {
+	@include weight-normal;
+}
+
+.weight-bold {
+	@include weight-bold;
+}
+
+.color-light {
+	@include color-light;
+}
+
+.color-quinary-dark {
+	@include color-quinary-dark;
+}
+
+.bg-light-light {
+	@include bg-light-light;
+}
+
+.bg-dark-dark {
+	@include bg-dark-dark;
+}
+
+.flow-space-300 {
+	@include flow-space-300;
+}
+
+.flow-space-700 {
+	@include flow-space-700;
+}
+
+@include text-size('400');
+@include text-size('800');
+@include text-size('600', 'md');
+@include text-size('900', 'md');
+@include text-size('major', 'lg');
+
+@include measure-width('short');
+@include measure-width('compact');
+@include measure-width('micro', 'lg');
+
+.dot-shadow {
+	--dot-shadow-size: 0.75rem;
+	position: relative;
+
+	&::before {
+		@extend %radius;
+
+		content: '';
+		display: block;
+		width: calc(100% + calc(var(--dot-shadow-size) * 2));
+		height: calc(100% + calc(var(--dot-shadow-size) * 2));
+		background-image: url("data:image/svg+xml,%3Csvg width='6px' height='6px' viewBox='0 0 6 6' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='%23CAC6B8' cx='1' cy='5' r='1'%3E%3C/circle%3E%3Ccircle fill='%23CAC6B8' cx='4' cy='2' r='1'%3E%3C/circle%3E%3C/svg%3E%0A");
+		position: absolute;
+		top: calc(var(--dot-shadow-size) * -1);
+		left: calc(var(--dot-shadow-size) * -1);
+		z-index: -1;
+	}
+}
+
+/**
+ * FLOW
+ * Applies a margin to sibling elements based on a --flow-space custom property.
+ */
+.flow > * + * {
+	margin-top: var(--flow-space, from-size('600'));
+}
+
+.frame {
+	position: relative;
+
+	&::before {
+		@extend %radius;
+
+		content: '';
+		pointer-events: none;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: -0.25rem;
+		left: -0.25rem;
+		border: 0.125rem solid from-color('dark');
+		z-index: 1;
+
+		@include at-breakpoint('md') {
+			top: -0.5rem;
+			left: -0.5rem;
+			border-width: 0.25rem;
+		}
+	}
+
+	// For each color, create a variant
+	@each $frame-color in ('primary', 'secondary', 'quaternary', 'quinary') {
+		&[data-frame='#{$frame-color}'] {
+			&::before {
+				border-color: from-color($frame-color);
+			}
+		}
+	}
+}
+
+// Adds consitent space and padding for each full panel section
+.panel {
+	margin: from-size('700') 0;
+	padding: from-size('700') 0;
+
+	@include at-breakpoint('md') {
+		margin: from-size('800') 0;
+		padding: from-size('800') 0;
+	}
+}
+
+.headline {
+	font-size: from-size('700');
+	max-width: 18ch;
+
+	@include at-breakpoint('md') {
+		font-size: from-size('800');
+	}
+
+	@include at-breakpoint('lg') {
+		font-size: from-size('900');
+	}
+
+	&::after {
+		content: '.';
+	}
+
+	// For each color, create an exception
+	@each $headline-highlight
+		in ('dark', 'primary', 'secondary', 'quaternary', 'quinary')
+	{
+		&[data-highlight='#{$headline-highlight}'] {
+			&::after {
+				color: from-color($headline-highlight);
+			}
+		}
+	}
 }
 
 /* --- blocks --- */
@@ -326,7 +587,7 @@ h4 {
 	// Add a ghost modifier
 	&[data-variant='ghost'] {
 		background: transparent;
-		color: get-color('quaternary-light');
+		color: from-color('quaternary-light');
 	}
 }
 
@@ -429,62 +690,109 @@ h4 {
 	}
 }
 
-/* --- utilities --- */
-.font-sans {
-	@include font-sans;
-}
+.cta {
+	// This is a dark panel, so we need to flip the selection styles
+	::selection {
+		// We set this as an RGBA because that’s how you get a solid color, by using 0.99
+		// alpha value. Browsers are wild.
+		background: rgba(from-color('light'), 0.99);
+		color: from-color('dark-dark');
+	}
 
-.wrapper {
-	max-width: 70rem;
-	padding: 0 from-size('500');
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-}
+	@include at-breakpoint('md') {
+		&__inner {
+			display: grid;
+			grid-gap: from-size('700') from-size('500');
+			grid-template-columns: repeat(12, 1fr);
 
-.frame {
-	position: relative;
+			@supports (display: grid) {
+				> * {
+					margin: 0;
+				}
+			}
+		}
 
-	&::before {
-		@extend %radius;
+		&__heading {
+			grid-area: 1/1/1/9;
+		}
 
-		content: '';
-		pointer-events: none;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: -0.25rem;
-		left: -0.25rem;
-		border: 0.125rem solid from-color('dark');
-		z-index: 1;
+		&__summary {
+			// Pull the content in from the right, by reversing columns
+			grid-area: 2/5/2/12;
+		}
 
-		@include at-breakpoint('md') {
-			top: -0.5rem;
-			left: -0.5rem;
-			border-width: 0.25rem;
+		&__action {
+			grid-area: 3/3/3/12;
 		}
 	}
 
-	// For each color, create a variant
-	@each $frame-color in ('primary', 'secondary', 'quaternary', 'quinary') {
-		&[data-frame='#{$frame-color}'] {
-			&::before {
-				border-color: get-color($frame-color);
+	@include at-breakpoint('lg') {
+		&__inner {
+			grid-gap: from-size('500');
+		}
+
+		&__summary {
+			grid-area: 2/7/2/12;
+		}
+
+		&__action {
+			grid-area: 3/6/3/12;
+		}
+	}
+}
+
+.featured-work {
+	&__item {
+		display: block;
+	}
+
+	&__action {
+		text-align: center;
+	}
+
+	@include at-breakpoint('md') {
+		&__inner {
+			display: grid;
+			grid-template-columns: repeat(12, 1fr);
+			grid-gap: from-size('700') from-size('500');
+
+			@supports (display: grid) {
+				> * {
+					margin: 0;
+				}
+			}
+		}
+
+		&__intro {
+			grid-column: 1/13;
+			align-self: end;
+		}
+
+		&__item {
+			&:nth-child(odd) {
+				grid-column: 1/8;
+			}
+
+			&:nth-child(even) {
+				grid-column: 13/6;
+			}
+		}
+	}
+
+	@include at-breakpoint('lg') {
+		grid-template-columns: repeat(2, 1fr);
+
+		&__intro,
+		&__item {
+			&:nth-child(odd) {
+				grid-column: 1/7;
+			}
+
+			&:nth-child(even) {
+				grid-column: 13/7;
 			}
 		}
 	}
 }
 
-.weight-normal {
-	@include weight-normal;
-}
-
-.weight-bold {
-	@include weight-bold;
-}
-
-@include text-size('400');
-@include text-size('800');
-@include text-size('600', 'md');
-@include text-size('900', 'md');
-@include text-size('major', 'lg');
+/* --- exceptions --- */
