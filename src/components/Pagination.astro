@@ -1,0 +1,31 @@
+---
+interface Props {
+	nextHref?: string;
+	nextLabel?: string;
+	previousHref?: string;
+	previousLabel?: string;
+}
+
+const { nextHref, nextLabel, previousHref, previousLabel } = Astro.props;
+---
+
+{
+	(nextHref || previousHref) && (
+		<footer class="pagination dot-shadow panel bg-light-light font-sans weight-bold">
+			<div class="wrapper">
+				<nav class="pagination__inner" aria-label="Pagination links">
+					{previousHref && (
+						<a href={previousHref} data-direction="backwards">
+							<span>{previousLabel ?? 'Previous'}</span>
+						</a>
+					)}
+					{nextHref && (
+						<a href={nextHref} data-direction="forwards">
+							<span>{nextLabel ?? 'Next'}</span>
+						</a>
+					)}
+				</nav>
+			</div>
+		</footer>
+	)
+}

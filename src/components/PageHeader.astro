@@ -1,0 +1,16 @@
+---
+const { title, summary } = Astro.props;
+---
+
+<div class="page-header bg-light-glare">
+	<div class="wrapper flow">
+		<h1 class="page-header__heading headline" data-highlight="primary">
+			{title}
+		</h1>
+		{
+			summary && (
+				<div class="page-header__summary measure-long" set:html={summary} />
+			)
+		}
+	</div>
+</div>
