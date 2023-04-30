@@ -1,0 +1,26 @@
+---
+// file: src/pages/blog/[page].astro
+import type { GetStaticPathsOptions } from 'astro';
+import { getCollection } from 'astro:content';
+import { compiledContent, frontmatter } from '../../data/blog.md';
+import Feed from '../../layouts/Feed.astro';
+
+export async function getStaticPaths(options: GetStaticPathsOptions) {
+	const { pageSize } = frontmatter;
+
+	const entries = await getCollection('posts');
+	return options.paginate(entries, { pageSize });
+}
+
+const summary = compiledContent();
+const { nextLabel, previousLabel, title } = frontmatter;
+const { page } = Astro.props;
+---
+
+<Feed
+	title={title}
+	summary={summary}
+	page={page}
+	previousLabel={previousLabel}
+	nextLabel={nextLabel}
+/>
