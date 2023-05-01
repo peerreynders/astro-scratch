@@ -1,4 +1,11 @@
 ---
+// file: src/components/PageHeader.astro
+
+interface Props {
+	title: string;
+	summary?: string;
+}
+
 const { title, summary } = Astro.props;
 ---
 

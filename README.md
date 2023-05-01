@@ -43,13 +43,29 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
-### Lesson 11
+### Lesson 12
 
 To be continued…
 
 ---
 
-### Lesson 10
+### Lesson 11
+
+- Add the markdown data (not to be confused with the content) for the `\blog` and `\tag` route headings.
+- Add some functions to assist in the transformation of some of the [content collections](https://docs.astro.build/en/guides/content-collections/).
+- Introduce a new type to pass on parameters to a `Pagination` component.
+- Create the `Pagination` component.
+- Create the `PagerHeader` component.
+- Create the `PostList` component.
+- Create the `Feed` layout.
+- Create the page for the `/blog` route.
+- Create the page for the `/tag` route.
+
+[Details](docs/lessons/11.md)
+
+---
+
+# Lesson 10
 
 - Add the `<div>` wrapper around the `<article>` in the `Home` layout.
 

@@ -1,14 +1,16 @@
 ---
+// file: src/components/PostList.astro
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
 	posts: CollectionEntry<'posts'>[];
 	headline?: string;
 }
+
 const { headline, posts } = Astro.props;
 ---
 
-<div class="dot-shadow panel bg-secondary-glare" id="post-list">
+<div class="dot-shadow panel bg-secondary-light" id="post-list">
 	<div class="wrapper flow flow-space-700">
 		{
 			headline && (

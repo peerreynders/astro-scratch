@@ -1,8 +1,18 @@
 ---
 // file: src/components/Cta.astro
-import { getEntryBySlug } from 'astro:content';
+import { frontmatter as globalCta } from '../data/cta.md';
+
+interface Props {
+	cta?: {
+		title: string;
+		summary: string;
+		buttonText: string;
+		buttonUrl: string;
+	};
+}
+
 const { cta: ctaProp } = Astro.props;
-const cta = ctaProp ? ctaProp : (await getEntryBySlug('cta', 'global')).data;
+const cta = ctaProp ? ctaProp : globalCta;
 ---
 
 {

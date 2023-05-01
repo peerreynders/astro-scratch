@@ -1,5 +1,5 @@
 ---
-# file: src/content/cta/global.md
+# file: src/data/cts.md
 title: Get in touch if we seem like a good fit
 summary: >
   Vestibulum id ligula porta felis euismod semper. Praesent

@@ -1,6 +1,7 @@
 ---
-import type { Page } from 'astro';
+// file: src/layouts/Feed.astro
 import type { CollectionEntry } from 'astro:content';
+import type { PaginationParams } from '../types';
 import Base from './Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import PostList from '../components/PostList.astro';
@@ -8,24 +9,20 @@ import Pagination from '../components/Pagination.astro';
 
 interface Props {
 	title: string;
+	tag?: string;
 	summary?: string;
-	page: Page<CollectionEntry<'posts'>>;
-	previousLabel: string;
-	nextLabel: string;
+	posts: CollectionEntry<'posts'>[];
+	pagination?: PaginationParams;
 }
 
-const { title, summary, page, previousLabel, nextLabel } = Astro.props;
+const { title, tag, summary, posts, pagination } = Astro.props;
+const headerTitle = tag ? `Blog posts filed under “${tag}”` : title;
 ---
 
-<Base>
+<Base title={title}>
 	<article>
-		<PageHeader title={title} summary={summary} />
-		<PostList posts={page.data} />
-		<Pagination
-			previousHref={page.url.prev}
-			previousLabel={previousLabel}
-			nextHref={page.url.next}
-			nextLabel={nextLabel}
-		/>
+		<PageHeader title={headerTitle} summary={summary} />
+		<PostList posts={posts} />
+		{pagination && <Pagination params={pagination} />}
 	</article>
 </Base>

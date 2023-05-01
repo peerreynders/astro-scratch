@@ -1,13 +1,6 @@
 // file: src/schemas.ts
 import { z } from 'astro/zod';
 
-const cta = z.object({
-	title: z.string(),
-	summary: z.string(),
-	buttonText: z.string(),
-	buttonUrl: z.string(),
-});
-
 const people = z.object({
 	name: z.string(),
 	title: z.string(),
@@ -47,4 +40,4 @@ const work = z.object({
 	),
 });
 
-export { cta, people, posts, work };
+export { people, posts, work };

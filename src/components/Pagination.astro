@@ -1,26 +1,35 @@
 ---
+// file: src/components/Pagination.astro
+import type { PaginationParams } from '../types';
+
 interface Props {
-	nextHref?: string;
-	nextLabel?: string;
-	previousHref?: string;
-	previousLabel?: string;
+	params: PaginationParams;
 }
 
-const { nextHref, nextLabel, previousHref, previousLabel } = Astro.props;
+const {
+	params: { anchor, nextHref, nextLabel, previousHref, previousLabel },
+} = Astro.props;
+
+const next = nextHref ? (anchor ? nextHref + anchor : nextHref) : undefined;
+const previous = previousHref
+	? anchor
+		? previousHref + anchor
+		: previousHref
+	: undefined;
 ---
 
 {
-	(nextHref || previousHref) && (
+	(next || previous) && (
 		<footer class="pagination dot-shadow panel bg-light-light font-sans weight-bold">
 			<div class="wrapper">
 				<nav class="pagination__inner" aria-label="Pagination links">
-					{previousHref && (
-						<a href={previousHref} data-direction="backwards">
+					{previous && (
+						<a href={previous} data-direction="backwards">
 							<span>{previousLabel ?? 'Previous'}</span>
 						</a>
 					)}
-					{nextHref && (
-						<a href={nextHref} data-direction="forwards">
+					{next && (
+						<a href={next} data-direction="forwards">
 							<span>{nextLabel ?? 'Next'}</span>
 						</a>
 					)}
