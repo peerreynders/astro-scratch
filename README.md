@@ -43,9 +43,17 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
-### Lesson 12
+### Lesson 13
 
 To be continued…
+
+---
+
+### Lesson 12
+
+- Refactor `PageHeader`, `Feed`, and `/blog` to use [slots](https://docs.astro.build/en/core-concepts/astro-components/#slots).
+
+[Details](docs/lessons/12.md)
 
 ---
 
@@ -65,7 +73,7 @@ To be continued…
 
 ---
 
-# Lesson 10
+### Lesson 10
 
 - Add the `<div>` wrapper around the `<article>` in the `Home` layout.
 

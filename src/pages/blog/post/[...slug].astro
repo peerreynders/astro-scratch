@@ -1,0 +1,23 @@
+---
+// file: src/pages/blog/post/[...slug].astro
+import type { CollectionEntry } from 'astro:content';
+import { fromPostsToStaticPaths } from '../../../lib/collections';
+import Post from '../../../layouts/Post.astro';
+
+export const getStaticPaths = fromPostsToStaticPaths;
+
+interface Props {
+	entry: CollectionEntry<'posts'>;
+}
+
+const { entry } = Astro.props;
+const postArgs = {
+	title: entry.data.title,
+	date: entry.data.date,
+};
+const { Content } = await entry.render();
+---
+
+<Post args={postArgs}>
+	<Content />
+</Post>

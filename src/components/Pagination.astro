@@ -1,13 +1,13 @@
 ---
 // file: src/components/Pagination.astro
-import type { PaginationParams } from '../types';
+import type { PaginationArgs } from '../types';
 
 interface Props {
-	params: PaginationParams;
+	args: PaginationArgs;
 }
 
 const {
-	params: { anchor, nextHref, nextLabel, previousHref, previousLabel },
+	args: { anchor, nextHref, nextLabel, previousHref, previousLabel },
 } = Astro.props;
 
 const next = nextHref ? (anchor ? nextHref + anchor : nextHref) : undefined;

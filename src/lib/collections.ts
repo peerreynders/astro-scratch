@@ -1,5 +1,6 @@
 // file: src/lib/collections.ts
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { slugify } from './helpers';
 
 type Featured = {
 	data: {
@@ -45,35 +46,19 @@ async function fromPosts() {
 	return posts.slice().sort(byDateDesc);
 }
 
-function slugify(text: string) {
-	let slug = '';
-	let separator = false;
-	for (let i = 0; i < text.length; i += 1) {
-		const code = text.charCodeAt(i);
-		if ((97 <= code && code <= 122) || (48 <= code && code <= 57)) {
-			separator = false;
-			// Use lowercase ASCII letter or digit
-			slug += text[i];
-			continue;
-		}
+export type Post = CollectionEntry<'posts'>;
 
-		if (65 <= code && code <= 90) {
-			separator = false;
-			// Lowercase an uppercase ASCII letter
-			slug += String.fromCharCode(code + 32);
-			continue;
-		}
+const postToStaticPathsItem = (entry: Post) => ({
+	params: {
+		slug: entry.slug,
+	},
+	props: {
+		entry,
+	},
+});
 
-		if (separator) continue;
-
-		separator = true;
-		slug += '-';
-	}
-
-	return slug;
-}
-
-type Post = CollectionEntry<'posts'>;
+const fromPostsToStaticPaths = async () =>
+	(await fromPosts()).map(postToStaticPathsItem);
 
 export interface TagPosts {
 	tag: string;
@@ -99,7 +84,7 @@ function collectTagPosts(tagged: Map<string, TagPosts>, post: Post) {
 	return tagged;
 }
 
-async function fromTags() {
+async function fromTagsToStaticPaths() {
 	const all = await fromPosts();
 	const tagged = all.reduce(collectTagPosts, new Map<string, TagPosts>());
 	const staticPaths: { params: { tag: string }; props: TagPosts }[] = [];
@@ -116,4 +101,10 @@ async function fromTags() {
 	return staticPaths;
 }
 
-export { fromFeaturedWork, fromPosts, fromTags, fromWork };
+export {
+	fromFeaturedWork,
+	fromPosts,
+	fromPostsToStaticPaths,
+	fromTagsToStaticPaths,
+	fromWork,
+};

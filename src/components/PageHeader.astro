@@ -3,10 +3,9 @@
 
 interface Props {
 	title: string;
-	summary?: string;
 }
 
-const { title, summary } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <div class="page-header bg-light-glare">
@@ -15,8 +14,10 @@ const { title, summary } = Astro.props;
 			{title}
 		</h1>
 		{
-			summary && (
-				<div class="page-header__summary measure-long" set:html={summary} />
+			Astro.slots.has('default') && (
+				<div class="page-header__summary measure-long">
+					<slot />
+				</div>
 			)
 		}
 	</div>

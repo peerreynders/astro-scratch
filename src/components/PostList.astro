@@ -1,6 +1,7 @@
 ---
 // file: src/components/PostList.astro
 import type { CollectionEntry } from 'astro:content';
+import { frontmatter } from '../data/blog.md';
 
 interface Props {
 	posts: CollectionEntry<'posts'>[];
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const { headline, posts } = Astro.props;
+const { postPath } = frontmatter;
 ---
 
 <div class="dot-shadow panel bg-secondary-light" id="post-list">
@@ -24,7 +26,7 @@ const { headline, posts } = Astro.props;
 				{
 					posts.map((item) => (
 						<li class="post-list__item leading-tight measure-long">
-							<a href="{ item.slug }" class="post-list__link">
+							<a href={postPath + '/' + item.slug} class="post-list__link">
 								{item.data.title}
 							</a>
 						</li>

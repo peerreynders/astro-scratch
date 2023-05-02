@@ -1,0 +1,28 @@
+---
+// file: src/layouts/Post.astro
+import type { PostArgs } from '../types';
+import Base from './Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Cta from '../components/Cta.astro';
+import { formatDateForPost } from '../lib/helpers';
+
+interface Props {
+	args: PostArgs;
+}
+
+const {
+	args: { title, date },
+} = Astro.props;
+---
+
+<Base title={title}>
+	<article>
+		<PageHeader title={title}>
+			<time datetime={date.toISOString()}>{formatDateForPost(date)}</time>
+		</PageHeader>
+		<div class="page-content flow wrapper flow-space-700 gap-top-700">
+			<slot />
+		</div>
+	</article>
+	<Cta />
+</Base>

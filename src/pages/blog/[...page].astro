@@ -2,7 +2,7 @@
 // file: src/pages/blog/[...page].astro
 import type { GetStaticPathsOptions } from 'astro';
 import { fromPosts } from '../../lib/collections';
-import { compiledContent, frontmatter } from '../../data/blog.md';
+import { Content as Summary, frontmatter } from '../../data/blog.md';
 import Feed from '../../layouts/Feed.astro';
 
 export async function getStaticPaths(options: GetStaticPathsOptions) {
@@ -12,7 +12,6 @@ export async function getStaticPaths(options: GetStaticPathsOptions) {
 	return options.paginate(posts, { pageSize });
 }
 
-const summary = compiledContent();
 const { anchor, nextLabel, previousLabel, title } = frontmatter;
 const { page } = Astro.props;
 const pagination = {
@@ -24,9 +23,6 @@ const pagination = {
 };
 ---
 
-<Feed
-	title={title}
-	summary={summary}
-	posts={page.data}
-	pagination={pagination}
-/>
+<Feed title={title} posts={page.data} pagination={pagination}>
+	<Summary slot="feed-summary" />
+</Feed>

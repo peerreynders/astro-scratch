@@ -1,7 +1,7 @@
 ---
 // file: src/layouts/Feed.astro
 import type { CollectionEntry } from 'astro:content';
-import type { PaginationParams } from '../types';
+import type { PaginationArgs } from '../types';
 import Base from './Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import PostList from '../components/PostList.astro';
@@ -10,19 +10,20 @@ import Pagination from '../components/Pagination.astro';
 interface Props {
 	title: string;
 	tag?: string;
-	summary?: string;
 	posts: CollectionEntry<'posts'>[];
-	pagination?: PaginationParams;
+	pagination?: PaginationArgs;
 }
 
-const { title, tag, summary, posts, pagination } = Astro.props;
+const { title, tag, posts, pagination } = Astro.props;
 const headerTitle = tag ? `Blog posts filed under “${tag}”` : title;
 ---
 
 <Base title={title}>
 	<article>
-		<PageHeader title={headerTitle} summary={summary} />
+		<PageHeader title={headerTitle}>
+			<slot name="feed-summary" />
+		</PageHeader>
 		<PostList posts={posts} />
-		{pagination && <Pagination params={pagination} />}
+		{pagination && <Pagination args={pagination} />}
 	</article>
 </Base>
