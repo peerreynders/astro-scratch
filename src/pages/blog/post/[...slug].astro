@@ -1,6 +1,7 @@
 ---
 // file: src/pages/blog/post/[...slug].astro
 import type { CollectionEntry } from 'astro:content';
+import { makeTagPairs } from '../../../lib/helpers';
 import { fromPostsToStaticPaths } from '../../../lib/collections';
 import Post from '../../../layouts/Post.astro';
 
@@ -14,6 +15,7 @@ const { entry } = Astro.props;
 const postArgs = {
 	title: entry.data.title,
 	date: entry.data.date,
+	tags: makeTagPairs(entry.data.tags),
 };
 const { Content } = await entry.render();
 ---

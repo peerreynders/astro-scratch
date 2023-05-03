@@ -52,6 +52,11 @@ To be continued…
 ### Lesson 12
 
 - Refactor `PageHeader`, `Feed`, and `/blog` to use [slots](https://docs.astro.build/en/core-concepts/astro-components/#slots).
+- Add `fromPostsToStaticPaths()` to the `src/lib/collections.ts` module.
+- Introduce the `src/route-path.ts` and `src/lib/helpers.ts` support modules.
+- Add the `PostArgs` type to the global types.
+- Create the `Post` layout.
+- Create the Post page.
 
 [Details](docs/lessons/12.md)
 

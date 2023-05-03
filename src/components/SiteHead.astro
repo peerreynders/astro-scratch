@@ -18,7 +18,7 @@ const activeProps = (targetPath: string, current: string) => {
 	if (targetPath === current) props['aria-current'] = 'page';
 
 	if (targetPath.length > 1 && current.startsWith(targetPath))
-		props['data-active'] = 'active';
+		props['data-state'] = 'active';
 
 	return props;
 };

@@ -1,5 +1,6 @@
 // file: src/lib/helpers.ts
 import { slug } from 'github-slugger';
+import { hrefFromTagSlug } from '../route-path';
 
 // Force second argument to default
 const slugify = (value: string) => slug(value);
@@ -8,8 +9,16 @@ const forPostDate = Intl.DateTimeFormat('en', {
 	year: 'numeric',
 	month: 'long',
 	day: 'numeric',
+	timeZone: 'UTC',
 });
 
 const formatDateForPost = (date: Date) => forPostDate.format(date);
 
-export { slugify, formatDateForPost };
+const toTagPair = (title: string) =>
+	[title.replaceAll(' ', ''), hrefFromTagSlug(slugify(title))] as [
+		string,
+		string
+	];
+const makeTagPairs = (titles: string[]) => titles.map(toTagPair);
+
+export { formatDateForPost, makeTagPairs, slugify };

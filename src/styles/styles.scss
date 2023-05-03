@@ -55,6 +55,7 @@ $measure-value: (
 	'micro': 10ch,
 	'compact': 30ch,
 	'short': 40ch,
+	'long': 65ch,
 );
 
 @function from-map($ref, $map-name, $key-name, $default-value, $key) {
@@ -103,6 +104,10 @@ $measure-value: (
 	line-height: 1.1;
 }
 
+@mixin leading-tight {
+	line-height: 1.3;
+}
+
 @mixin color-light {
 	color: from-color('light');
 }
@@ -117,6 +122,10 @@ $measure-value: (
 
 @mixin bg-dark-dark {
 	background: from-color('dark-dark');
+}
+
+@mixin bg-secondary-light {
+	background: from-color('secondary-light');
 }
 
 @mixin bg-tertiary-light {
@@ -191,6 +200,10 @@ $measure-value: (
 	@include bg-light-light;
 }
 
+.bg-secondary-light {
+	@include bg-secondary-light;
+}
+
 .bg-tertiary-light {
 	@include bg-tertiary-light;
 }
@@ -215,9 +228,14 @@ $measure-value: (
 	@include font-sans;
 }
 
+.leading-tight {
+	@include leading-tight;
+}
+
 @include measure-width('micro', 'lg');
 @include measure-width('short');
 @include measure-width('compact');
+@include measure-width('long');
 
 @include text-size('400');
 @include text-size('800');
@@ -442,6 +460,10 @@ h4 {
 			grid-area: 3/6/3/12;
 		}
 	}
+}
+
+.page-header {
+	padding: from-size('800') 0;
 }
 
 .site-head {
@@ -839,6 +861,35 @@ h4 {
 				width: 28rem;
 				height: 17rem;
 			}
+		}
+	}
+}
+
+.pagination {
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	// Pushes a sole "next" link out to the right
+	&__inner > [data-direction='forwards'] {
+		margin-inline-start: auto;
+	}
+}
+
+.post-list {
+	&__link {
+		font-size: from-size('700');
+		color: from-color('dark-dark');
+		text-decoration-color: from-color('primary-dark');
+
+		@include font-sans;
+		@include weight-bold;
+
+		&:hover {
+			color: from-color('primary-dark');
+			text-decoration-color: from-color('dark-dark');
 		}
 	}
 }

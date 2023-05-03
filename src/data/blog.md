@@ -1,7 +1,6 @@
 ---
 # file: src/data/blog.md
 title: The Issue 33 Blog
-postPath: '/blog/post'
 pageSize: 5
 previousLabel: Newer posts
 nextLabel: Older posts

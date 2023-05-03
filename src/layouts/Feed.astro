@@ -6,6 +6,7 @@ import Base from './Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import PostList from '../components/PostList.astro';
 import Pagination from '../components/Pagination.astro';
+import Cta from '../components/Cta.astro';
 
 interface Props {
 	title: string;
@@ -26,4 +27,5 @@ const headerTitle = tag ? `Blog posts filed under “${tag}”` : title;
 		<PostList posts={posts} />
 		{pagination && <Pagination args={pagination} />}
 	</article>
+	<Cta />
 </Base>

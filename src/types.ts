@@ -11,4 +11,5 @@ export type PaginationArgs = {
 export type PostArgs = {
 	title: string;
 	date: Date;
+	tags: [tag: string, href: string][];
 };
