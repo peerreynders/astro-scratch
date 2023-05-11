@@ -108,6 +108,10 @@ $measure-value: (
 	line-height: 1.3;
 }
 
+@mixin leading-loose {
+	line-height: 1.7;
+}
+
 @mixin color-light {
 	color: from-color('light');
 }
@@ -171,22 +175,45 @@ $measure-value: (
 	}
 }
 
-@mixin define-measure($name, $width) {
+@mixin measure-list($key) {
+	$width: from-measure($key);
+	max-width: $width;
+}
+
+@mixin define-measure($name, $width-key) {
 	.#{$name} {
-		max-width: $width;
+		@include measure-list($width-key);
 	}
 }
 
 @mixin measure-width($width-key, $bp-key: null) {
-	$width: from-measure($width-key);
 	$name: 'measure-' + $width-key;
 	@if $bp-key {
 		$target: map.get($breakpoint-target, $bp-key);
 		@media #{$target} {
-			@include define-measure($bp-key + '\\:'+ $name, $width);
+			@include define-measure($bp-key + '\\:'+ $name, $width-key);
 		}
 	} @else {
-		@include define-measure($name, $width);
+		@include define-measure($name, $width-key);
+	}
+}
+
+@mixin define-gap-top-size($name, $size) {
+	.#{$name} {
+		margin-top: $size;
+	}
+}
+
+@mixin gap-top-size($size-key, $bp-key: null) {
+	$size: from-size($size-key);
+	$name: 'gap-top-' + $size-key;
+	@if $bp-key {
+		$target: map.get($breakpoint-target, $bp-key);
+		@media #{$target} {
+			@include define-gap-top-size($bp-key + '\\:'+ $name, $size);
+		}
+	} @else {
+		@include define-gap-top-size($name, $size);
 	}
 }
 
@@ -228,10 +255,13 @@ $measure-value: (
 	@include font-sans;
 }
 
+@include gap-top-size('700');
+
 .leading-tight {
 	@include leading-tight;
 }
 
+@include measure-width('micro');
 @include measure-width('micro', 'lg');
 @include measure-width('short');
 @include measure-width('compact');
@@ -498,6 +528,67 @@ h4 {
 				width: 160px;
 			}
 		}
+	}
+}
+
+.tags-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+
+	&[class] {
+		margin-inline-start: -#{from-size('400')};
+	}
+
+	> * {
+		padding-top: from-size('400');
+		padding-inline-start: from-size('400');
+	}
+}
+
+.page-content {
+	@include leading-loose;
+
+	> * {
+		@include measure-list('long');
+	}
+
+	blockquote {
+		border-inline-start: 1rem solid from-color('quinary');
+		padding-inline-start: from-size('600');
+		padding-top: from-size('500');
+		padding-bottom: from-size('500');
+		font-style: italic;
+	}
+
+	h2 {
+		font-size: from-size('700');
+	}
+
+	h3 {
+		font-size: from-size('600');
+	}
+
+	ol,
+	ul {
+		padding-inline-start: from-size('800');
+	}
+
+	li + li {
+		margin-top: from-size('300');
+	}
+
+	// Add a greater flow space for heading elements so
+	// they appear more like article sections
+	h2,
+	h3 {
+		--flow-space: #{from-size('800')};
+	}
+
+	// Add tighter flow for elements that follow a heading
+	h2 + *,
+	h3 + * {
+		--flow-space: #{from-size('300')};
 	}
 }
 
@@ -863,6 +954,13 @@ h4 {
 			}
 		}
 	}
+}
+
+time[datetime] {
+	display: block;
+	color: from-color('primary-dark');
+	font-size: from-size('700');
+	font-style: italic;
 }
 
 .pagination {

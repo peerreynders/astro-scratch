@@ -10,12 +10,11 @@ const collection = await fromFeaturedWork();
 	<div class="wrapper flow">
 		<div class="featured-work__inner flow">
 			<div class="featured-work__intro flow flow-space-300">
+				<!-- prettier-ignore -->
 				<h2
 					class="featured-work__heading headline color-quinary-dark lg:measure-micro"
 					data-highlight="dark"
-				>
-					{featuredWork.title}
-				</h2>
+				>{featuredWork.title}</h2>
 				<p class="featured-work__summary measure-compact">
 					{featuredWork.summary}
 				</p>

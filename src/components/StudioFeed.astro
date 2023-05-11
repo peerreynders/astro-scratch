@@ -10,12 +10,8 @@ const { studioFeed } = Astro.props;
 	studio.length && (
 		<article class="studio-feed dot-shadow panel bg-tertiary-light">
 			<div class="wrapper flow flow-space-300">
-				<h2
-					class="studio-feed__heading headline md:measure-micro"
-					data-highlight="secondary"
-				>
-					{studioFeed.title}
-				</h2>
+				{/* prettier-ignore */}
+				<h2 class="studio-feed__heading headline md:measure-micro" data-highlight="secondary">{studioFeed.title}</h2>
 				<p class="visually-hidden" id="studio-feed-desc">
 					A collection of images from around our studio and the people who work
 					here.

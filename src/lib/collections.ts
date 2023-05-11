@@ -1,6 +1,6 @@
 // file: src/lib/collections.ts
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { slugify } from './helpers';
+import { slugify } from './shame';
 
 type Featured = {
 	data: {
@@ -65,6 +65,34 @@ export interface TagPosts {
 	posts: Post[];
 }
 
+async function fromPostsRecommend(exclude: string[], limit = 3, random = true) {
+	const posts = await getCollection('posts');
+
+	const length = posts.length;
+	const remain = length - exclude.length;
+	const n = remain > limit ? limit : remain;
+
+	const recommend: CollectionEntry<'posts'>[] = [];
+	const excludeSlugs = new Set(exclude);
+
+	const postIndex = random
+		? (_index: number) => Math.trunc(Math.random() * length)
+		: (index: number) => index;
+
+	// Ensure finite looping
+	for (let i = 0; recommend.length < n && i < length; i += 1) {
+		const post = posts[postIndex(i)];
+
+		// Don't use post with excluded slug
+		if (excludeSlugs.has(post.slug)) continue;
+
+		recommend.push(post);
+		excludeSlugs.add(post.slug);
+	}
+
+	return recommend;
+}
+
 function collectTagPosts(tagged: Map<string, TagPosts>, post: Post) {
 	for (const tag of post.data.tags) {
 		const slug = slugify(tag);
@@ -104,6 +132,7 @@ async function fromTagsToStaticPaths() {
 export {
 	fromFeaturedWork,
 	fromPosts,
+	fromPostsRecommend,
 	fromPostsToStaticPaths,
 	fromTagsToStaticPaths,
 	fromWork,

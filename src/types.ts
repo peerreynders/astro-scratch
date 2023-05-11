@@ -9,6 +9,7 @@ export type PaginationArgs = {
 };
 
 export type PostArgs = {
+	slug: string;
 	title: string;
 	date: Date;
 	tags: [tag: string, href: string][];

@@ -1,4 +1,9 @@
-// file: src/lib/helpers.ts
+// file: src/lib/shame.ts
+//
+// `shame` as in ashamed for not thinking of a better
+// name (or place) than "utils" or "helpers".
+// credit: https://csswizardry.com/2013/04/shame-css/
+//
 import { slug } from 'github-slugger';
 import { hrefFromTagSlug } from '../route-path';
 

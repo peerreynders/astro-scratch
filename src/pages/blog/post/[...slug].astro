@@ -1,7 +1,7 @@
 ---
 // file: src/pages/blog/post/[...slug].astro
 import type { CollectionEntry } from 'astro:content';
-import { makeTagPairs } from '../../../lib/helpers';
+import { makeTagPairs } from '../../../lib/shame';
 import { fromPostsToStaticPaths } from '../../../lib/collections';
 import Post from '../../../layouts/Post.astro';
 
@@ -13,6 +13,7 @@ interface Props {
 
 const { entry } = Astro.props;
 const postArgs = {
+	slug: entry.slug,
 	title: entry.data.title,
 	date: entry.data.date,
 	tags: makeTagPairs(entry.data.tags),

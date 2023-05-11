@@ -43,9 +43,18 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
-### Lesson 13
+### Lesson 14
 
 To be continued…
+
+---
+
+### Lesson 13
+
+- Add a `fromPostRecommend()` function.
+- Use the `fromPostRecommend()` function in the `Post.astro` layout and feed the selected posts into the `PostList` component in a footer.
+
+[Details](docs/lessons/13.md)
 
 ---
 

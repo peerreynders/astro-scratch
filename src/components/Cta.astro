@@ -20,9 +20,9 @@ const cta = ctaProp ? ctaProp : globalCta;
 		<article class="cta dot-shadow panel bg-dark-dark color-light">
 			<div class="wrapper">
 				<div class="cta__inner flow">
-					<h2 class="cta__heading headline" data-highlight="quaternary">
-						{cta.title}
-					</h2>
+					{/* prettier-ignore */}
+					<h2 class="cta__heading
+						headline" data-highlight="quaternary">{cta.title}</h2>
 					<p class="cta__summary measure-short">{cta.summary}</p>
 					<div class="cta__action">
 						<a class="button" data-variant="ghost" href={cta.buttonUrl}>
