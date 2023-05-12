@@ -43,9 +43,20 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
-### Lesson 14
+### Lesson 15
 
 To be continued…
+
+---
+
+### Lesson 14
+
+- Create `about-us.md`.
+- Add a `fromPeople()` function.
+- Create the `About.astro` layout.
+- Create the `People.astro` component.
+
+[Details](docs/lessons/14.md)
 
 ---
 

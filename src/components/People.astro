@@ -1,0 +1,37 @@
+---
+// file: src/components/People.astro
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	people: CollectionEntry<'people'>[];
+}
+
+const { people } = Astro.props;
+---
+
+{
+	people.length > 0 && (
+		<div class="people">
+			<ol class="auto-grid">
+				{people.map((entry) => (
+					<li>
+						<figure class="person frame" data-frame="quaternary">
+							<img
+								class="person__image radius"
+								src={entry.data.image}
+								alt={'Image of ' + entry.data.name}
+								draggable="false"
+							/>
+							<figcaption class="person__details leading-tight">
+								<span class="person__name font-sans weight-bold">
+									{entry.data.name}
+								</span>
+								<span class="person__title">{entry.data.title}</span>
+							</figcaption>
+						</figure>
+					</li>
+				))}
+			</ol>
+		</div>
+	)
+}

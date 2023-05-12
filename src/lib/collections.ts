@@ -10,25 +10,25 @@ type Featured = {
 
 const isFeatured = <E extends Featured>(entry: E) => entry.data.featured;
 
-type DisplayOrder = {
+type WithOrder = {
 	data: {
 		displayOrder: number;
 	};
 };
 
-const byDisplayOrder = <E extends DisplayOrder>(a: E, b: E) =>
+const byOrderAsc = <E extends WithOrder>(a: E, b: E) =>
 	a.data.displayOrder - b.data.displayOrder;
 
 async function fromWork() {
-	const workEntries = await getCollection('work');
+	const entries = await getCollection('work');
 	// Note: sort is destructive so `slice()` first
-	return workEntries.slice().sort(byDisplayOrder);
+	return entries.slice().sort(byOrderAsc);
 }
 
 async function fromFeaturedWork() {
 	const workEntries = await getCollection('work');
 	// filter creates new array, no need to `slice()`
-	return workEntries.filter(isFeatured).sort(byDisplayOrder);
+	return workEntries.filter(isFeatured).sort(byOrderAsc);
 }
 
 type DateProp = {
@@ -129,8 +129,22 @@ async function fromTagsToStaticPaths() {
 	return staticPaths;
 }
 
+type WithSlug = {
+	slug: string;
+};
+
+const bySlugAsc = <E extends WithSlug>(a: E, b: E) =>
+	a.slug < b.slug ? -1 : a.slug === b.slug ? 0 : 1;
+
+async function fromPeople() {
+	const entries = await getCollection('people');
+	// Note: sort is destructive so `slice()` first
+	return entries.slice().sort(bySlugAsc);
+}
+
 export {
 	fromFeaturedWork,
+	fromPeople,
 	fromPosts,
 	fromPostsRecommend,
 	fromPostsToStaticPaths,
