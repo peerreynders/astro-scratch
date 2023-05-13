@@ -27,12 +27,8 @@ const entries = await fromPeople();
 			entries.length > 0 && (
 				<div class="no-js-hidden panel dot-shadow bg-light-light ]">
 					<div class="wrapper flow flow-space-700">
-						<h2
-							class="headline measure-micro color-quinary"
-							data-highlight="dark"
-						>
-							Meet the team
-						</h2>
+						{ /* prettier-ignore */}
+						<h2 class="headline measure-micro color-quinary" data-highlight="dark">Meet the team</h2>
 						<People people={entries} />
 					</div>
 				</div>

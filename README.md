@@ -43,9 +43,18 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
-### Lesson 15
+### Lesson 16
 
 To be continued…
+
+---
+
+### Lesson 15
+
+- Create `src/pages/work/index.md`.
+- Create the `WorkLanding.astro` layout.
+
+[Details](docs/lessons/15.md)
 
 ---
 

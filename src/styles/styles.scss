@@ -120,6 +120,10 @@ $measure-value: (
 	color: from-color('quinary-dark');
 }
 
+@mixin color-quinary {
+	color: from-color('quinary');
+}
+
 @mixin bg-light-light {
 	background: from-color('light-light');
 }
@@ -142,6 +146,10 @@ $measure-value: (
 
 @mixin flow-space-700 {
 	--flow-space: #{from-size('700')};
+}
+
+@mixin flow-space-800 {
+	--flow-space: #{from-size('800')};
 }
 
 @mixin at-breakpoint($key) {
@@ -243,12 +251,20 @@ $measure-value: (
 	@include color-quinary-dark;
 }
 
+.color-quinary {
+	@include color-quinary;
+}
+
 .flow-space-300 {
 	@include flow-space-300;
 }
 
 .flow-space-700 {
 	@include flow-space-700;
+}
+
+.flow-space-800 {
+	@include flow-space-800;
 }
 
 .font-sans {
@@ -492,8 +508,85 @@ h4 {
 	}
 }
 
+.gallery {
+	display: flex;
+	flex-direction: column;
+
+	&__media {
+		max-width: 40rem;
+	}
+
+	// Indents the even children along the inline-start to achieve a staggered
+	// layout where space permits
+	@include at-breakpoint('md') {
+		&__item {
+			&:nth-child(even) {
+				margin-inline-start: auto;
+			}
+		}
+	}
+
+	// Flip each item to be a flex item to align caption and
+	// image together
+	@include at-breakpoint('lg') {
+		&__item {
+			$gallery-item-space: from-size('700');
+			display: flex;
+			align-items: flex-end;
+
+			// Flips the horizontal layout. Use this with care though,
+			// because changing source order can be problemetic
+			// for keyboard users
+			&:nth-child(odd) {
+				flex-direction: row-reverse;
+			}
+
+			// A specificity trump that makes sure that each item
+			// has a neg start margin
+			&:nth-child(odd),
+			&:nth-child(even) {
+				margin-inline-start: -$gallery-item-space;
+			}
+
+			> * {
+				margin-inline-start: $gallery-item-space;
+			}
+		}
+	}
+}
+
 .page-header {
 	padding: from-size('800') 0;
+}
+
+.people {
+	--auto-grid-gap: #{from-size('700')};
+}
+
+.person {
+	position: relative;
+	height: 100%;
+
+	&__details {
+		position: absolute;
+		bottom: 0.5rem;
+		left: -0.25rem;
+		width: calc(100% - 0.5rem);
+		padding: 0.8rem;
+		background: from-color('quaternary');
+	}
+
+	&__image {
+		filter: grayscale(1);
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__name {
+		display: block;
+		font-size: from-size('600');
+	}
 }
 
 .site-head {
@@ -643,6 +736,21 @@ h4 {
 }
 
 /* --- More utilities --- */
+/*
+  AUTO GRID
+  Set the minimum item size with `--auto-grid-min-size` and you’ll
+  get a fully responsive grid with no media queries.
+
+  https://piccalil.lihttps://piccalil.li/tutorial/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/
+*/
+.auto-grid {
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(var(--auto-grid-min-size, 16rem), 1fr)
+	);
+	grid-gap: var(--auto-grid-gap, get-size('500'));
+}
 
 .dot-shadow {
 	--dot-shadow-size: 0.75rem;
