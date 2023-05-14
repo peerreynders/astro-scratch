@@ -38,6 +38,7 @@ const work = z.object({
 			image: z.string(),
 		})
 	),
+	team: z.array(z.coerce.string()),
 });
 
 export { people, posts, work };

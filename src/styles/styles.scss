@@ -116,6 +116,10 @@ $measure-value: (
 	color: from-color('light');
 }
 
+@mixin color-secondary-light {
+	color: from-color('secondary-light');
+}
+
 @mixin color-quinary-dark {
 	color: from-color('quinary-dark');
 }
@@ -130,6 +134,10 @@ $measure-value: (
 
 @mixin bg-dark-dark {
 	background: from-color('dark-dark');
+}
+
+@mixin bg-primary-dark {
+	background: from-color('primary-dark');
 }
 
 @mixin bg-secondary-light {
@@ -235,6 +243,10 @@ $measure-value: (
 	@include bg-light-light;
 }
 
+.bg-primary-dark {
+	@include bg-primary-dark;
+}
+
 .bg-secondary-light {
 	@include bg-secondary-light;
 }
@@ -245,6 +257,10 @@ $measure-value: (
 
 .color-light {
 	@include color-light;
+}
+
+.color-secondary-light {
+	@include color-secondary-light;
 }
 
 .color-quinary-dark {
@@ -273,6 +289,10 @@ $measure-value: (
 
 @include gap-top-size('700');
 
+.leading-flat {
+	@include leading-flat;
+}
+
 .leading-tight {
 	@include leading-tight;
 }
@@ -284,6 +304,8 @@ $measure-value: (
 @include measure-width('long');
 
 @include text-size('400');
+@include text-size('600');
+@include text-size('700');
 @include text-size('800');
 
 .weight-normal {
@@ -297,6 +319,8 @@ $measure-value: (
 @include text-size('600', 'md');
 @include text-size('900', 'md');
 
+@include text-size('700', 'lg');
+@include text-size('800', 'lg');
 @include text-size('major', 'lg');
 
 /* --- reset --- */
@@ -1097,5 +1121,37 @@ time[datetime] {
 			color: from-color('primary-dark');
 			text-decoration-color: from-color('dark-dark');
 		}
+	}
+}
+
+.hero {
+	position: relative;
+	padding: 50vh 0 from-size('800') 0;
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+
+	&__inner {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__content {
+		display: inline-block;
+		padding: from-size('500');
+	}
+}
+
+.key-facts {
+	--auto-grid-gap: #{from-size('800') from-size('500')};
+
+	li > * {
+		display: block;
 	}
 }

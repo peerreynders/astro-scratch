@@ -7,10 +7,3 @@ export type PaginationArgs = {
 	previousHref?: string;
 	previousLabel?: string;
 };
-
-export type PostArgs = {
-	slug: string;
-	title: string;
-	date: Date;
-	tags: [tag: string, href: string][];
-};

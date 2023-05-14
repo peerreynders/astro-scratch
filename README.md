@@ -43,9 +43,19 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
-### Lesson 16
+### Lesson 17
 
 To be continued…
+
+---
+
+### Lesson 16
+
+- Add the `fromWorkToStaticPaths()` and `keepSlugEntries` functions to `src/lib/collections.ts`.
+- Create the `WorkItem.astro` layout.
+- Create `src/pages/work/[...slug].astro`.
+
+[Details](docs/lessons/16.md)
 
 ---
 

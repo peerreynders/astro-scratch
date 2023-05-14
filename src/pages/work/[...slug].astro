@@ -1,0 +1,29 @@
+---
+// file: src/pages/work/[...slug].astro
+import type { CollectionEntry } from 'astro:content';
+import {
+	fromPeople,
+	fromWorkToStaticPaths,
+	keepSlugEntries,
+} from '../../lib/collections';
+import WorkItem from '../../layouts/WorkItem.astro';
+
+export const getStaticPaths = fromWorkToStaticPaths;
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+
+const workArgs = {
+	title: entry.data.title,
+	summary: entry.data.summary,
+	hero: entry.data.hero,
+	keyFacts: entry.data.keyFacts,
+	gallery: entry.data.gallery,
+	people: keepSlugEntries(await fromPeople(), entry.data.team),
+};
+---
+
+<WorkItem args={workArgs} />

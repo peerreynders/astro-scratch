@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { slugify } from './shame';
 
+// --- 'work' collection
 type Featured = {
 	data: {
 		featured: boolean;
@@ -31,6 +32,21 @@ async function fromFeaturedWork() {
 	return workEntries.filter(isFeatured).sort(byOrderAsc);
 }
 
+export type Work = CollectionEntry<'work'>;
+
+const workToStaticPathsItem = (entry: Work) => ({
+	params: {
+		slug: entry.slug,
+	},
+	props: {
+		entry,
+	},
+});
+
+const fromWorkToStaticPaths = async () =>
+	(await fromWork()).map(workToStaticPathsItem);
+
+// --- 'posts' collection
 type DateProp = {
 	data: {
 		date: Date;
@@ -44,25 +60,6 @@ async function fromPosts() {
 	const posts = await getCollection('posts');
 	// Note: sort is destructive so `slice()` first
 	return posts.slice().sort(byDateDesc);
-}
-
-export type Post = CollectionEntry<'posts'>;
-
-const postToStaticPathsItem = (entry: Post) => ({
-	params: {
-		slug: entry.slug,
-	},
-	props: {
-		entry,
-	},
-});
-
-const fromPostsToStaticPaths = async () =>
-	(await fromPosts()).map(postToStaticPathsItem);
-
-export interface TagPosts {
-	tag: string;
-	posts: Post[];
 }
 
 async function fromPostsRecommend(exclude: string[], limit = 3, random = true) {
@@ -91,6 +88,26 @@ async function fromPostsRecommend(exclude: string[], limit = 3, random = true) {
 	}
 
 	return recommend;
+}
+
+export type Post = CollectionEntry<'posts'>;
+
+const postToStaticPathsItem = (entry: Post) => ({
+	params: {
+		slug: entry.slug,
+	},
+	props: {
+		entry,
+	},
+});
+
+const fromPostsToStaticPaths = async () =>
+	(await fromPosts()).map(postToStaticPathsItem);
+
+// --- tags derived from 'posts' collection
+export interface TagPosts {
+	tag: string;
+	posts: Post[];
 }
 
 function collectTagPosts(tagged: Map<string, TagPosts>, post: Post) {
@@ -129,6 +146,7 @@ async function fromTagsToStaticPaths() {
 	return staticPaths;
 }
 
+// --- 'people' collection
 type WithSlug = {
 	slug: string;
 };
@@ -142,6 +160,11 @@ async function fromPeople() {
 	return entries.slice().sort(bySlugAsc);
 }
 
+const keepSlugEntries = <E extends WithSlug>(
+	collection: E[],
+	slugs: string[]
+) => collection.filter((entry) => slugs.includes(entry.slug));
+
 export {
 	fromFeaturedWork,
 	fromPeople,
@@ -150,4 +173,6 @@ export {
 	fromPostsToStaticPaths,
 	fromTagsToStaticPaths,
 	fromWork,
+	fromWorkToStaticPaths,
+	keepSlugEntries,
 };

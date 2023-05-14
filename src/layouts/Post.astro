@@ -1,6 +1,5 @@
 ---
 // file: src/layouts/Post.astro
-import type { PostArgs } from '../types';
 import Base from './Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import PostList from '../components/PostList.astro';
@@ -9,7 +8,12 @@ import { fromPostsRecommend } from '../lib/collections';
 import { formatDateForPost } from '../lib/shame';
 
 interface Props {
-	args: PostArgs;
+	args: {
+		slug: string;
+		title: string;
+		date: Date;
+		tags: [tag: string, href: string][];
+	};
 }
 
 const {
