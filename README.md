@@ -37,15 +37,29 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ### Lesson 19
 
-…temporarily parked…
+To be continued…
 
 [Sass and SCSS](https://docs.astro.build/en/guides/styling/#sass-and-scss)
 
 ---
 
+### Lesson 18
+
+Don't foresee needing Gulp.
+
+---
+
 ### Lesson 17
 
-To be continued…
+- Add the following key-value to the `src/pages/index.md` front matter.
+- Create the `MetaInfo.astro` component.
+- Add the `src/const.ts` module.
+- Alter the `Base.astro` layout to use the `MetaInfo.astro` component.
+- Update `Home.astro` to pick up and pass on the optional `metaTitle`, `metaDesc`, `summary` and `socialImage` props from the markdown front matter of the content page.
+- Install the [@astrojs/rss](https://docs.astro.build/en/guides/rss/) package.
+- Create the `src/pages/rss.xml.ts` RSS 2.0 feed page.
+
+[Details](docs/lessons/17.md)
 
 ---
 

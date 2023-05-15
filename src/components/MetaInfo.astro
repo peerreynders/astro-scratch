@@ -1,0 +1,56 @@
+---
+// file: src/components/MetaInfo.astro
+
+interface Props {
+	args: {
+		siteName: string;
+		title: string;
+		metaTitle?: string;
+		metaDesc?: string;
+		summary?: string;
+		socialImage?: string;
+	};
+}
+
+const { args } = Astro.props;
+
+const pageTitle = args.metaTitle
+	? args.metaTitle
+	: args.siteName === args.title
+	? args.siteName
+	: `${args.title} - ${args.siteName}`;
+const metaDesc = args.metaDesc ? args.metaDesc : args.summary;
+const { siteName, socialImage } = args;
+const currentUrl = Astro.url;
+---
+
+<meta name="generator" content={Astro.generator} />
+<title>{pageTitle}</title>
+<link rel="canonical" href={currentUrl} />
+
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={currentUrl} />
+
+{
+	socialImage && (
+		<>
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta property="og:image" content={socialImage} />
+			<meta name="twitter:image" content={socialImage} />
+			<meta property="og:image:alt" content={`Page image for ${siteName}`} />
+			<meta name="twitter:image:alt" content={`Page image for ${siteName}`} />
+		</>
+	)
+}
+
+{
+	metaDesc && (
+		<>
+			<meta name="description" content={metaDesc} />
+			<meta name="twitter:description" content={metaDesc} />
+			<meta name="og:description" content={metaDesc} />
+		</>
+	)
+}

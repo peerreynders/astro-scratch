@@ -1,22 +1,36 @@
 ---
 // file: src/layouts/Base.astro
+import MetaInfo from '../components/MetaInfo.astro';
+import { SITE_NAME } from '../consts';
 import '../styles/styles.scss';
 
 interface Props {
 	title: string;
+	metaTitle?: string;
+	metaDesc?: string;
+	summary?: string;
+	socialImage?: string;
 }
 
 import SiteHead from '../components/SiteHead.astro';
-const { title } = Astro.props;
+const { title, metaTitle, metaDesc, summary, socialImage } = Astro.props;
+
+const metaArgs = {
+	siteName: SITE_NAME,
+	title,
+	metaTitle,
+	metaDesc,
+	summary,
+	socialImage,
+};
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/images/icons/favicon.svg" />
-		<title>{title}</title>
+		<MetaInfo args={metaArgs} />
 	</head>
 	<body>
 		<SiteHead />

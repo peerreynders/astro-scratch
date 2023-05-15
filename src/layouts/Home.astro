@@ -6,11 +6,21 @@ import FeaturedWork from '../components/FeaturedWork.astro';
 import StudioFeed from '../components/StudioFeed.astro';
 
 const {
-	frontmatter: { title, intro, primaryCTA, featuredWork, studioFeed },
+	frontmatter: {
+		title,
+		metaTitle,
+		metaDesc,
+		intro,
+		primaryCTA,
+		featuredWork,
+		studioFeed,
+		summary,
+		socialImage,
+	},
 } = Astro.props;
 ---
 
-<Base {title}>
+<Base {title} {metaTitle} {metaDesc} {summary} {socialImage}>
 	<div class="wrapper">
 		<article class="intro">
 			<div class="intro__header radius frame">

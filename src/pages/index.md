@@ -1,6 +1,9 @@
 ---
 # file: src/pages/index.md
 title: Issue 33
+metaDesc: >
+  A made up agency site that you build if you take 
+  Learn Eleventy From Scratch, by Piccalilli
 layout: ../layouts/Home.astro
 intro:
   eyebrow: Digital Marketing is our

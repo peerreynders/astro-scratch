@@ -1,8 +1,7 @@
 ---
 // file: src/components/SiteHead.astro
 import Brand from './Brand.astro';
-import config from '../site-config';
-const { siteName } = config;
+import { SITE_NAME } from '../consts';
 
 const navigations = [
 	['/', 'Home'],
@@ -28,7 +27,7 @@ const activeProps = (targetPath: string, current: string) => {
 <header role="banner" class="site-head">
 	<div class="wrapper">
 		<div class="site-head__inner">
-			<a href="/" aria-label={`${siteName} - home`} class="site-head__brand">
+			<a href="/" aria-label={`${SITE_NAME} - home`} class="site-head__brand">
 				<Brand />
 			</a>
 			<nav class="nav site-head__nav font-sans" aria-label="Primary">
