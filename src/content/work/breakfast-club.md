@@ -6,8 +6,10 @@ summary: >
 displayOrder: 4
 featured: false
 hero:
-  image: /images/work/breakfast-club-hero.jpg
-  imageAlt: The breakfast club hero image
+  src: /images/work/breakfast-club-hero.jpg
+  alt: The breakfast club hero image
+  width: 1917
+  height: 1083
 keyFacts:
   - primary: '50%'
     secondary: Increase in engagement
@@ -26,16 +28,25 @@ gallery:
     summary: >
       It was important to us to make sure the food images did
       all of the talking: not the design.
-    image: /images/work/breakfast-club-gallery-1.jpg
+    image:
+      src: /images/work/breakfast-club-gallery-1.jpg
+      width: 1468
+      height: 1470
   - title: Keeping it light
     summary: >
       We used the latest web technologies to make sure this
       site looked good and performed well.
-    image: /images/work/breakfast-club-gallery-2.jpg
+    image:
+      src: /images/work/breakfast-club-gallery-2.jpg
+      width: 1209
+      height: 688
   - title: Modern layouts
     summary: >
       We used layouts that for the longest time, we reserved
       only for print.'
-    image: /images/work/breakfast-club-gallery-3.jpg
+    image:
+      src: /images/work/breakfast-club-gallery-3.jpg
+      width: 937
+      height: 668
 team: [1, 2, 5]
 ---

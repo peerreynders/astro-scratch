@@ -451,6 +451,12 @@ h4 {
 	border-radius: 0.25rem;
 }
 
+// Restore responsiveness after adding width/height on `img` element
+.img--sharp {
+	width: auto;
+	height: auto;
+}
+
 /* --- blocks --- */
 
 // lesson 24

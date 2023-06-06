@@ -1,11 +1,18 @@
 // file: src/schemas.ts
 import { z } from 'astro/zod';
 
+const imageSchema = z.object({
+	src: z.string(),
+	width: z.number(),
+	height: z.number(),
+	alt: z.string().default(''),
+});
+
 const people = z.object({
 	name: z.string(),
 	title: z.string(),
 	key: z.number().int().positive().safe(),
-	image: z.string(),
+	image: imageSchema,
 });
 
 const toDate = (value: string) => new Date(value);
@@ -21,10 +28,7 @@ const work = z.object({
 	summary: z.string(),
 	displayOrder: z.number().int().positive().safe(),
 	featured: z.boolean(),
-	hero: z.object({
-		image: z.string(),
-		imageAlt: z.string(),
-	}),
+	hero: imageSchema,
 	keyFacts: z.array(
 		z.object({
 			primary: z.string(),
@@ -35,7 +39,7 @@ const work = z.object({
 		z.object({
 			title: z.string(),
 			summary: z.string(),
-			image: z.string(),
+			image: imageSchema,
 		})
 	),
 	team: z.array(z.coerce.string()),

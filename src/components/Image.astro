@@ -1,0 +1,57 @@
+---
+// file: src/components/Image.astro
+import {
+	Image,
+	type ImageComponentLocalImageProps,
+	type ImageComponentRemoteImageProps,
+} from '@astrojs/image/components';
+
+/* Prettier's version breaks compilation */
+// prettier-ignore
+export type Props = ImageComponentLocalImageProps | ImageComponentRemoteImageProps;
+
+const extension = (path: string) => {
+	const index = path.lastIndexOf('.');
+	if (index < 0) return undefined;
+
+	const last = path
+		.slice(index + 1)
+		.trim()
+		.toLowerCase();
+	return last.length > 0 ? last : undefined;
+};
+
+const { slot, ...props } = Astro.props;
+if (slot) (props as Props).slot = slot;
+
+const path =
+	typeof props.src === 'string'
+		? props.src
+		: props.src instanceof Promise
+		? ''
+		: props.src.src;
+const fileExtension = extension(path);
+const format = props.format ? props.format : fileExtension;
+
+if ((format === 'jpg' || format === 'jpeg') && !props.quality) {
+	props.quality = 60;
+}
+
+const imageClass = 'img--sharp';
+props.class = props.class ? props.class + ' ' + imageClass : imageClass;
+/*
+  https://sharp.pixelplumbing.com/api-output#jpeg
+	- `options.quality` defaults to `80` when not specified
+	- `options.progressive` defaults to `false`. 
+	  Can't set it to `true` as `@astrojs/image/sharp` doesn't pass this option
+
+	https://sharp.pixelplumbing.com/api-output#png
+	- `options.progressive` defaults to `false`. 
+	  Can't set it to `true` as `@astrojs/image/sharp` doesn't pass this option
+	- `options.compressionLevel` defaults to `6` (0-9; 9 being slowest, smallest)
+	  `@astrojs/image/sharp` doesn't pass this option
+
+ */
+---
+
+<Image {...props} />

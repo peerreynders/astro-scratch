@@ -2,6 +2,7 @@
 // file: src/layouts/WorkItem.astro
 import type { CollectionEntry } from 'astro:content';
 import Base from './Base.astro';
+import Image from '../components/Image.astro';
 import People from '../components/People.astro';
 import Cta from '../components/Cta.astro';
 
@@ -10,8 +11,10 @@ interface Props {
 		title: string;
 		summary: string;
 		hero: {
-			image: string;
-			imageAlt: string;
+			src: string;
+			alt: string;
+			width: number;
+			height: number;
 		};
 		keyFacts: {
 			primary: string;
@@ -20,7 +23,12 @@ interface Props {
 		gallery: {
 			title: string;
 			summary: string;
-			image: string;
+			image: {
+				src: string;
+				alt: string;
+				width: number;
+				height: number;
+			};
 		}[];
 		people: CollectionEntry<'people'>[];
 	};
@@ -46,7 +54,13 @@ const {
 					<p class="measure-short">{summary}</p>
 				</div>
 			</div>
-			<img src={hero.image} alt={hero.imageAlt} class="hero__image" />
+			<Image
+				src={hero.src}
+				alt={hero.alt}
+				width={hero.width}
+				height={hero.height}
+				class="hero__image"
+			/>
 		</header>
 		<article class="key-facts panel dot-shadow bg-primary-dark color-light">
 			<div class="wrapper flow">
@@ -73,9 +87,11 @@ const {
 					gallery.map((entry) => (
 						<figure class="gallery__item flow">
 							<div class="gallery__media frame" data-frame="primary">
-								<img
-									src={entry.image}
-									alt=""
+								<Image
+									src={entry.image.src}
+									width={entry.image.width}
+									height={entry.image.height}
+									alt={entry.image.alt}
 									aria-hidden="true"
 									class="radius"
 								/>

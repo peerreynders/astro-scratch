@@ -27,19 +27,57 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
+### Lesson 22
+
+To be continued…
+
+---
+
+### Lesson 21
+
+- Install the [`@astrojs/image`](https://docs.astro.build/en/guides/integrations-guide/image/) integration.
+- Install [sharp](https://sharp.pixelplumbing.com/) ([`@squoosh/lib`](https://www.npmjs.com/package/@squoosh/lib) is no longer actively maintained).
+- Update the `tsconfig.json`.
+- Update the `astro.config.mjs`.
+- Create a (shim) `Image` component.
+- Add a class rule to `src/styles/styles.scss`.
+- Add `imageSchema` to `src/schemas.ts` and reference it where it is appropriate.
+- Update the `src/content` files under `people` and `work`.
+- Update the `src/layouts` `Home.astro`, `WorkLanding.astro`, `WorkItem.astro` components and the `src/components` `People.astro`, `FeaturedWork.astro` components accordingly.
+- TODO: Ponder Image organization (Local/Remote) and use of `cacheDir`
+
+[Details](docs/lessons/21.md)
+
+---
+
 ### Lesson 20
 
-…temporarily parked…
+Just used [Fontsource](https://github.com/fontsource/fontsource) instead.
 
-[Fontsource](https://github.com/fontsource/fontsource)
+```shell
+npm i @fontsource/literata,
+npm i @fontsource/red-hat-display
+```
+
+In `src/styles/styles.scss`:
+
+```scss
+@import '@fontsource/literata/index.css';
+@import '@fontsource/literata/400-italic.css';
+@import '@fontsource/literata/400.css';
+@import '@fontsource/literata/900.css';
+@import '@fontsource/red-hat-display/index.css';
+@import '@fontsource/red-hat-display/400.css';
+@import '@fontsource/red-hat-display/900.css';
+
+/* … */
+```
 
 ---
 
 ### Lesson 19
 
-To be continued…
-
-[Sass and SCSS](https://docs.astro.build/en/guides/styling/#sass-and-scss)
+[Details](docs/lessons/19.md)
 
 ---
 

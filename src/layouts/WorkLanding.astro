@@ -1,6 +1,7 @@
 ---
 // file: src/layouts/WorkLanding.astro
 import Base from './Base.astro';
+import Image from '../components/Image.astro';
 import PageHeader from '../components/PageHeader.astro';
 import Cta from '../components/Cta.astro';
 import { fromWork } from '../lib/collections';
@@ -29,23 +30,23 @@ const entries = await fromWork();
 		<div class="wrapper">
 			<article class="gallery flow flow-space-800">
 				{
-					entries.map((work) => (
+					entries.map(({ slug, data: { hero, title, summary } }) => (
 						<figure class="gallery__item flow">
 							<div class="gallery__media frame" data-frame="primary">
-								<img
+								<Image
 									class="radius"
-									src={work.data.hero.image}
-									alt={work.data.hero.imageAlt}
+									src={hero.src}
+									alt={hero.alt}
+									width={hero.width}
+									height={hero.height}
 								/>
 							</div>
 							<figcaption class="gallery__content flow">
-								<h2 class="gallery__heading text-700 md:text-900">
-									{work.data.title}
-								</h2>
+								<h2 class="gallery__heading text-700 md:text-900">{title}</h2>
 								<p class="gallery__summary measure-short flow-space-300">
-									{work.data.summary}
+									{summary}
 								</p>
-								<a href={hrefFromWorkSlug(work.slug)} class="button">
+								<a href={hrefFromWorkSlug(slug)} class="button">
 									See this work
 								</a>
 							</figcaption>

@@ -1,6 +1,7 @@
 ---
 // file: src/components/FeaturedWork.astro
 import { fromFeaturedWork } from '../lib/collections';
+import Image from './Image.astro';
 
 const { featuredWork } = Astro.props;
 const collection = await fromFeaturedWork();
@@ -20,17 +21,18 @@ const collection = await fromFeaturedWork();
 				</p>
 			</div>
 			{
-				collection.map((item) => (
+				collection.map(({ slug, data: { title, hero } }) => (
 					<a
-						href={`/work/${item.slug}`}
-						aria-label={`See ${item.data.title}`}
+						href={`/work/${slug}`}
+						aria-label={`See ${title}`}
 						class="featured-work__item frame"
 						data-frame="quaternary"
 					>
-						<img
-							src={item.data.hero.image}
-							alt={item.data.hero.imageAlt}
-							loading="lazy"
+						<Image
+							src={hero.src}
+							alt={hero.alt}
+							width={hero.width}
+							height={hero.height}
 							class="radius"
 						/>
 					</a>

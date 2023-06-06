@@ -1,5 +1,6 @@
 ---
 // file: src/components/People.astro
+import Image from './Image.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -13,20 +14,20 @@ const { people } = Astro.props;
 	people.length > 0 && (
 		<div class="people">
 			<ol class="auto-grid">
-				{people.map((entry) => (
+				{people.map(({ data: { title, name, image } }) => (
 					<li>
 						<figure class="person frame" data-frame="quaternary">
-							<img
+							<Image
 								class="person__image radius"
-								src={entry.data.image}
-								alt={'Image of ' + entry.data.name}
+								src={image.src}
+								width={image.width}
+								height={image.height}
+								alt={'Image of ' + name}
 								draggable="false"
 							/>
 							<figcaption class="person__details leading-tight">
-								<span class="person__name font-sans weight-bold">
-									{entry.data.name}
-								</span>
-								<span class="person__title">{entry.data.title}</span>
+								<span class="person__name font-sans weight-bold">{name}</span>
+								<span class="person__title">{title}</span>
 							</figcaption>
 						</figure>
 					</li>

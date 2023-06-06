@@ -13,8 +13,11 @@ intro:
     team of talented creatives.
   buttonText: See our work
   buttonUrl: /work
-  image: /images/bg/toast.jpg
-  imageAlt: Buttered toasted white bread
+  image:
+    src: /images/bg/toast.jpg
+    alt: Buttered toasted white bread
+    width: 1600
+    height: 1082
 primaryCTA:
   title: This is an agency that doesn’t actually exist
   summary: >
