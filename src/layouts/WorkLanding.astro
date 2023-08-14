@@ -1,7 +1,7 @@
 ---
 // file: src/layouts/WorkLanding.astro
+import { Image } from 'astro:assets';
 import Base from './Base.astro';
-import Image from '../components/Image.astro';
 import PageHeader from '../components/PageHeader.astro';
 import Cta from '../components/Cta.astro';
 import { fromWork } from '../lib/collections';
@@ -37,8 +37,6 @@ const entries = await fromWork();
 									class="radius"
 									src={hero.src}
 									alt={hero.alt}
-									width={hero.width}
-									height={hero.height}
 								/>
 							</div>
 							<figcaption class="gallery__content flow">

@@ -101,8 +101,8 @@ const postToStaticPathsItem = (entry: Post) => ({
 	},
 });
 
-const fromPostsToStaticPaths = async () =>
-	(await fromPosts()).map(postToStaticPathsItem);
+const toPostsStaticPaths = (entries: CollectionEntry<'posts'>[]) =>
+	entries.map(postToStaticPathsItem);
 
 // --- tags derived from 'posts' collection
 export interface TagPosts {
@@ -129,9 +129,8 @@ function collectTagPosts(tagged: Map<string, TagPosts>, post: Post) {
 	return tagged;
 }
 
-async function fromTagsToStaticPaths() {
-	const all = await fromPosts();
-	const tagged = all.reduce(collectTagPosts, new Map<string, TagPosts>());
+function toTagsStaticPaths(entries: CollectionEntry<'posts'>[]) {
+	const tagged = entries.reduce(collectTagPosts, new Map<string, TagPosts>());
 	const staticPaths: { params: { tag: string }; props: TagPosts }[] = [];
 
 	for (const [slug, props] of tagged) {
@@ -151,8 +150,12 @@ type WithSlug = {
 	slug: string;
 };
 
-const bySlugAsc = <E extends WithSlug>(a: E, b: E) =>
-	a.slug < b.slug ? -1 : a.slug === b.slug ? 0 : 1;
+const collator = new Intl.Collator();
+
+const bySlugAsc = <E extends WithSlug>(
+	{ slug: aSlug }: E,
+	{ slug: bSlug }: E
+) => collator.compare(aSlug, bSlug);
 
 async function fromPeople() {
 	const entries = await getCollection('people');
@@ -165,14 +168,68 @@ const keepSlugEntries = <E extends WithSlug>(
 	slugs: string[]
 ) => collection.filter((entry) => slugs.includes(entry.slug));
 
+// --- 'studio' collection
+const fromStudio = (): Promise<CollectionEntry<'studio'>[]> =>
+	getCollection('studio');
+
+type FeedEntry = {
+	src: ImageMetadata;
+	alt: string;
+	width: number | undefined;
+	quality: number | undefined;
+	slug: string;
+};
+
+const toStudioFeed = (entries: CollectionEntry<'studio'>[]) =>
+	entries
+		.reduce<FeedEntry[]>((selected, entry) => {
+			const { variants } = entry.data;
+			if (variants && variants.medium) {
+				const { width, quality } = variants.medium;
+				selected.push({
+					src: entry.data.src,
+					alt: entry.data.alt,
+					width,
+					quality,
+					slug: entry.slug,
+				});
+			}
+			return selected;
+		}, [])
+		.sort(bySlugAsc);
+
+// --- single entry collections: 'blog', 'cta', 'home', 'tag'
+function singleEntry<C extends 'blog' | 'cta' | 'home' | 'tag'>(
+	collection: C
+): () => Promise<CollectionEntry<C>> {
+	return async () => {
+		const entries = await getCollection(collection);
+		const entry = entries.length > 0 ? entries[0] : undefined;
+		if (!entry) throw new Error(`Missing "${collection}" Content`);
+
+		return entry;
+	};
+}
+
+const fromBlog = singleEntry('blog');
+const fromCta = singleEntry('cta');
+const fromHome = singleEntry('home');
+const fromTag = singleEntry('tag');
+
 export {
+	fromBlog,
+	fromCta,
 	fromFeaturedWork,
+	fromHome,
 	fromPeople,
 	fromPosts,
 	fromPostsRecommend,
-	fromPostsToStaticPaths,
-	fromTagsToStaticPaths,
+	fromStudio,
+	fromTag,
 	fromWork,
 	fromWorkToStaticPaths,
 	keepSlugEntries,
+	toPostsStaticPaths,
+	toStudioFeed,
+	toTagsStaticPaths,
 };

@@ -1,14 +1,19 @@
 ---
 // file: src/pages/tag/[tag].astro
-import { fromTagsToStaticPaths, type TagPosts } from '../../lib/collections';
+import { 
+	fromPosts, 
+	fromTag, 
+	toTagsStaticPaths, 
+	type TagPosts 
+} from '../../lib/collections';
 import Feed from '../../layouts/Feed.astro';
-import { frontmatter } from '../../data/tag.md';
 
 interface Props extends TagPosts {}
 
-export const getStaticPaths = fromTagsToStaticPaths;
+export const getStaticPaths = async () =>
+	toTagsStaticPaths(await fromPosts());
 
-const { title } = frontmatter;
+const { data: { title } } = await fromTag();
 const { tag, posts } = Astro.props;
 ---
 

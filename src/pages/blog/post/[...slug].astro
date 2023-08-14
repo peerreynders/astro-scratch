@@ -2,10 +2,11 @@
 // file: src/pages/blog/post/[...slug].astro
 import type { CollectionEntry } from 'astro:content';
 import { makeTagPairs } from '../../../lib/shame';
-import { fromPostsToStaticPaths } from '../../../lib/collections';
+import { fromPosts, toPostsStaticPaths } from '../../../lib/collections';
 import Post from '../../../layouts/Post.astro';
 
-export const getStaticPaths = fromPostsToStaticPaths;
+export const getStaticPaths = async () =>
+	toPostsStaticPaths(await fromPosts());
 
 interface Props {
 	entry: CollectionEntry<'posts'>;
@@ -19,6 +20,7 @@ const postArgs = {
 	tags: makeTagPairs(entry.data.tags),
 };
 const { Content } = await entry.render();
+
 ---
 
 <Post args={postArgs}>

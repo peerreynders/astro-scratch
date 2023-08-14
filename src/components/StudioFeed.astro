@@ -1,13 +1,13 @@
 ---
 // file: src/components/StudioFeed.astro
-import { studio as items } from '../lib/studio';
+import { Image } from 'astro:assets';
+import { fromStudio, toStudioFeed } from '../lib/collections';
 
-const studio = await items(fetch);
 const { studioFeed } = Astro.props;
+const feed = toStudioFeed(await fromStudio());
 ---
-
 {
-	studio.length && (
+	feed.length && (
 		<article class="studio-feed dot-shadow panel bg-tertiary-light">
 			<div class="wrapper flow flow-space-300">
 				{/* prettier-ignore */}
@@ -18,11 +18,13 @@ const { studioFeed } = Astro.props;
 				</p>
 				<div class="studio-feed__items flow-space-700">
 					<ul class="studio-feed__list">
-						{studio.map((item) => (
+						{feed.map(({ src, alt, width, quality }) => (
 							<li>
-								<img
-									src={item.medium}
-									alt={item.alt}
+								<Image
+									src={src}
+									alt={alt}
+									width={width}
+									quality={quality}
 									draggable="false"
 									class="radius"
 								/>

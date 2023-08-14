@@ -1,6 +1,6 @@
 ---
 // file: src/components/People.astro
-import Image from './Image.astro';
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -9,7 +9,6 @@ interface Props {
 
 const { people } = Astro.props;
 ---
-
 {
 	people.length > 0 && (
 		<div class="people">
@@ -20,8 +19,6 @@ const { people } = Astro.props;
 							<Image
 								class="person__image radius"
 								src={image.src}
-								width={image.width}
-								height={image.height}
 								alt={'Image of ' + name}
 								draggable="false"
 							/>

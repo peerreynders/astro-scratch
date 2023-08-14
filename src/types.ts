@@ -2,8 +2,12 @@
 
 export type PaginationArgs = {
 	anchor?: string;
-	nextHref?: string;
-	nextLabel?: string;
-	previousHref?: string;
-	previousLabel?: string;
+	next?: {
+		href: string;
+		label?: string;
+	};
+	previous?: {
+		href: string;
+		label?: string;
+	};
 };

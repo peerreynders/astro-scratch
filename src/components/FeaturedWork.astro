@@ -1,7 +1,7 @@
 ---
 // file: src/components/FeaturedWork.astro
+import { Image } from 'astro:assets';
 import { fromFeaturedWork } from '../lib/collections';
-import Image from './Image.astro';
 
 const { featuredWork } = Astro.props;
 const collection = await fromFeaturedWork();
@@ -31,8 +31,6 @@ const collection = await fromFeaturedWork();
 						<Image
 							src={hero.src}
 							alt={hero.alt}
-							width={hero.width}
-							height={hero.height}
 							class="radius"
 						/>
 					</a>

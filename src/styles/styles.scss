@@ -184,7 +184,7 @@ $measure-value: (
 	@if $bp-key {
 		$target: map.get($breakpoint-target, $bp-key);
 		@media #{$target} {
-			@include define-font-size($bp-key + '\\:'+ $name, $size);
+			@include define-font-size($bp-key + '\\:' + $name, $size);
 		}
 	} @else {
 		@include define-font-size($name, $size);
@@ -207,7 +207,7 @@ $measure-value: (
 	@if $bp-key {
 		$target: map.get($breakpoint-target, $bp-key);
 		@media #{$target} {
-			@include define-measure($bp-key + '\\:'+ $name, $width-key);
+			@include define-measure($bp-key + '\\:' + $name, $width-key);
 		}
 	} @else {
 		@include define-measure($name, $width-key);
@@ -226,7 +226,7 @@ $measure-value: (
 	@if $bp-key {
 		$target: map.get($breakpoint-target, $bp-key);
 		@media #{$target} {
-			@include define-gap-top-size($bp-key + '\\:'+ $name, $size);
+			@include define-gap-top-size($bp-key + '\\:' + $name, $size);
 		}
 	} @else {
 		@include define-gap-top-size($name, $size);
@@ -370,6 +370,7 @@ a:not([class]) {
 /* Make images easier to work with */
 img {
 	max-width: 100%;
+	height: auto;
 	display: block;
 }
 

@@ -1,8 +1,8 @@
 ---
 // file: src/layouts/WorkItem.astro
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import Base from './Base.astro';
-import Image from '../components/Image.astro';
 import People from '../components/People.astro';
 import Cta from '../components/Cta.astro';
 
@@ -11,10 +11,8 @@ interface Props {
 		title: string;
 		summary: string;
 		hero: {
-			src: string;
+			src: ImageMetadata;
 			alt: string;
-			width: number;
-			height: number;
 		};
 		keyFacts: {
 			primary: string;
@@ -24,10 +22,8 @@ interface Props {
 			title: string;
 			summary: string;
 			image: {
-				src: string;
+				src: ImageMetadata;
 				alt: string;
-				width: number;
-				height: number;
 			};
 		}[];
 		people: CollectionEntry<'people'>[];
@@ -38,7 +34,6 @@ const {
 	args: { title, summary, hero, keyFacts, gallery, people },
 } = Astro.props;
 ---
-
 <Base title={title}>
 	<section>
 		<header class="hero">
@@ -54,13 +49,11 @@ const {
 					<p class="measure-short">{summary}</p>
 				</div>
 			</div>
-			<Image
-				src={hero.src}
-				alt={hero.alt}
-				width={hero.width}
-				height={hero.height}
-				class="hero__image"
-			/>
+				<Image
+					class="hero__image"
+					src={hero.src}
+					alt={hero.alt}
+				/>
 		</header>
 		<article class="key-facts panel dot-shadow bg-primary-dark color-light">
 			<div class="wrapper flow">
@@ -88,12 +81,10 @@ const {
 						<figure class="gallery__item flow">
 							<div class="gallery__media frame" data-frame="primary">
 								<Image
+									class="radius"
 									src={entry.image.src}
-									width={entry.image.width}
-									height={entry.image.height}
 									alt={entry.image.alt}
 									aria-hidden="true"
-									class="radius"
 								/>
 							</div>
 							<figcaption class="gallery__content flow">

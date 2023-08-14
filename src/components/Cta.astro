@@ -1,18 +1,20 @@
 ---
 // file: src/components/Cta.astro
-import { frontmatter as globalCta } from '../data/cta.md';
+import { fromCta } from '../lib/collections';
 
 interface Props {
 	cta?: {
 		title: string;
 		summary: string;
-		buttonText: string;
-		buttonUrl: string;
+		button: {
+			text: string;
+		  url: string;
+		};
 	};
 }
 
 const { cta: ctaProp } = Astro.props;
-const cta = ctaProp ? ctaProp : globalCta;
+const cta = ctaProp ? ctaProp : (await fromCta()).data;
 ---
 
 {
@@ -25,8 +27,8 @@ const cta = ctaProp ? ctaProp : globalCta;
 						headline" data-highlight="quaternary">{cta.title}</h2>
 					<p class="cta__summary measure-short">{cta.summary}</p>
 					<div class="cta__action">
-						<a class="button" data-variant="ghost" href={cta.buttonUrl}>
-							{cta.buttonText}
+						<a class="button" data-variant="ghost" href={cta.button.url}>
+							{cta.button.text}
 						</a>
 					</div>
 				</div>

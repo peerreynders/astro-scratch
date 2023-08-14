@@ -1,7 +1,7 @@
 {
   "name": "astro-scratch",
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -22,22 +22,22 @@
   "bugs": {
     "url": "https://github.com/peerreynders/astro-scratch/issues"
   },
+  "dependencies": {
+    "@astrojs/rss": "^2.4.4",
+    "astro": "^2.10.5",
+    "github-slugger": "^2.0.0",
+    "sharp": "^0.32.4"
+  },
   "devDependencies": {
-    "@fontsource/literata": "^4.5.13",
-    "@fontsource/red-hat-display": "^4.5.12",
-    "@types/markdown-it": "^12.2.3",
-    "@types/node": "^18.16.1",
+    "@fontsource/literata": "^5.0.8",
+    "@fontsource/red-hat-display": "^5.0.8",
+    "@types/markdown-it": "^13.0.0",
+    "@types/node": "^20.4.9",
     "@types/sanitize-html": "^2.9.0",
     "markdown-it": "^13.0.1",
-    "prettier": "^2.8.7",
-    "prettier-plugin-astro": "^0.8.0",
-    "sanitize-html": "^2.10.0",
-    "sass": "^1.62.0"
-  },
-  "dependencies": {
-    "@astrojs/image": "^0.16.9",
-    "@astrojs/rss": "^2.4.1",
-    "astro": "^2.5.7",
-    "sharp": "^0.32.1"
+    "prettier": "^3.0.1",
+    "prettier-plugin-astro": "^0.11.0",
+    "sanitize-html": "^2.11.0",
+    "sass": "^1.65.1"
   }
 }

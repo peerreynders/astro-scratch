@@ -6,12 +6,10 @@ summary: >
 displayOrder: 3
 featured: true
 hero:
-  src: /images/work/brunch-and-brew-hero.jpg
+  src: ~/assets/work/brunch-and-brew-hero.jpg
   alt: >
     A composition of the main landing screen and other key
     views
-  width: 2884
-  height: 1460
 keyFacts:
   - primary: '50%'
     secondary: Increase in engagement
@@ -31,24 +29,18 @@ gallery:
       We wanted to help them acheive lots of sign-ups, so
       naturally, we kept it simple
     image:
-      src: /images/work/brunch-and-brew-gallery-1.jpg
-      width: 1244
-      height: 1124
+      src: ~/assets/work/brunch-and-brew-gallery-1.jpg
   - title: Clear calls to action
     summary: >
       You know exactly what you’re looking at and exactly what
       will happen. Perfect.
     image:
-      src: /images/work/brunch-and-brew-gallery-2.jpg
-      width: 1244
-      height: 1124
+      src: ~/assets/work/brunch-and-brew-gallery-2.jpg
   - title: Data clarity
     summary: >
       Using charts we help communicate the information that
       means the most.
     image:
-      src: /images/work/brunch-and-brew-gallery-3.jpg
-      width: 1244
-      height: 1124
+      src: ~/assets/work/brunch-and-brew-gallery-3.jpg
 team: [2, 5, 4]
 ---

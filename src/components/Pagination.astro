@@ -7,30 +7,27 @@ interface Props {
 }
 
 const {
-	args: { anchor, nextHref, nextLabel, previousHref, previousLabel },
+	args: { anchor, next, previous },
 } = Astro.props;
 
-const next = nextHref ? (anchor ? nextHref + anchor : nextHref) : undefined;
-const previous = previousHref
-	? anchor
-		? previousHref + anchor
-		: previousHref
-	: undefined;
+const nextHref = next ? (anchor ? next.href + anchor : next.href) : undefined;
+const previousHref = previous ?(anchor ? previous.href + anchor : previous.href) : undefined;
+
 ---
 
 {
-	(next || previous) && (
+	(nextHref || previousHref) && (
 		<footer class="pagination dot-shadow panel bg-light-light font-sans weight-bold">
 			<div class="wrapper">
 				<nav class="pagination__inner" aria-label="Pagination links">
-					{previous && (
-						<a href={previous} data-direction="backwards">
-							<span>{previousLabel ?? 'Previous'}</span>
+					{previousHref && (
+						<a href={previousHref} data-direction="backwards">
+							<span>{previous?.label ?? 'Previous'}</span>
 						</a>
 					)}
-					{next && (
-						<a href={next} data-direction="forwards">
-							<span>{nextLabel ?? 'Next'}</span>
+					{nextHref && (
+						<a href={nextHref} data-direction="forwards">
+							<span>{next?.label ?? 'Next'}</span>
 						</a>
 					)}
 				</nav>

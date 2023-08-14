@@ -22,7 +22,7 @@ const formatDateForPost = (date: Date) => forPostDate.format(date);
 const toTagPair = (title: string) =>
 	[title.replaceAll(' ', ''), hrefFromTagSlug(slugify(title))] as [
 		string,
-		string
+		string,
 	];
 const makeTagPairs = (titles: string[]) => titles.map(toTagPair);
 

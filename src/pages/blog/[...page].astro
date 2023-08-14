@@ -1,26 +1,22 @@
 ---
 // file: src/pages/blog/[...page].astro
 import type { GetStaticPathsOptions } from 'astro';
-import { fromPosts } from '../../lib/collections';
-import { Content as Summary, frontmatter } from '../../data/blog.md';
+import { fromBlog, fromPosts } from '../../lib/collections';
 import Feed from '../../layouts/Feed.astro';
 
 export async function getStaticPaths(options: GetStaticPathsOptions) {
-	const { pageSize } = frontmatter;
-
-	const posts = await fromPosts();
-	return options.paginate(posts, { pageSize });
+  const [blog, posts] = await Promise.all([fromBlog(), fromPosts()]);
+	return options.paginate(posts, { pageSize: blog.data.pageSize });
 }
 
-const { anchor, nextLabel, previousLabel, title } = frontmatter;
 const { page } = Astro.props;
-const pagination = {
-	anchor,
-	nextHref: page.url.next,
-	nextLabel,
-	previousHref: page.url.prev,
-	previousLabel,
-};
+const { data: { anchor, label, title }, render } = await fromBlog();
+const { Content: Summary } = await render();
+
+const next = page.url.next ? { href: page.url.next, label: label.next } : undefined;
+const previous = page.url.prev ? { href: page.url.prev, label: label.previous } : undefined;
+const pagination = { anchor, next, previous };
+
 ---
 
 <Feed title={title} posts={page.data} pagination={pagination}>
