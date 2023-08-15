@@ -33,6 +33,22 @@ To be continued…
 
 ---
 
+### Lesson 21 (take two)
+
+Rework to align with the upcoming Astro 3.0 optimized asset support.
+
+- Collection schema updates
+- Collection function updates
+- `Cta.astro` component update
+- `StudioFeed.astro` component update
+- `Home.astro` layout update
+- `blog` layout update
+- `tag` layout update
+
+[Details](docs/lessons/21-2.md)
+
+---
+
 ### Lesson 21
 
 - Install the [`@astrojs/image`](https://docs.astro.build/en/guides/integrations-guide/image/) integration.
@@ -44,7 +60,6 @@ To be continued…
 - Add `imageSchema` to `src/schemas.ts` and reference it where it is appropriate.
 - Update the `src/content` files under `people` and `work`.
 - Update the `src/layouts` `Home.astro`, `WorkLanding.astro`, `WorkItem.astro` components and the `src/components` `People.astro`, `FeaturedWork.astro` components accordingly.
-- TODO: Ponder Image organization (Local/Remote) and use of `cacheDir`
 
 [Details](docs/lessons/21.md)
 

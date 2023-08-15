@@ -1,20 +1,13 @@
 ---
 // file: src/components/Cta.astro
-import { fromCta } from '../lib/collections';
+import { fromCta, CtaData } from '../lib/collections';
 
 interface Props {
-	cta?: {
-		title: string;
-		summary: string;
-		button: {
-			text: string;
-		  url: string;
-		};
-	};
+	cta?: CtaData;
 }
 
-const { cta: ctaProp } = Astro.props;
-const cta = ctaProp ? ctaProp : (await fromCta()).data;
+const { cta: ctaData } = Astro.props;
+const cta = ctaData ? ctaData : (await fromCta()).data;
 ---
 
 {

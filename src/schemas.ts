@@ -2,13 +2,13 @@
 import { z } from 'astro/zod';
 import type { SchemaContext } from 'astro:content';
 
-// --- people
-
 const imageSchema = (image: SchemaContext['image']) =>
 	z.object({
 		src: image(),
 		alt: z.string().default(''),
 	});
+
+// --- people
 
 const peopleSchema = ({ image }: SchemaContext) =>
 	z.object({

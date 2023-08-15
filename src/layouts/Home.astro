@@ -8,16 +8,18 @@ import StudioFeed from '../components/StudioFeed.astro';
 import { fromHome } from '../lib/collections';
 
 const { 
-	title,
-	metaTitle,
-	metaDesc,
-	intro,
-	primaryCta,
-	featuredWork,
-	studioFeed,
-	summary,
-	socialImage,
-} = (await fromHome()).data;
+  data: {
+		title,
+		metaTitle,
+		metaDesc,
+		intro,
+		primaryCta,
+		featuredWork,
+		studioFeed,
+		summary,
+		socialImage,
+	}
+} = await fromHome();
 
 ---
 <Base {title} {metaTitle} {metaDesc} {summary} {socialImage}>

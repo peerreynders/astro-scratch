@@ -205,15 +205,19 @@ function singleEntry<C extends 'blog' | 'cta' | 'home' | 'tag'>(
 	return async () => {
 		const entries = await getCollection(collection);
 		const entry = entries.length > 0 ? entries[0] : undefined;
-		if (!entry) throw new Error(`Missing "${collection}" Content`);
+		if (!entry) throw new Error(`Missing "${collection}" content`);
 
 		return entry;
 	};
 }
 
 const fromBlog = singleEntry('blog');
+
 const fromCta = singleEntry('cta');
+export type CtaData = CollectionEntry<'cta'>['data'];
+
 const fromHome = singleEntry('home');
+
 const fromTag = singleEntry('tag');
 
 export {
