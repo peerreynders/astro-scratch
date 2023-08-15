@@ -2,7 +2,7 @@
 // file: src/pages/blog/[...page].astro
 import type { GetStaticPathsOptions } from 'astro';
 import { fromBlog, fromPosts } from '../../lib/collections';
-import Feed from '../../layouts/Feed.astro';
+import Feed from '../../layouts/feed.astro';
 
 export async function getStaticPaths(options: GetStaticPathsOptions) {
   const [blog, posts] = await Promise.all([fromBlog(), fromPosts()]);

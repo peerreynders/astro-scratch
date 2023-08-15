@@ -1,4 +1,4 @@
 ---
 # file: src/pages/index.md
-layout: ../layouts/Home.astro
+layout: ../layouts/home.astro
 ---
