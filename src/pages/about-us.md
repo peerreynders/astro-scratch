@@ -1,7 +1,7 @@
 ---
 # file: src/pages/about-us.md
 title: About Issue 33
-layout: ../layouts/About.astro
+layout: ../layouts/about.astro
 ---
 
 Wanna see our foosball table? Nah, only kidding. We’re a made-up

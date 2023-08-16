@@ -27,9 +27,12 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ---
 
-### Lesson 22
+### Lesson 29
 
-To be continued…
+- Create the `page` layout.
+- Create the contact page contents.
+
+[Details](docs/lessons/29.md)
 
 ---
 

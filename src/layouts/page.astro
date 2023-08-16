@@ -1,0 +1,27 @@
+---
+// file: src/layouts/page.astro
+import Base from './base.astro';
+import PageHeader from '../components/page-header.astro';
+
+interface Props {
+	frontmatter: {
+		title: string;
+	};
+}
+
+const {
+	frontmatter: { title },
+} = Astro.props;
+
+---
+
+<Base title={title}>
+	<article>
+		<PageHeader title={title} />
+		<div class="panel dot-shadow bg-tertiary-light" >
+			<div class="page-content flow wrapper flow-space-700" >
+				<slot />
+			</div>
+		</div>
+	</article>
+</Base>
