@@ -1,7 +1,7 @@
 ---
 # file: src/pages/index.md
 title: Our finest work
-layout: ../../layouts/WorkLanding.astro
+layout: ../../layouts/work-landing.astro
 ---
 
 Some of our finest work from websites right through to printed
