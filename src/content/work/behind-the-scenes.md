@@ -6,7 +6,7 @@ summary: >
 displayOrder: 2
 featured: true
 hero:
-  src: ~/assets/work/behind-the-scenes-hero.jpg
+  src: ../../assets/work/behind-the-scenes-hero.jpg
   alt: A composition of all the views from the app
 keyFacts:
   - primary: '50%'
@@ -28,18 +28,18 @@ gallery:
       and typography work, while making sure the content was easy to
       read.
     image:
-      src: ~/assets/work/behind-the-scenes-gallery-1.jpg
+      src: ../../assets/work/behind-the-scenes-gallery-1.jpg
   - title: Keeping it clear
     summary: >
       We wanted to make sure the content was as clear as it
       could be, regardless of what it was.
     image:
-      src: ~/assets/work/behind-the-scenes-gallery-3.jpg
+      src: ../../assets/work/behind-the-scenes-gallery-3.jpg
   - title: Beautiful photography
     summary: >
       We made the the stunning photography sit center stage
       because let’s be honest: that’s what you all came for.
     image:
-      src: ~/assets/work/behind-the-scenes-gallery-3.jpg
+      src: ../../assets/work/behind-the-scenes-gallery-3.jpg
 team: [1, 4, 6]
 ---

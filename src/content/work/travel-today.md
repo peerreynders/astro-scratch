@@ -4,7 +4,7 @@ summary: A travel website to help make booking easier.
 displayOrder: 5
 featured: false
 hero:
-  src: ~/assets/work/travel-today-hero.jpg
+  src: ../../assets/work/travel-today-hero.jpg
   alt: The travel today hero image
 keyFacts:
   - primary: '50%'
@@ -23,12 +23,12 @@ gallery:
   - title: Clear information
     summary: We let the stunning locations do the talking.
     image:
-      src: ~/assets/work/travel-today-gallery-1.jpg
+      src: ../../assets/work/travel-today-gallery-1.jpg
   - title: Simple booking
     summary: >
       We give the user total control but keep it clean and
       simple for them.
     image:
-      src: ~/assets/work/travel-today-gallery-2.jpg
+      src: ../../assets/work/travel-today-gallery-2.jpg
 team: [1, 2, 5]
 ---

@@ -6,7 +6,7 @@ summary: >
 displayOrder: 4
 featured: false
 hero:
-  src: ~/assets/work/breakfast-club-hero.jpg
+  src: ../../assets/work/breakfast-club-hero.jpg
   alt: The breakfast club hero image
 keyFacts:
   - primary: '50%'
@@ -27,18 +27,18 @@ gallery:
       It was important to us to make sure the food images did
       all of the talking: not the design.
     image:
-      src: ~/assets/work/breakfast-club-gallery-1.jpg
+      src: ../../assets/work/breakfast-club-gallery-1.jpg
   - title: Keeping it light
     summary: >
       We used the latest web technologies to make sure this
       site looked good and performed well.
     image:
-      src: ~/assets/work/breakfast-club-gallery-2.jpg
+      src: ../../assets/work/breakfast-club-gallery-2.jpg
   - title: Modern layouts
     summary: >
       We used layouts that for the longest time, we reserved
       only for print.'
     image:
-      src: ~/assets/work/breakfast-club-gallery-3.jpg
+      src: ../../assets/work/breakfast-club-gallery-3.jpg
 team: [1, 2, 5]
 ---

@@ -6,7 +6,7 @@ summary: >
 displayOrder: 3
 featured: true
 hero:
-  src: ~/assets/work/brunch-and-brew-hero.jpg
+  src: ../../assets/work/brunch-and-brew-hero.jpg
   alt: >
     A composition of the main landing screen and other key
     views
@@ -29,18 +29,18 @@ gallery:
       We wanted to help them acheive lots of sign-ups, so
       naturally, we kept it simple
     image:
-      src: ~/assets/work/brunch-and-brew-gallery-1.jpg
+      src: ../../assets/work/brunch-and-brew-gallery-1.jpg
   - title: Clear calls to action
     summary: >
       You know exactly what you’re looking at and exactly what
       will happen. Perfect.
     image:
-      src: ~/assets/work/brunch-and-brew-gallery-2.jpg
+      src: ../../assets/work/brunch-and-brew-gallery-2.jpg
   - title: Data clarity
     summary: >
       Using charts we help communicate the information that
       means the most.
     image:
-      src: ~/assets/work/brunch-and-brew-gallery-3.jpg
+      src: ../../assets/work/brunch-and-brew-gallery-3.jpg
 team: [2, 5, 4]
 ---

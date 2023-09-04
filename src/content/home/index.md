@@ -14,7 +14,7 @@ intro:
     text: See our work
     url: /work
   image:
-    src: ~/assets/bg/toast.jpg
+    src: ../../assets/bg/toast.jpg
     alt: Buttered toasted white bread
 primaryCta:
   title: This is an agency that doesn’t actually exist

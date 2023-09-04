@@ -6,7 +6,7 @@ summary: >
 displayOrder: 1
 featured: true
 hero:
-  src: ~/assets/work/outgoings-hero.jpg
+  src: ../../assets/work/outgoings-hero.jpg
   alt: Screens from the app, composed together as a group.
 keyFacts:
   - primary: '50%'
@@ -27,16 +27,16 @@ gallery:
       We wanted the app to be as useful as possible, so
       multi-account support was a natural choice.
     image:
-      src: ~/assets/work/outgoings-gallery-1.jpg
+      src: ../../assets/work/outgoings-gallery-1.jpg
   - title: Concise summaries
     summary: The numbers speak volumes, so we give them center stage.
     image:
-      src: ~/assets/work/outgoings-gallery-2.jpg
+      src: ../../assets/work/outgoings-gallery-2.jpg
   - title: Crystal clear information for users
     summary: >
       No distractions, no anti-patterns, just clear,
       user-friendly information
     image:
-      src: ~/assets/work/outgoings-gallery-3.jpg
+      src: ../../assets/work/outgoings-gallery-3.jpg
 team: [1, 4, 6]
 ---
