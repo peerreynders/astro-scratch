@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+@function from-map($ref, $map-name, $key-name, $default-value, $key) {
+	$result: map.get($ref, $key);
+	@if ($result) {
+		@return $result;
+	}
+
+	@warn #{$key-name + ' "' + $key + '" not found in ' + $map-name};
+
+	@return $default-value;
+}

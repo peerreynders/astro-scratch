@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../function' as fn;
+@use 'sizes';
+
+@mixin at-breakpoint($key) {
+	$target: map.get(sizes.$breakpoint-target, $key);
+
+	@if $target {
+		@media #{ $target } {
+			@content;
+		}
+	} @else {
+		@warn #{ 'Breakpoint, ‘' + $key + '’ not found in `$breakpoint-target`.' };
+	}
+}
+
+@function from-size($key) {
+	@return fn.from-map(
+		sizes.$size-scale,
+		'$size-scale',
+		'Size',
+		sizes.$base-size,
+		$key
+	);
+}

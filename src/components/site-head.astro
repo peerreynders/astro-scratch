@@ -24,13 +24,13 @@ const activeProps = (targetPath: string, current: string) => {
 ---
 
 <a class="skip-link button" href="#main-content">Skip to content</a>
-<header role="banner" class="site-head">
-	<div class="wrapper">
-		<div class="site-head__inner">
-			<a href="/" aria-label={`${SITE_NAME} - home`} class="site-head__brand">
+<header role="banner" class="c-site-head">
+	<div class="c-site-head__outer">
+		<div class="c-site-head__inner">
+			<a href="/" aria-label={`${SITE_NAME} - home`} class="c-site-head__brand">
 				<Brand />
 			</a>
-			<nav class="nav site-head__nav font-sans" aria-label="Primary">
+			<nav class="nav c-site-head__nav font-sans" aria-label="Primary">
 				<ul class="nav__list">
 					{
 						navigations.map(([pathname, name]) => (

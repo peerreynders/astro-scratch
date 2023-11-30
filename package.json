@@ -23,6 +23,7 @@
     "url": "https://github.com/peerreynders/astro-scratch/issues"
   },
   "dependencies": {
+    "@astrojs/check": "^0.3.1",
     "@astrojs/rss": "^3.0.0",
     "astro": "^3.6.3",
     "github-slugger": "^2.0.0",
