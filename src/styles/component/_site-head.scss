@@ -1,11 +1,11 @@
-@use '../setting';
-@use '../mixin';
+@use '../setting' as s;
+@use '../utility' as u;
 
 .c-site-head {
-	padding: setting.from-size('600') 0;
+	padding: s.from-size('600') 0;
 
 	&__outer {
-		@include mixin.wrapper;
+		@include u.wrapper;
 	}
 
 	&__inner {
@@ -17,7 +17,7 @@
 
 	&__brand {
 		flex-shrink: 0;
-		margin-inline-end: setting.from-size(
+		margin-inline-end: s.from-size(
 			'600'
 		); // Prevents nav bunching up to the logo
 
@@ -30,10 +30,10 @@
 	}
 
 	&__nav {
-		padding: setting.from-size('300') 0;
+		padding: s.from-size('300') 0;
 	}
 
-	@include setting.at-breakpoint('md') {
+	@include s.at-breakpoint('md') {
 		&__brand {
 			svg {
 				width: 160px;

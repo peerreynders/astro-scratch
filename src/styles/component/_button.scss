@@ -1,0 +1,29 @@
+@use '../utility';
+@use '../setting' as s;
+
+.c-button {
+	@extend %radius;
+
+	display: inline-block;
+	padding: 0.5rem 2rem;
+	background: s.from-color('quaternary-light');
+	color: s.from-color('dark-dark');
+	border: 2px solid;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	font-family: s.from-font-family('sans');
+	font-weight: s.from-font-weight('bold');
+
+	// Make sure hover state trumps all variants with a good ol’ important
+	&:hover {
+		background: s.from-color('quaternary') !important;
+		color: s.from-color('dark-dark') !important;
+	}
+
+	// Add a ghost modifier
+	.c-button--ghost {
+		background: transparent;
+		color: s.from-color('quaternary-light');
+	}
+}

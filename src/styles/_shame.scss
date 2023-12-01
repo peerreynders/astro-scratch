@@ -712,17 +712,6 @@ h4 {
 	}
 }
 
-.skip-link {
-	position: absolute;
-	top: from-size('400');
-	left: from-size('400');
-	z-index: 99;
-
-	&:not(:focus) {
-		@extend %visually-hidden;
-	}
-}
-
 /* --- More utilities --- */
 /*
   AUTO GRID

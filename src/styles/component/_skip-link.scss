@@ -1,0 +1,16 @@
+@use '../setting' as s;
+@use '../utility';
+@use 'button';
+
+.c-skip-link {
+	position: absolute;
+	top: s.from-size('400');
+	left: s.from-size('400');
+	z-index: 99;
+
+	&:not(:focus) {
+		@extend %visually-hidden;
+	}
+
+	@extend .c-button;
+}

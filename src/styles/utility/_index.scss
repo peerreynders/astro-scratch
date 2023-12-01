@@ -1,0 +1,12 @@
+@forward './mixins';
+@forward './extends';
+
+@use './extends';
+
+.radius {
+	@extend %radius;
+}
+
+.visually-hidden {
+	@extend %visually-hidden;
+}
