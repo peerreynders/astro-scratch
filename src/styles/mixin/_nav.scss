@@ -1,0 +1,51 @@
+@use '../setting' as s;
+
+@mixin nav($name) {
+	$underline-active: $name + '-active-underline';
+
+	// Adds the fake underline to active state items
+	%#{$underline-active}, .js\:#{$name}--active:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0.25rem;
+		position: absolute;
+  	top: 100%;
+		left: 0;
+		margin-top: 0.25rem;
+		background: s.from-color('quinary-dark');
+	}
+
+	.#{$name} {
+		line-height: 1;
+		font-weight: 900;
+		margin-top: -#{s.from-size('400')};
+		margin-inline-start: -#{s.from-size('400')};
+
+		&__list {
+			display: flex;
+			flex-wrap: wrap;
+
+			> * {
+				padding-top: s.from-size('400');
+				padding-inline-start: s.from-size('400');
+			}
+		}
+
+		a {
+			text-decoration: none;
+			display: block;
+			position: relative;
+
+			&[aria-current='page'] {
+				&:before {
+					@extend %#{$underline-active} 
+				}
+			}	
+		}
+
+		// At the end in case of overrides.
+		@content
+	}
+}
+

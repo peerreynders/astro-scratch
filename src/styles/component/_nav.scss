@@ -1,0 +1,7 @@
+@use '../mixin' as m;
+@use '../setting' as s;
+
+@include m.nav($name: 'c-nav') {
+	font-family: s.from-font-family('sans');
+	padding: s.from-size('300') 0;
+}

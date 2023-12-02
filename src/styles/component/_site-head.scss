@@ -29,10 +29,6 @@
 		}
 	}
 
-	&__nav {
-		padding: s.from-size('300') 0;
-	}
-
 	@include s.at-breakpoint('md') {
 		&__brand {
 			svg {

@@ -17,7 +17,7 @@ const activeProps = (targetPath: string, current: string) => {
 	if (targetPath === current) props['aria-current'] = 'page';
 
 	if (targetPath.length > 1 && current.startsWith(targetPath))
-		props['data-state'] = 'active';
+		props['class'] = 'js:c-nav--active';
 
 	return props;
 };
@@ -30,8 +30,8 @@ const activeProps = (targetPath: string, current: string) => {
 			<a href="/" aria-label={`${SITE_NAME} - home`} class="c-site-head__brand">
 				<Brand />
 			</a>
-			<nav class="nav c-site-head__nav font-sans" aria-label="Primary">
-				<ul class="nav__list">
+			<nav class="c-nav" aria-label="Primary">
+				<ul class="c-nav__list">
 					{
 						navigations.map(([pathname, name]) => (
 							<li>
