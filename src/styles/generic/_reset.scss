@@ -1,0 +1,131 @@
+@use '../setting' as s;
+
+// A more updated version found here:
+// https://andy-bell.co.uk/a-more-modern-css-reset/
+
+/* Box sizing rules */
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+/* Remove default padding */
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+	padding: 0;
+	list-style: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Set core root defaults */
+html {
+	scroll-behavior: smooth;
+}
+
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+	color: currentColor;
+	text-decoration-color: s.from-color('quinary');
+}
+
+/* Make images easier to work with */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01s !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01s !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+:root {
+	--flow-space: #{s.from-size('600')};
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	background: s.from-color('light');
+	color: s.from-color('dark-dark');
+	font-size: s.from-size('500');
+	font-family: s.from-font-family('base');
+}
+
+:focus {
+	outline: 2px dashed s.from-color('primary');
+	outline-offset: 0.25rem;
+}
+
+main:focus {
+	outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: 900;
+
+	font-family: s.from-font-family('sans');
+	line-height: s.from-line-height('flat');
+}
+
+// High contrast selection because it can help visually-impaired
+// folks read the text easier
+::selection {
+	color: s.from-color('light');
+
+	// We set this as an RGBA because that’s how you get a solid color, by using 0.99
+	// alpha value. Browsers are wild.
+	background: rgba(s.from-color('dark-dark'), 0.99);
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+	height: 1rem;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+	border: 1px solid from-color('dark-light');
+	border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: from-color('dark');
+	border-radius: 0.25rem;
+}

@@ -4,13 +4,14 @@
 	$underline-active: $name + '-active-underline';
 
 	// Adds the fake underline to active state items
-	%#{$underline-active}, .js\:#{$name}--active:before {
+	%#{$underline-active},
+	.js\:#{$name}--active:before {
 		content: '';
 		display: block;
 		width: 100%;
 		height: 0.25rem;
 		position: absolute;
-  	top: 100%;
+		top: 100%;
 		left: 0;
 		margin-top: 0.25rem;
 		background: s.from-color('quinary-dark');
@@ -39,13 +40,12 @@
 
 			&[aria-current='page'] {
 				&:before {
-					@extend %#{$underline-active} 
+					@extend %#{$underline-active};
 				}
-			}	
+			}
 		}
 
 		// At the end in case of overrides.
-		@content
+		@content;
 	}
 }
-

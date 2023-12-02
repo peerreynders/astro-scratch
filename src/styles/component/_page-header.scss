@@ -1,0 +1,15 @@
+@use '../setting' as s;
+@use '../utility' as u;
+
+.c-page-header {
+	background: s.from-color('light-light');
+	padding: s.from-size('800') 0;
+
+	&__wrapper {
+		@include u.wrapper;
+
+		& > * + * {
+			@extend %flow;
+		}
+	}
+}

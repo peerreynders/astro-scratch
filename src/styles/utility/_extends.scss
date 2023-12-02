@@ -5,6 +5,14 @@
 // https://csswizardry.com/2014/01/extending-silent-classes-in-sass
 //
 
+/**
+ * FLOW
+ * Applies a margin to sibling elements based on a --flow-space custom property.
+ */
+%flow {
+	margin-top: var(--flow-space, s.from-size('600'));
+}
+
 %radius {
 	border-radius: s.$border-radius;
 }

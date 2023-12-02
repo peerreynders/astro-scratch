@@ -1,0 +1,29 @@
+@use '../setting' as s;
+
+.u-headline {
+	font-size: s.from-size('700');
+	max-width: 18ch;
+
+	@include s.at-breakpoint('md') {
+		font-size: s.from-size('800');
+	}
+
+	@include s.at-breakpoint('lg') {
+		font-size: s.from-size('900');
+	}
+
+	&::after {
+		content: '.';
+	}
+
+	// For each color, create an exception
+	@each $headline-highlight
+		in ('dark', 'primary', 'secondary', 'quaternary', 'quinary')
+	{
+		&--#{$headline-highlight} {
+			&::after {
+				color: s.from-color($headline-highlight);
+			}
+		}
+	}
+}

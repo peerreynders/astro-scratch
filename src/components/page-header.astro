@@ -8,16 +8,15 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<div class="page-header bg-light-light">
-	<div class="wrapper flow">
+<div class="c-page-header">
+	<div class="c-page-header__wrapper">
 		<!-- prettier-ignore -->
 		<h1 
-		  class="page-header__heading headline"
-			data-highlight="primary"
+		  class="u-headline u-headline--primary"
 		>{title}</h1>
 		{
 			Astro.slots.has('default') && (
-				<div class="page-header__summary measure-long">
+				<div class="u-measure-long">
 					<slot />
 				</div>
 			)

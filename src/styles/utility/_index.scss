@@ -1,12 +1,18 @@
-@forward './mixins';
 @forward './extends';
+@forward './headline';
+@forward './measure';
+@forward './mixins';
 
 @use './extends';
 
-.radius {
+.u-flow > * + * {
+	@extend %flow;
+}
+
+.u-radius {
 	@extend %radius;
 }
 
-.visually-hidden {
+.u-visually-hidden {
 	@extend %visually-hidden;
 }

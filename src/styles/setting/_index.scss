@@ -12,7 +12,9 @@ $border-radius: 0.25rem;
 }
 
 @function from-font-family($key) {
-	@return string.unquote(fn.from-map(font.$family, '$family', 'Font family', null, $key));
+	@return string.unquote(
+		fn.from-map(font.$family, '$family', 'Font family', null, $key)
+	);
 }
 
 @function from-font-weight($key) {
