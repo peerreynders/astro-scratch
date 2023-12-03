@@ -1,12 +1,7 @@
 @use '../setting' as s;
-@use '../utility' as u;
 
 .c-site-head {
 	padding: s.from-size('600') 0;
-
-	&__outer {
-		@include u.wrapper;
-	}
 
 	&__inner {
 		display: flex;

@@ -11,6 +11,10 @@ $border-radius: 0.25rem;
 	@return fn.from-map(color.$color, '$color', 'Color', null, $key);
 }
 
+@function maybe-color($key) {
+	@return fn.maybe-map(color.$color, $key);
+}
+
 @function from-font-family($key) {
 	@return string.unquote(
 		fn.from-map(font.$family, '$family', 'Font family', null, $key)

@@ -11,20 +11,20 @@ const { people } = Astro.props;
 ---
 {
 	people.length > 0 && (
-		<div class="people">
-			<ol class="auto-grid">
+		<div class="c-people">
+			<ol>
 				{people.map(({ data: { title, name, image } }) => (
 					<li>
-						<figure class="person frame" data-frame="quaternary">
+						<figure class="c-person u-frame u-frame--quaternary">
 							<Image
-								class="person__image radius"
+								class="c-person__image"
 								src={image.src}
 								alt={'Image of ' + name}
 								draggable="false"
 							/>
-							<figcaption class="person__details leading-tight">
-								<span class="person__name font-sans weight-bold">{name}</span>
-								<span class="person__title">{title}</span>
+							<figcaption class="c-person__details">
+								<span class="c-person__name">{name}</span>
+								<span>{title}</span>
 							</figcaption>
 						</figure>
 					</li>

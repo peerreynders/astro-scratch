@@ -1,9 +1,12 @@
-@forward './extends';
+@forward './auto-grid';
+@forward './extend';
+@forward './frame';
 @forward './headline';
 @forward './measure';
-@forward './mixins';
+@forward './mixin';
 
-@use './extends';
+@use './extend';
+@use './mixin' as m;
 
 .u-flow > * + * {
 	@extend %flow;
@@ -15,4 +18,8 @@
 
 .u-visually-hidden {
 	@extend %visually-hidden;
+}
+
+.u-wrapper {
+	@include m.wrapper;
 }

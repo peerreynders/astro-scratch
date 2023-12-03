@@ -1,6 +1,8 @@
 @use '../setting' as s;
 
-.u-headline {
+@mixin headline($highlight-name: null) {
+	$highlight-color: s.maybe-color($highlight-name);
+
 	font-size: s.from-size('700');
 	max-width: 18ch;
 
@@ -14,16 +16,8 @@
 
 	&::after {
 		content: '.';
-	}
-
-	// For each color, create an exception
-	@each $headline-highlight
-		in ('dark', 'primary', 'secondary', 'quaternary', 'quinary')
-	{
-		&--#{$headline-highlight} {
-			&::after {
-				color: s.from-color($headline-highlight);
-			}
+		@if $highlight-color {
+			color: $highlight-color;
 		}
 	}
 }

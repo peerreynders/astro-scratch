@@ -9,11 +9,9 @@ const { title } = Astro.props;
 ---
 
 <div class="c-page-header">
-	<div class="c-page-header__wrapper">
+	<div class="u-wrapper u-flow">
 		<!-- prettier-ignore -->
-		<h1 
-		  class="u-headline u-headline--primary"
-		>{title}</h1>
+		<h1>{title}</h1>
 		{
 			Astro.slots.has('default') && (
 				<div class="u-measure-long">

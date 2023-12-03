@@ -5,11 +5,7 @@
 	background: s.from-color('light-light');
 	padding: s.from-size('800') 0;
 
-	&__wrapper {
-		@include u.wrapper;
-
-		& > * + * {
-			@extend %flow;
-		}
+	& h1 {
+		@include u.headline('primary');
 	}
 }

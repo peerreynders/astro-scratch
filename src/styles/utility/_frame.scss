@@ -1,0 +1,33 @@
+@use '../setting' as s;
+
+.u-frame {
+	position: relative;
+
+	&::before {
+		border: 0.125rem solid s.from-color('dark');
+		border-radius: s.$border-radius;
+		content: '';
+		height: 100%;
+		left: -0.25rem;
+		pointer-events: none;
+		position: absolute;
+		top: -0.25rem;
+		width: 100%;
+		z-index: 1;
+
+		@include s.at-breakpoint('md') {
+			border-width: 0.25rem;
+			left: -0.5rem;
+			top: -0.5rem;
+		}
+	}
+
+	// For each color, create a variant
+	@each $frame-color in ('primary', 'secondary', 'quaternary', 'quinary') {
+		&--#{$frame-color} {
+			&::before {
+				border-color: s.from-color($frame-color);
+			}
+		}
+	}
+}

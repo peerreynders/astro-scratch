@@ -578,40 +578,6 @@ h4 {
 	}
 }
 
-.page-header {
-	padding: from-size('800') 0;
-}
-
-.people {
-	--auto-grid-gap: #{from-size('700')};
-}
-
-.person {
-	position: relative;
-	height: 100%;
-
-	&__details {
-		position: absolute;
-		bottom: 0.5rem;
-		left: -0.25rem;
-		width: calc(100% - 0.5rem);
-		padding: 0.8rem;
-		background: from-color('quaternary');
-	}
-
-	&__image {
-		filter: grayscale(1);
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	&__name {
-		display: block;
-		font-size: from-size('600');
-	}
-}
-
 .tags-list {
 	display: flex;
 	flex-wrap: wrap;

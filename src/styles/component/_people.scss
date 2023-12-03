@@ -1,0 +1,8 @@
+@use '../setting' as s;
+@use '../utility' as u;
+
+.c-people > ol {
+	padding: 0;
+	list-style: none;
+	@include u.auto-grid($grid-gap: s.from-size('700'));
+}

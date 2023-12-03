@@ -10,3 +10,10 @@
 
 	@return $default-value;
 }
+
+@function maybe-map($ref, $key) {
+	@if $key {
+		@return map.get($ref, $key);
+	}
+	@return null;
+}

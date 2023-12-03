@@ -1,0 +1,13 @@
+@use '../setting' as s;
+/*
+  AUTO GRID
+  Set the minimum item size with `--u-auto-grid-min-size` 
+	and you’ll get a fully responsive grid with no media queries.
+
+  https://piccalil.lihttps://piccalil.li/tutorial/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/
+*/
+@mixin auto-grid($min-size: 16rem, $grid-gap: s.from-size('500')) {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax($min-size, 1fr));
+	grid-gap: #{$grid-gap};
+}
