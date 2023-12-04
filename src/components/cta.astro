@@ -12,15 +12,14 @@ const cta = ctaData ? ctaData : (await fromCta()).data;
 
 {
 	cta && (
-		<article class="cta dot-shadow panel bg-dark-dark color-light">
-			<div class="wrapper">
-				<div class="cta__inner flow">
+		<article class="c-cta">
+			<div class="c-cta__outer">
+				<div class="c-cta__inner">
 					{/* prettier-ignore */}
-					<h2 class="cta__heading
-						headline" data-highlight="quaternary">{cta.title}</h2>
-					<p class="cta__summary measure-short">{cta.summary}</p>
+					<h2 class="c-cta__heading">{cta.title}</h2>
+					<p class="c-cta__summary">{cta.summary}</p>
 					<div class="cta__action">
-						<a class="button" data-variant="ghost" href={cta.button.url}>
+						<a class="c-button c-button--ghost" href={cta.button.url}>
 							{cta.button.text}
 						</a>
 					</div>

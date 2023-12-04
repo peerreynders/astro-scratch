@@ -1,9 +1,11 @@
 @forward './auto-grid';
+@forward './dot-shadow';
 @forward './extend';
 @forward './frame';
 @forward './headline';
 @forward './measure';
 @forward './mixin';
+@forward './panel';
 
 @use './extend';
 @use './mixin' as m;

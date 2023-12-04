@@ -9,6 +9,12 @@
  * FLOW
  * Applies a margin to sibling elements based on a --flow-space custom property.
  */
+@mixin flow($space: s.$flow-space) {
+	& > * + * {
+		margin-top: $space;
+	}
+}
+
 %flow {
 	margin-top: var(--flow-space, s.from-size('600'));
 }

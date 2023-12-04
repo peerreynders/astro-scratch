@@ -1,7 +1,7 @@
 @use '../setting' as s;
 
 @mixin headline($highlight-name: null) {
-	$highlight-color: s.maybe-color($highlight-name);
+	$color-maybe: if($highlight-name, s.from-color($highlight-name), null);
 
 	font-size: s.from-size('700');
 	max-width: 18ch;
@@ -16,8 +16,8 @@
 
 	&::after {
 		content: '.';
-		@if $highlight-color {
-			color: $highlight-color;
+		@if $color-maybe {
+			color: $color-maybe;
 		}
 	}
 }

@@ -3,16 +3,11 @@
 @use '../function' as fn;
 @use 'color';
 @use 'font';
+@use 'measure';
 @use 'size';
-
-$border-radius: 0.25rem;
 
 @function from-color($key) {
 	@return fn.from-map(color.$color, '$color', 'Color', null, $key);
-}
-
-@function maybe-color($key) {
-	@return fn.maybe-map(color.$color, $key);
 }
 
 @function from-font-family($key) {
@@ -27,6 +22,10 @@ $border-radius: 0.25rem;
 
 @function from-line-height($key) {
 	@return fn.from-map(font.$height, '$height', 'Line height', null, $key);
+}
+
+@function from-measure($key) {
+	@return fn.from-map(measure.$measure-value, '$measure', 'Measure', null, $key);
 }
 
 @function from-size($key) {
@@ -50,3 +49,6 @@ $border-radius: 0.25rem;
 		@warn #{ 'Breakpoint, ‘' + $key + '’ not found in `$breakpoint-target`.' };
 	}
 }
+
+$border-radius: 0.25rem;
+$flow-space: from-size('600');

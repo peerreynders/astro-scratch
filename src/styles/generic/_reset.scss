@@ -71,7 +71,7 @@ select {
 }
 
 :root {
-	--flow-space: #{s.from-size('600')};
+	--flow-space: #{s.$flow-space};
 }
 
 /* Set core body defaults */

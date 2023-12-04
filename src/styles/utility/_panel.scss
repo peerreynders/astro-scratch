@@ -1,0 +1,15 @@
+@use '../setting' as s;
+
+// Adds consistent space and padding for each full panel section
+@mixin panel {
+	$base-separation: s.from-size('700');
+	$more-separation: s.from-size('800');
+
+	margin: $base-separation 0;
+	padding: $base-separation 0;
+
+	@include s.at-breakpoint('md') {
+		margin: $more-separation 0;
+		padding: $more-separation 0;
+	}
+}

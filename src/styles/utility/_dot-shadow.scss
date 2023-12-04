@@ -1,0 +1,22 @@
+@use '../setting' as s;
+
+@mixin dot-shadow($size: 0.75rem) {
+	$offset: 0 - $size;
+	$length: 2 * $size;
+
+	position: relative;
+
+	&::before {
+		border-radius: s.$border-radius;
+		content: '';
+		display: block;
+		height: calc(100% + $length);
+		width: calc(100% + $length);
+		background-image: url("data:image/svg+xml,%3Csvg width='6px' height='6px' viewBox='0 0 6 6' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='%23CAC6B8' cx='1' cy='5' r='1'%3E%3C/circle%3E%3Ccircle fill='%23CAC6B8' cx='4' cy='2' r='1'%3E%3C/circle%3E%3C/svg%3E%0A");
+		position: absolute;
+		top: $offset;
+		left: $offset;
+		z-index: -1;
+	}
+}
+
