@@ -480,57 +480,6 @@ h4 {
 	}
 }
 
-.cta {
-	// This is a dark panel, so we need to flip the selection styles
-	::selection {
-		// We set this as an RGBA because that’s how you get a solid color, by using 0.99
-		// alpha value. Browsers are wild.
-		background: rgba(from-color('light'), 0.99);
-		color: from-color('dark-dark');
-	}
-
-	@include at-breakpoint('md') {
-		&__inner {
-			display: grid;
-			grid-gap: from-size('700') from-size('500');
-			grid-template-columns: repeat(12, 1fr);
-
-			@supports (display: grid) {
-				> * {
-					margin: 0;
-				}
-			}
-		}
-
-		&__heading {
-			grid-area: 1/1/1/9;
-		}
-
-		&__summary {
-			// Pull the content in from the right, by reversing columns
-			grid-area: 2/5/2/12;
-		}
-
-		&__action {
-			grid-area: 3/3/3/12;
-		}
-	}
-
-	@include at-breakpoint('lg') {
-		&__inner {
-			grid-gap: from-size('500');
-		}
-
-		&__summary {
-			grid-area: 2/7/2/12;
-		}
-
-		&__action {
-			grid-area: 3/6/3/12;
-		}
-	}
-}
-
 .gallery {
 	display: flex;
 	flex-direction: column;

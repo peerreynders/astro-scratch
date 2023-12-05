@@ -1,0 +1,9 @@
+@use '../utility' as u;
+
+.c-page {
+	@include u.page-panel('tertiary-light');
+
+	&__wrapper {
+		@include u.page-content;
+	}
+}

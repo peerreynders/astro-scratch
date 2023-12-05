@@ -1,0 +1,11 @@
+@use '../setting' as s;
+@use '../utility' as u;
+
+.c-about {
+	@include u.page-panel('light-light');
+
+	&__wrapper h2 {
+		@include u.headline('dark');
+		color: s.from-color('quinary');
+	}
+}

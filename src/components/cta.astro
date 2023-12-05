@@ -14,11 +14,11 @@ const cta = ctaData ? ctaData : (await fromCta()).data;
 	cta && (
 		<article class="c-cta">
 			<div class="c-cta__outer">
-				<div class="c-cta__inner">
+				<div class="c-cta__inner u-flow">
 					{/* prettier-ignore */}
 					<h2 class="c-cta__heading">{cta.title}</h2>
 					<p class="c-cta__summary">{cta.summary}</p>
-					<div class="cta__action">
+					<div class="c-cta__action">
 						<a class="c-button c-button--ghost" href={cta.button.url}>
 							{cta.button.text}
 						</a>

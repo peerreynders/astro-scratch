@@ -25,7 +25,13 @@
 }
 
 @function from-measure($key) {
-	@return fn.from-map(measure.$measure-value, '$measure', 'Measure', null, $key);
+	@return fn.from-map(
+		measure.$measure-value,
+		'$measure',
+		'Measure',
+		null,
+		$key
+	);
 }
 
 @function from-size($key) {

@@ -1,0 +1,18 @@
+@use '../setting' as s;
+@use './dot-shadow';
+@use './panel';
+@use './mixin';
+
+@mixin page-panel($color-name) {
+	$color: if($color-name, s.from-color($color-name), null);
+	@include panel.panel;
+	@include dot-shadow.dot-shadow;
+	@if $color {
+		background-color: $color;
+	}
+
+	&__wrapper {
+		--u-flow-space: #{s.from-size('700')};
+		@include mixin.wrapper;
+	}
+}

@@ -1,18 +1,16 @@
 @forward './auto-grid';
 @forward './dot-shadow';
 @forward './extend';
+@forward './flow';
 @forward './frame';
 @forward './headline';
 @forward './measure';
 @forward './mixin';
+@forward './page-content';
+@forward './page-panel';
 @forward './panel';
 
-@use './extend';
 @use './mixin' as m;
-
-.u-flow > * + * {
-	@extend %flow;
-}
 
 .u-radius {
 	@extend %radius;

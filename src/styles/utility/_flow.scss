@@ -1,0 +1,10 @@
+@use '../setting' as s;
+
+// FLOW
+// Applies a margin to sibling elements based on a --u-flow-space custom property.
+.u-flow > * + * {
+	margin-top: var(--u-flow-space, s.from-size('600'));
+}
+
+// Note: Instead of using @extend just use this utility class with
+// the co-dependent class setting the desired --u-flow-space values
