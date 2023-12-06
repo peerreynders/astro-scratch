@@ -17,16 +17,16 @@ const previousHref = previous ?(anchor ? previous.href + anchor : previous.href)
 
 {
 	(nextHref || previousHref) && (
-		<footer class="pagination dot-shadow panel bg-light-light font-sans weight-bold">
-			<div class="wrapper">
-				<nav class="pagination__inner" aria-label="Pagination links">
+		<footer class="c-pagination">
+			<div class="c-pagination__wrapper">
+				<nav class="c-pagination__inner" aria-label="Pagination links">
 					{previousHref && (
-						<a href={previousHref} data-direction="backwards">
+						<a href={previousHref} class="c-pagination__previous">
 							<span>{previous?.label ?? 'Previous'}</span>
 						</a>
 					)}
 					{nextHref && (
-						<a href={nextHref} data-direction="forwards">
+						<a href={nextHref} class="c-pagination__next">
 							<span>{next?.label ?? 'Next'}</span>
 						</a>
 					)}

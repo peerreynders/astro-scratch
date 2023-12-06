@@ -1,0 +1,9 @@
+@use '../setting' as s;
+
+@mixin anchor {
+	text-decoration-skip-ink: auto;
+	color: currentColor;
+	text-decoration-color: s.from-color('quinary');
+}
+
+

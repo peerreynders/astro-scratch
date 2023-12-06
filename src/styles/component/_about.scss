@@ -4,8 +4,12 @@
 .c-about {
 	@include u.page-panel('light-light');
 
-	&__wrapper h2 {
-		@include u.headline('dark');
-		color: s.from-color('quinary');
+	&__wrapper {
+		--u-flow-space: #{s.from-size('700')};
+
+		& h2 {
+			@include u.headline('dark');
+			color: s.from-color('quinary');
+		}
 	}
 }

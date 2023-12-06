@@ -1,9 +1,11 @@
+@use '../setting' as s;
 @use '../utility' as u;
 
 .c-page {
 	@include u.page-panel('tertiary-light');
 
 	&__wrapper {
+		--u-flow-space: #{s.from-size('700')};
 		@include u.page-content;
 	}
 }

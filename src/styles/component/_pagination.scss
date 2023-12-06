@@ -1,0 +1,24 @@
+@use '../generic' as g;
+@use '../setting' as s;
+@use '../utility' as u;
+
+.c-pagination {
+	@include u.page-panel('light-light');
+	font-family: s.from-font-family('sans');
+	font-weight: s.from-font-weight('bold');
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		& a {
+			@include g.anchor;
+	  }
+	}
+
+	// Pushes a sole "next" link out to the right
+	&__inner > &__next {
+		margin-inline-start: auto;
+	}
+}

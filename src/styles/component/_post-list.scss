@@ -1,0 +1,33 @@
+@use '../setting' as s;
+@use '../utility' as u;
+
+.c-post-list {
+	@include u.page-panel('secondary-light');
+
+	&__wrapper {
+		--u-flow-space: #{s.from-size('700')};
+	}
+
+	&__header {
+		@include u.headline('primary');	
+		max-width: s.from-measure('micro');
+	}
+
+	&__item {
+		line-height: s.from-line-height('tight'); 
+		max-width: s.from-measure('long');
+	}
+
+	&__link {
+		color: s.from-color('dark-dark');
+		font-family: s.from-font-family('sans');
+		font-size: s.from-size('700');
+		font-weight: s.from-font-weight('bold');
+		text-decoration-color: s.from-color('primary-dark');
+
+		&:hover {
+			color: s.from-color('primary-dark');
+			text-decoration-color: s.from-color('dark-dark');
+		}
+	}
+}

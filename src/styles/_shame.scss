@@ -963,35 +963,6 @@ time[datetime] {
 	font-style: italic;
 }
 
-.pagination {
-	&__inner {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-	}
-
-	// Pushes a sole "next" link out to the right
-	&__inner > [data-direction='forwards'] {
-		margin-inline-start: auto;
-	}
-}
-
-.post-list {
-	&__link {
-		font-size: from-size('700');
-		color: from-color('dark-dark');
-		text-decoration-color: from-color('primary-dark');
-
-		@include font-sans;
-		@include weight-bold;
-
-		&:hover {
-			color: from-color('primary-dark');
-			text-decoration-color: from-color('dark-dark');
-		}
-	}
-}
-
 .hero {
 	position: relative;
 	padding: 50vh 0 from-size('800') 0;

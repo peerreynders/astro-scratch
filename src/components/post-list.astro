@@ -11,17 +11,17 @@ interface Props {
 const { headline, posts } = Astro.props;
 ---
 
-<div class="dot-shadow panel bg-secondary-light" id="post-list">
-	<div class="wrapper flow flow-space-700">
+<div class="c-post-list" id="post-list">
+	<div class="c-post-list__wrapper u-flow">
 		{
-			headline && /* prettier-ignore */ <h2 class="headline measure-micro" data-highlight="primary">{headline}</h2>
+			headline && /* prettier-ignore */ <h2 class="c-post-list__header">{headline}</h2>
 		}
 		<div>
-			<ol class="post-list flow">
+			<ol class="u-flow">
 				{
 					posts.map((item) => (
-						<li class="post-list__item leading-tight measure-long">
-							<a href={hrefFromPostSlug(item.slug)} class="post-list__link">
+						<li class="c-post-list__item">
+							<a href={hrefFromPostSlug(item.slug)} class="c-post-list__link">
 								{item.data.title}
 							</a>
 						</li>
