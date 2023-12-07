@@ -9,12 +9,12 @@
 	}
 
 	&__header {
-		@include u.headline('primary');	
-		max-width: s.from-measure('micro');
+		@include u.headline('primary');
+		// max-width: s.from-measure('micro');
 	}
 
 	&__item {
-		line-height: s.from-line-height('tight'); 
+		line-height: s.from-line-height('tight');
 		max-width: s.from-measure('long');
 	}
 

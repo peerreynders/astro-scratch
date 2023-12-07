@@ -30,10 +30,10 @@ const recommendPosts = await fromPostsRecommend([slug]);
 			{
 				tags.length > 0 && (
 					<>
-						<p class="visually-hidden" id="tags-desc">
+						<p class="u-visually-hidden" id="tags-desc">
 							Tags that this post has been filed under.
 						</p>
-						<ul class="tags-list" aria-describedby="tags-desc">
+						<ul class="c-tag-list" aria-describedby="tags-desc">
 							{tags.map(([tag, tagHref]) => (
 								<li>
 									<a href={tagHref}>{'#' + tag}</a>
@@ -44,12 +44,12 @@ const recommendPosts = await fromPostsRecommend([slug]);
 				)
 			}
 		</PageHeader>
-		<div class="page-content flow wrapper flow-space-700 gap-top-700">
+		<div class="c-post-content u-flow">
 			<slot />
 		</div>
 		{
 			recommendPosts && recommendPosts.length > 0 && (
-				<footer class="recommended-posts">
+				<footer>
 					<PostList headline={'More from the blog'} posts={recommendPosts} />
 				</footer>
 			)

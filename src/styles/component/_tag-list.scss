@@ -1,0 +1,16 @@
+@use '../setting' as s;
+
+.c-tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+
+	&[class] {
+		margin-inline-start: -#{s.from-size('400')};
+	}
+
+	> * {
+		padding-top: s.from-size('400');
+		padding-inline-start: s.from-size('400');
+	}
+}

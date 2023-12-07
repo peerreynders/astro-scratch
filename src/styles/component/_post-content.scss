@@ -1,0 +1,9 @@
+@use '../setting' as s;
+@use '../utility' as u;
+
+.c-post-content {
+	@include u.page-content;
+	@include u.wrapper;
+	--u-flow-space: #{s.from-size('700')};
+	margin-top: s.from-size('700');
+}
