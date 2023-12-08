@@ -1,6 +1,9 @@
 @use '../setting' as s;
+@use '../utility' as u;
 
 .c-person {
+	@include u.frame('quaternary');
+
 	position: relative;
 	height: 100%;
 

@@ -2,7 +2,7 @@
 // file: src/layouts/about.astro
 import Base from './base.astro';
 import PageHeader from '../components/page-header.astro';
-import People from '../components/people.astro';
+import PeoplePanel from '../components/people-panel.astro';
 import Cta from '../components/cta.astro';
 import { fromPeople } from '../lib/collections';
 
@@ -15,7 +15,7 @@ interface Props {
 const {
 	frontmatter: { title },
 } = Astro.props;
-const entries = await fromPeople();
+const people = await fromPeople();
 ---
 
 <Base title={title}>
@@ -23,17 +23,7 @@ const entries = await fromPeople();
 		<PageHeader title={title}>
 			<slot />
 		</PageHeader>
-		{
-			entries.length > 0 && (
-				<div class="c-about">
-					<div class="c-about__wrapper u-flow">
-						{ /* prettier-ignore */}
-						<h2>Meet the team</h2>
-						<People people={entries} />
-					</div>
-				</div>
-			)
-		}
+		<PeoplePanel title={'Meet the team'} {people} />
 	</article>
 	<Cta />
 </Base>

@@ -26,25 +26,25 @@ const entries = await fromWork();
 			<slot />
 		</PageHeader>
 	</article>
-	<div class="panel dot-shadow bg-tertiary-light">
-		<div class="wrapper">
-			<article class="gallery flow flow-space-800">
+	<div class="c-work-list">
+		<div class="c-work-list__wrapper">
+			<article class="c-gallery u-flow">
 				{
 					entries.map(({ slug, data: { hero, title, summary } }) => (
-						<figure class="gallery__item flow">
-							<div class="gallery__media frame" data-frame="primary">
+						<figure class="c-gallery__item u-flow">
+							<div class="c-gallery__media">
 								<Image
-									class="radius"
+									class="u-radius"
 									src={hero.src}
 									alt={hero.alt}
 								/>
 							</div>
-							<figcaption class="gallery__content flow">
-								<h2 class="gallery__heading text-700 md:text-900">{title}</h2>
-								<p class="gallery__summary measure-short flow-space-300">
+							<figcaption class="c-gallery__content u-flow">
+								<h2 class="c-gallery__heading">{title}</h2>
+								<p class="c-gallery__summary">
 									{summary}
 								</p>
-								<a href={hrefFromWorkSlug(slug)} class="button">
+								<a href={hrefFromWorkSlug(slug)} class="c-button">
 									See this work
 								</a>
 							</figcaption>

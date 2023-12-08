@@ -1,0 +1,23 @@
+---
+// file: src/components/people-panel.astro
+import type { CollectionEntry } from 'astro:content';
+import People from '../components/people.astro';
+
+interface Props {
+	title: string;
+	people: CollectionEntry<'people'>[];
+};
+
+const { people, title } = Astro.props;
+---
+
+{people.length > 0 && (
+	<article class="c-people-panel">
+		<div class="c-people-panel__wrapper u-flow">
+			{/* prettier-ignore */}
+			<h2>{title}</h2>
+			<People people={people} />
+		</div>
+	</article>
+)}
+	

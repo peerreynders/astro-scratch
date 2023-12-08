@@ -1,7 +1,7 @@
 @use '../setting' as s;
 @use '../utility' as u;
 
-.c-about {
+.c-people-panel {
 	@include u.page-panel('light-light');
 
 	&__wrapper {

@@ -15,7 +15,7 @@ const { people } = Astro.props;
 			<ol>
 				{people.map(({ data: { title, name, image } }) => (
 					<li>
-						<figure class="c-person u-frame u-frame--quaternary">
+						<figure class="c-person">
 							<Image
 								class="c-person__image"
 								src={image.src}

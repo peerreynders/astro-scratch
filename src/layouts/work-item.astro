@@ -3,7 +3,7 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import Base from './base.astro';
-import People from '../components/people.astro';
+import PeoplePanel from '../components/people-panel.astro';
 import Cta from '../components/cta.astro';
 
 interface Props {
@@ -75,23 +75,23 @@ const {
 			</div>
 		</article>
 		<div class="wrapper">
-			<article class="gallery flow flow-space-800">
+			<article class="c-gallery u-flow">
 				{
 					gallery.map((entry) => (
-						<figure class="gallery__item flow">
-							<div class="gallery__media frame" data-frame="primary">
+						<figure class="c-gallery__item u-flow">
+							<div class="c-gallery__media">
 								<Image
-									class="radius"
+									class="u-radius"
 									src={entry.image.src}
 									alt={entry.image.alt}
 									aria-hidden="true"
 								/>
 							</div>
-							<figcaption class="gallery__content flow">
-								<h2 class="gallery__heading text-700 md:text-900">
+							<figcaption class="c-gallery__content u-flow">
+								<h2 class="c-gallery__heading">
 									{entry.title}
 								</h2>
-								<p class="gallery__summary measure-short flow-space-300">
+								<p class="c-gallery__summary">
 									{entry.summary}
 								</p>
 							</figcaption>
@@ -100,17 +100,7 @@ const {
 				}
 			</article>
 		</div>
-		{
-			people.length > 0 && (
-				<article class="no-js-hidden panel dot-shadow bg-light-glare">
-					<div class="wrapper flow flow-space-700">
-						{/* prettier-ignore */}
-						<h2 class="headline measure-micro color-quinary" data-highlight="dark">Meet the team behind this project</h2>
-						<People people={people} />
-					</div>
-				</article>
-			)
-		}
+		<PeoplePanel title={'Meet the team behind this project'} {people} />
 	</section>
 	<Cta />
 </Base>
