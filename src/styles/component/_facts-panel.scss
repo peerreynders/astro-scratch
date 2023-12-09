@@ -1,0 +1,50 @@
+@use '../setting' as s;
+@use '../utility' as u;
+
+.c-facts-panel {
+	color: s.from-color('light');
+	background-color: s.from-color('primary-dark');
+	@include u.page-panel;
+
+	&__wrapper {
+		& h2 {
+			@include u.headline('secondary');
+		}
+
+		& > div:last-child {
+			--u-flow-space: #{s.from-size('700')};
+			font-family: s.from-font-family('sans');
+			font-weight: s.from-font-weight('bold');
+			line-height: s.from-line-height('flat');
+		}
+	}
+
+	&__list {
+		@include u.auto-grid($grid-gap: s.from-size('800') s.from-size('500'));
+	}
+
+	&__item {
+		--u-flow-space: #{s.from-size('300')};
+
+		& > * {
+			display: block;
+		}
+	}
+
+	&__value {
+		color: s.from-color('secondary-light');
+		font-size: s.from-size('700');
+
+		@include s.at-breakpoint('md') {
+			font-size: s.from-size('800');
+		}
+	}
+
+	&__fact {
+		font-size: s.from-size('600');
+
+		@include s.at-breakpoint('lg') {
+			font-size: s.from-size('700');
+		}
+	}
+}

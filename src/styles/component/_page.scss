@@ -2,7 +2,8 @@
 @use '../utility' as u;
 
 .c-page {
-	@include u.page-panel('tertiary-light');
+	background-color: s.from-color('tertiary-light');
+	@include u.page-panel;
 
 	&__wrapper {
 		--u-flow-space: #{s.from-size('700')};

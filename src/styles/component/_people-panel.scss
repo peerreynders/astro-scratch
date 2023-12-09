@@ -2,7 +2,8 @@
 @use '../utility' as u;
 
 .c-people-panel {
-	@include u.page-panel('light-light');
+	background-color: s.from-color('light-light');
+	@include u.page-panel;
 
 	&__wrapper {
 		--u-flow-space: #{s.from-size('700')};

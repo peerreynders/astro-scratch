@@ -3,9 +3,10 @@
 @use '../utility' as u;
 
 .c-pagination {
-	@include u.page-panel('light-light');
+	background-color: s.from-color('light-light');
 	font-family: s.from-font-family('sans');
 	font-weight: s.from-font-weight('bold');
+	@include u.page-panel;
 
 	&__inner {
 		display: flex;

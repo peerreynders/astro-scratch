@@ -3,13 +3,9 @@
 @use './panel';
 @use './mixin';
 
-@mixin page-panel($color-name) {
-	$color: if($color-name, s.from-color($color-name), null);
+@mixin page-panel {
 	@include panel.panel;
 	@include dot-shadow.dot-shadow;
-	@if $color {
-		background-color: $color;
-	}
 
 	&__wrapper {
 		@include mixin.wrapper;

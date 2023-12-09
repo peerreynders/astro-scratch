@@ -1,0 +1,43 @@
+@use '../setting' as s;
+@use '../utility' as u;
+
+.c-hero {
+	position: relative;
+	padding: 50vh 0 s.from-size('800') 0;
+
+	&__inner {
+		@include u.wrapper;
+
+		position: relative;
+		z-index: 1;
+	}
+
+	&__content {
+		--u-flow-space: #{s.from-size('400')};
+		@include u.dot-shadow;
+
+		background-color: s.from-color('dark-dark');
+		border-radius: s.$border-radius;
+		color: s.from-color('light');
+		display: inline-block;
+		padding: s.from-size('500');
+
+		& h1 {
+			@include u.headline('quinary');
+			// max-width: s.from-measure('compact');
+		}
+
+		& > p:last-child {
+			max-width: s.from-measure('short');
+		}
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}

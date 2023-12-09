@@ -1,5 +1,7 @@
+@use '../setting' as s;
 @use '../utility' as u;
 
 .c-work-list {
-	@include u.page-panel('tertiary-light');
+	background-color: s.from-color('tertiary-light');
+	@include u.page-panel;
 }
