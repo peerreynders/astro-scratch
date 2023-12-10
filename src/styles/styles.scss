@@ -1,5 +1,5 @@
 @use 'sass:meta';
-@include meta.load-css('generic');
-@include meta.load-css('shame');
+
+@include meta.load-css('generic/reset');
 @include meta.load-css('component');
 @include meta.load-css('utility');

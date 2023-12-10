@@ -23,23 +23,21 @@ const {
 
 ---
 <Base {title} {metaTitle} {metaDesc} {summary} {socialImage}>
-	<div class="wrapper">
-		<article class="intro">
-			<div class="intro__header radius frame">
-				<h1 class="intro__heading weight-normal text-400 md:text-600">
+	<div class="u-wrapper">
+		<article class="c-intro">
+			<div class="c-intro__header">
+				<h1 class="c-intro__heading">
 					{intro.eyebrow}
-					<em class="text-800 md:text-900 lg:text-major weight-bold"
-						>{intro.main}</em
-					>
+					<em>{intro.main}</em>
 				</h1>
 			</div>
-			<div class="intro__content flow">
-				<p class="intro__summary">{intro.summary}</p>
-				<a href={intro.button.url} class="button">{intro.button.text}</a>
+			<div class="c-intro__content u-flow">
+				<p class="c-intro__summary">{intro.summary}</p>
+				<a href={intro.button.url} class="c-button">{intro.button.text}</a>
 			</div>
-			<div class="intro__media radius dot-shadow">
+			<div class="c-intro__media">
 				<Image
-					class="intro__image radius"
+					class="c-intro__image"
 					src={intro.image.src}
 					alt={intro.image.alt}
 				/>

@@ -1,7 +1,0 @@
-@use '../setting/measure' as m;
-
-@each $key, $value in m.$measure-value {
-	.u-measure-#{$key} {
-		max-width: $value;
-	}
-}

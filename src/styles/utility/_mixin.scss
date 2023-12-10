@@ -1,9 +1,10 @@
-@use '../setting' as s;
+@forward 'auto-grid';
+@forward 'dot-shadow';
+@forward 'frame';
+@forward 'headline';
+@forward 'nav';
+@forward 'page-content';
+@forward 'page-panel';
+@forward 'visually-hidden';
 
-@mixin wrapper {
-	max-width: 70rem;
-	padding: 0 s.from-size('500');
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-}
+@forward 'wrapper'; 

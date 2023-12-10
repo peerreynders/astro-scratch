@@ -7,16 +7,13 @@ const { featuredWork } = Astro.props;
 const collection = await fromFeaturedWork();
 ---
 
-<article class="featured-work dot-shadow panel bg-light-light">
-	<div class="wrapper flow">
-		<div class="featured-work__inner flow">
-			<div class="featured-work__intro flow flow-space-300">
+<article class="c-featured-work">
+	<div class="c-featured-work__wrapper u-flow">
+		<div class="c-featured-work__inner u-flow">
+			<div class="c-featured-work__intro u-flow">
 				<!-- prettier-ignore -->
-				<h2
-					class="featured-work__heading headline color-quinary-dark lg:measure-micro"
-					data-highlight="dark"
-				>{featuredWork.title}</h2>
-				<p class="featured-work__summary measure-compact">
+				<h2 class="c-featured-work__title">{featuredWork.title}</h2>
+				<p class="c-featured-work__summary">
 					{featuredWork.summary}
 				</p>
 			</div>
@@ -25,20 +22,18 @@ const collection = await fromFeaturedWork();
 					<a
 						href={`/work/${slug}`}
 						aria-label={`See ${title}`}
-						class="featured-work__item frame"
-						data-frame="quaternary"
+						class="c-featured-work__item"
 					>
 						<Image
 							src={hero.src}
 							alt={hero.alt}
-							class="radius"
 						/>
 					</a>
 				))
 			}
 		</div>
-		<div class="featured-work__action flow-space-700">
-			<a href="/work" class="button">See more work</a>
+		<div class="c-featured-work__action">
+			<a href="/work" class="c-button">See more work</a>
 		</div>
 	</div>
 </article>

@@ -1,5 +1,5 @@
 @use '../setting' as s;
-@use '../utility' as u;
+@use '../utility/mixin' as u;
 
 .c-page {
 	background-color: s.from-color('tertiary-light');

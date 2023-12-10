@@ -1,6 +1,6 @@
-@use '../generic' as g;
 @use '../setting' as s;
-@use '../utility' as u;
+@use '../generic/mixin' as g;
+@use '../utility/mixin' as u;
 
 .c-pagination {
 	background-color: s.from-color('light-light');

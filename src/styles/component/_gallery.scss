@@ -1,5 +1,5 @@
 @use '../setting' as s;
-@use '../utility' as u;
+@use '../utility/mixin' as u;
 
 .c-gallery {
 	$gallery-item-space: s.from-size('700');
@@ -9,7 +9,10 @@
 	flex-direction: column;
 
 	&__media {
-		@include u.frame('primary');
+		@include u.frame;
+		&::before {
+			border-color: s.from-color('primary');
+		}
 		max-width: 40rem;
 	}
 

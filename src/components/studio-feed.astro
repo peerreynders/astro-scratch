@@ -8,16 +8,16 @@ const feed = toStudioFeed(await fromStudio());
 ---
 {
 	feed.length && (
-		<article class="studio-feed dot-shadow panel bg-tertiary-light">
-			<div class="wrapper flow flow-space-300">
+		<article class="c-studio-feed">
+			<div class="c-studio-feed__wrapper u-flow">
 				{/* prettier-ignore */}
-				<h2 class="studio-feed__heading headline md:measure-micro" data-highlight="secondary">{studioFeed.title}</h2>
-				<p class="visually-hidden" id="studio-feed-desc">
+				<h2 class="c-studio-feed__title">{studioFeed.title}</h2>
+				<p class="u-visually-hidden" id="studio-feed-desc">
 					A collection of images from around our studio and the people who work
 					here.
 				</p>
-				<div class="studio-feed__items flow-space-700">
-					<ul class="studio-feed__list">
+				<div>
+					<ul class="c-studio-feed__list">
 						{feed.map(({ src, alt, width, quality }) => (
 							<li>
 								<Image
@@ -26,7 +26,6 @@ const feed = toStudioFeed(await fromStudio());
 									width={width}
 									quality={quality}
 									draggable="false"
-									class="radius"
 								/>
 							</li>
 						))}

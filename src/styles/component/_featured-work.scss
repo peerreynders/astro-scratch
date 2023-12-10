@@ -1,0 +1,86 @@
+@use '../setting' as s;
+@use '../utility/mixin' as u;
+
+.c-featured-work {
+	background-color: s.from-color('light-light');
+	@include u.page-panel;
+
+	&__intro {
+		--u-flow-space: #{s.from-size('300')};	
+	}
+
+	&__title {
+		@include u.headline('dark');
+		color: s.from-color('quinary-dark');
+	}
+
+	&__summary {
+		max-width: s.from-measure('compact');
+	}
+
+	&__item {
+		display: block;
+
+		@include u.frame;
+		&::before {
+			border-color: s.from-color('quaternary');
+		}
+
+		img {
+			border-radius: s.$border-radius;
+		}
+	}
+
+	&__action {
+		--u-flow-space: #{s.from-size('700')};	
+		text-align: center;
+	}
+
+	@include s.at-breakpoint('md') {
+		&__inner {
+			display: grid;
+			grid-template-columns: repeat(12, 1fr);
+			grid-gap: s.from-size('700') s.from-size('500');
+
+			@supports (display: grid) {
+				> * {
+					margin: 0;
+				}
+			}
+		}
+
+		&__intro {
+			grid-column: 1/13;
+			align-self: end;
+		}
+
+		&__item {
+			&:nth-child(odd) {
+				grid-column: 1/8;
+			}
+
+			&:nth-child(even) {
+				grid-column: 13/6;
+			}
+		}
+	}
+
+	@include s.at-breakpoint('lg') {
+		grid-template-columns: repeat(2, 1fr);
+
+//		&__title {
+//			max-width: s.from-measure('micro');
+//		}
+
+		&__intro,
+		&__item {
+			&:nth-child(odd) {
+				grid-column: 1/7;
+			}
+
+			&:nth-child(even) {
+				grid-column: 13/7;
+			}
+		}
+	}
+}

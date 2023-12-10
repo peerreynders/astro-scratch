@@ -1,11 +1,14 @@
 @use '../setting' as s;
-@use '../utility' as u;
+@use '../utility/mixin' as u;
 
 .c-person {
-	@include u.frame('quaternary');
-
 	position: relative;
 	height: 100%;
+
+	@include u.frame;
+	&::before {
+		border-color: s.from-color('quaternary');
+	}
 
 	&__details {
 		background: s.from-color('quaternary');

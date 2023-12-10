@@ -1,13 +1,13 @@
 @use '../setting' as s;
 @use './dot-shadow';
 @use './panel';
-@use './mixin';
+@use './wrapper';
 
 @mixin page-panel {
 	@include panel.panel;
 	@include dot-shadow.dot-shadow;
 
 	&__wrapper {
-		@include mixin.wrapper;
+		@include wrapper.wrapper;
 	}
 }

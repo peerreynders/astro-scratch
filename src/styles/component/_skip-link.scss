@@ -1,5 +1,5 @@
 @use '../setting' as s;
-@use '../utility';
+@use '../utility/mixin' as m;
 @use 'button';
 
 .c-skip-link {
@@ -9,7 +9,7 @@
 	z-index: 99;
 
 	&:not(:focus) {
-		@extend %visually-hidden;
+		@include m.visually-hidden;
 	}
 
 	@extend .c-button;

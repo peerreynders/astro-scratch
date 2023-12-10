@@ -1,0 +1,59 @@
+@use '../setting' as s;
+@use '../utility/mixin' as u;
+
+.c-studio-feed {
+	@include u.page-panel;
+	background-color: s.from-color('tertiary-light');
+
+	&__wrapper {
+		--u-flow-space: #{s.from-size('300')};	
+
+		& > div:last-child {
+			--u-flow-space: #{s.from-size('700')};	
+		}
+	}
+
+	&__title {
+		@include u.headline('secondary');
+	}
+
+	&__list {
+		display: flex;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+
+		img {
+			border-radius: s.$border-radius;
+		}
+
+		> * {
+			width: 16rem;
+			height: 13rem;
+			flex-shrink: 0;
+			padding: 0 0 s.from-size('400') 0;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		> * + * {
+			margin-inline-start: s.from-size('500');
+		}
+	}
+
+	@include s.at-breakpoint('md') {
+//		&__title {
+//			max-width: s.from-measure('micro');
+//		}
+
+		&__list {
+			> * {
+				width: 28rem;
+				height: 17rem;
+			}
+		}
+	}
+}

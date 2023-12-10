@@ -1,5 +1,5 @@
 @use '../setting' as s;
-@use '../utility' as u;
+@use '../utility/mixin' as u;
 
 .c-people-panel {
 	background-color: s.from-color('light-light');

@@ -1,0 +1,9 @@
+@use '../setting' as s;
+
+@mixin wrapper {
+	max-width: 70rem;
+	padding: 0 s.from-size('500');
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}

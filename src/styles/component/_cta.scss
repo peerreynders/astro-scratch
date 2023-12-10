@@ -1,7 +1,8 @@
 @use '../setting' as s;
-@use '../utility' as u;
+@use '../utility/mixin' as u;
 
 .c-cta {
+	@include u.page-panel;
 	background-color: s.from-color('dark-dark');
 	color: s.from-color('light');
 
@@ -65,7 +66,4 @@
 			grid-area: 3/6/3/12;
 		}
 	}
-
-	@include u.panel;
-	@include u.dot-shadow;
 }

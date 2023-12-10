@@ -1,13 +1,10 @@
 @use '../setting' as s;
 
-@mixin frame($border-color) {
-	$color-maybe: if($border-color, s.from-color($border-color), null);
-	$color: if($color-maybe, $color-maybe, s.from-color('dark'));
-
+@mixin frame {
 	position: relative;
 
 	&::before {
-		border: 0.125rem solid $color;
+		border: 0.125rem solid s.from-color('dark');
 		border-radius: s.$border-radius;
 		content: '';
 		height: 100%;

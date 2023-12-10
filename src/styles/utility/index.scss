@@ -1,26 +1,17 @@
-@forward './auto-grid';
-@forward './dot-shadow';
-@forward './extend';
-@forward './flow';
-@forward './frame';
-@forward './gallery';
-@forward './headline';
-@forward './measure';
-@forward './mixin';
-@forward './page-content';
-@forward './page-panel';
-@forward './panel';
+@forward 'flow';
 
-@use './mixin' as m;
+@use '../setting' as s;
+@use 'visually-hidden' as v;
+@use 'wrapper' as w;
 
-.u-radius {
-	@extend %radius;
+u-radius {
+	border-radius: s.$border-radius;
 }
 
-.u-visually-hidden {
-	@extend %visually-hidden;
+u-visually-hidden {
+	@include v.visually-hidden; 	
 }
 
 .u-wrapper {
-	@include m.wrapper;
+	@include w.wrapper;
 }
