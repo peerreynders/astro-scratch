@@ -10,7 +10,7 @@ import '@fontsource/literata/900.css';
 import '@fontsource/red-hat-display/index.css';
 import '@fontsource/red-hat-display/400.css';
 import '@fontsource/red-hat-display/900.css';
-import '../styles/styles.scss';
+import '../styles/critical.scss';
 
 interface Props {
 	title: string;
@@ -41,9 +41,16 @@ const metaArgs = {
 		<MetaInfo args={metaArgs} />
 	</head>
 	<body>
-		<SiteHead />
-		<main tabindex="-1" id="main-content">
-			<slot />
-		</main>
+		<div class="c-site-wrap">
+			<SiteHead />
+			<main tabindex="-1" id="main-content">
+				<slot />
+			</main>
+      <footer role="contentinfo" class="c-site-foot">
+        <div>
+          <p>This is a made up agency for the course, <a href="https://piccalil.li/course/learn-eleventy-from-scratch/">“Learn Eleventy From Scratch”</a>.</p>
+        </div>
+      </footer>
+		</div>
 	</body>
 </html>

@@ -1,0 +1,82 @@
+@use 'sass:meta';
+@use 'setting' as s;
+@use 'generic/anchor' as a;
+
+@include meta.load-css('generic/reset');
+
+:root {
+	--u-flow-space: #{s.$flow-space};
+}
+
+// Set core body defaults
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	background: s.from-color('light');
+	color: s.from-color('dark-dark');
+	font-size: s.from-size('500');
+	font-family: s.from-font-family('base');
+}
+
+a:not([class]) {
+	@include a.anchor;
+}
+
+:focus {
+	outline: 2px dashed s.from-color('primary');
+	outline-offset: 0.25rem;
+}
+
+main:focus {
+	outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: 900;
+
+	font-family: s.from-font-family('sans');
+	line-height: s.from-line-height('flat');
+}
+
+// High contrast selection because it can help visually-impaired
+// folks read the text easier
+::selection {
+	color: s.from-color('light');
+
+	// We set this as an RGBA because that’s how you get a solid color, by using 0.99
+	// alpha value. Browsers are wild.
+	background: rgba(s.from-color('dark-dark'), 0.99);
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+	height: 1rem;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+	border: 1px solid from-color('dark-light');
+	border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: from-color('dark');
+	border-radius: 0.25rem;
+}
+
+// blocks/components
+@include meta.load-css('component/_site-wrap');
+@include meta.load-css('component/_button');
+@include meta.load-css('component/_skip-link');
+@include meta.load-css('component/_site-head');
+@include meta.load-css('component/_nav');
+@include meta.load-css('component/_page-header');
+@include meta.load-css('component/_cta');
+@include meta.load-css('component/_site-foot');
+
+// utilities/overrides
+@include meta.load-css('utility');

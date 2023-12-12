@@ -1,0 +1,10 @@
+@use 'sass:meta';
+
+@use 'setting' as s;
+
+@include meta.load-css('component/_hero');
+@include meta.load-css('component/_facts-panel');
+@include meta.load-css('component/_gallery');
+@include meta.load-css('component/_people-panel');
+@include meta.load-css('component/_people');
+@include meta.load-css('component/_person');

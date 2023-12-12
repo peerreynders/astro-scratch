@@ -4,11 +4,11 @@
 @use 'visually-hidden' as v;
 @use 'wrapper' as w;
 
-u-radius {
+.u-radius {
 	border-radius: s.$border-radius;
 }
 
-u-visually-hidden {
+.u-visually-hidden {
 	@include v.visually-hidden; 	
 }
 

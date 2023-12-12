@@ -1,0 +1,15 @@
+@use 'sass:meta';
+
+@use 'setting' as s;
+
+// Generic styles
+time[datetime] {
+  display: block;
+  color: s.from-color('primary-dark');
+  font-size: s.from-size('700');
+  font-style: italic;
+}
+
+@include meta.load-css('component/_tag-list');
+@include meta.load-css('component/_post-content');
+@include meta.load-css('component/_post-list');

@@ -1,0 +1,11 @@
+@use '../setting' as s;
+@use '../utility/mixin' as u;
+
+.c-site-foot {
+  padding: s.from-size('500') 0 s.from-size('700') 0;
+  text-align: center;
+
+	& > div:last-child {
+		@include u.wrapper;
+	}
+}

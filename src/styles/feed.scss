@@ -1,0 +1,6 @@
+@use 'sass:meta';
+
+@use 'setting' as s;
+
+@include meta.load-css('component/_post-list');
+@include meta.load-css('component/_pagination');

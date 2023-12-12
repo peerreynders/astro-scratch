@@ -5,6 +5,14 @@
 	background: s.from-color('light-light');
 	padding: s.from-size('800') 0;
 
+	&__wrapper {
+		@include u.wrapper;
+	}
+
+	&__content {
+		max-width: s.from-measure('long');
+	}
+
 	& h1 {
 		@include u.headline('primary');
 	}
