@@ -34,3 +34,19 @@ The previous `README` can be found [here](docs/v00/README.md).
 ### Lesson 22: [Global CSS and design tokens](https://learneleventyfromscratch.com/lesson/22.html)
 
 This lesson uses [CUBE](https://cube.fyi/) and [Gorko](https://github.com/Andy-set-studio/gorko). Here a slightly different approach was taken. For more details see [CSS Architecture](docs/css-architecture/index.md).
+
+---
+
+### Lesson 30: [Styling the work section](https://learneleventyfromscratch.com/lesson/30.html)
+
+- [Styling the work page](docs/30/index.md#styling-the-work-page)
+- [Styling work items](docs/30/index.md#styling-work-items)
+
+---
+
+### Lesson 31: [Wrapping up](https://learneleventyfromscratch.com/lesson/31.html)
+
+- [Adding a social image and favicon](docs/31/index.md#adding-a-social-image-and-favicon)
+- [Minifying HTML output](docs/31/index.md#minifying-html-output)
+- [Netlify config](docs/31/index.md#netlify-config)
+- [Production build](docs/31/index.md#production-build)

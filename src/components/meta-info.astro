@@ -1,5 +1,6 @@
 ---
 // file: src/components/meta-info.astro
+import { fromImage } from '../lib/optimized-image'
 
 interface Props {
 	args: {
@@ -20,7 +21,11 @@ const pageTitle = args.metaTitle
 	? args.siteName
 	: `${args.title} - ${args.siteName}`;
 const metaDesc = args.metaDesc ? args.metaDesc : args.summary;
-const { siteName, socialImage } = args;
+const { siteName, socialImage: maybePath } = args;
+const socialImage = 
+	typeof maybePath === 'string' ? 
+		maybePath : 
+		(await fromImage({src: '/src/assets/meta/social-share.png'})).src;
 const currentUrl = Astro.url;
 ---
 
@@ -54,3 +59,4 @@ const currentUrl = Astro.url;
 		</>
 	)
 }
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
