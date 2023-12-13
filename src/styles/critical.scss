@@ -78,5 +78,7 @@ h4 {
 @include meta.load-css('component/_cta');
 @include meta.load-css('component/_site-foot');
 
-// utilities/overrides
-@include meta.load-css('utility');
+// … and at the end of the last css import
+// to control preferred source order
+//
+// @include meta.load-css('critical-epilog');

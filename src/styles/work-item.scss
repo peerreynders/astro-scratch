@@ -1,10 +1,14 @@
+// file: src/styles/work-item.scss
 @use 'sass:meta';
 
 @use 'setting' as s;
 
-@include meta.load-css('component/_hero');
-@include meta.load-css('component/_facts-panel');
-@include meta.load-css('component/_gallery');
-@include meta.load-css('component/_people-panel');
-@include meta.load-css('component/_people');
-@include meta.load-css('component/_person');
+@include meta.load-css('component/hero');
+@include meta.load-css('component/facts-panel');
+@include meta.load-css('component/gallery');
+@include meta.load-css('component/people-panel');
+@include meta.load-css('component/people');
+@include meta.load-css('component/person');
+
+// utilities / overrides
+@include meta.load-css('critical-epilog');

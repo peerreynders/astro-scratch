@@ -1,6 +1,10 @@
+// file: src/styles/feed.scss
 @use 'sass:meta';
 
 @use 'setting' as s;
 
-@include meta.load-css('component/_post-list');
-@include meta.load-css('component/_pagination');
+@include meta.load-css('component/post-list');
+@include meta.load-css('component/pagination');
+
+// utilities / overrides
+@include meta.load-css('critical-epilog');

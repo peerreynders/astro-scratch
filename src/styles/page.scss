@@ -1,6 +1,7 @@
+// file: src/styles/page.scss
 @use 'sass:meta';
 
-@use 'setting' as s;
+@include meta.load-css('component/page');
 
-@include meta.load-css('component/_page');
-@include meta.load-css('component/_people-panel');
+// utilities / overrides
+@include meta.load-css('critical-epilog');

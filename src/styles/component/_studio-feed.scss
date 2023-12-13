@@ -6,10 +6,10 @@
 	background-color: s.from-color('tertiary-light');
 
 	&__wrapper {
-		--u-flow-space: #{s.from-size('300')};	
+		--u-flow-space: #{s.from-size('300')};
 
 		& > div:last-child {
-			--u-flow-space: #{s.from-size('700')};	
+			--u-flow-space: #{s.from-size('700')};
 		}
 	}
 
@@ -45,9 +45,9 @@
 	}
 
 	@include s.at-breakpoint('md') {
-//		&__title {
-//			max-width: s.from-measure('micro');
-//		}
+		//		&__title {
+		//			max-width: s.from-measure('micro');
+		//		}
 
 		&__list {
 			> * {

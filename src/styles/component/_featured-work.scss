@@ -6,7 +6,7 @@
 	@include u.page-panel;
 
 	&__intro {
-		--u-flow-space: #{s.from-size('300')};	
+		--u-flow-space: #{s.from-size('300')};
 	}
 
 	&__title {
@@ -32,7 +32,7 @@
 	}
 
 	&__action {
-		--u-flow-space: #{s.from-size('700')};	
+		--u-flow-space: #{s.from-size('700')};
 		text-align: center;
 	}
 
@@ -68,9 +68,9 @@
 	@include s.at-breakpoint('lg') {
 		grid-template-columns: repeat(2, 1fr);
 
-//		&__title {
-//			max-width: s.from-measure('micro');
-//		}
+		//		&__title {
+		//			max-width: s.from-measure('micro');
+		//		}
 
 		&__intro,
 		&__item {

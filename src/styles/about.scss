@@ -1,7 +1,11 @@
+// file: src/styles/about.scss
 @use 'sass:meta';
 
 @use 'setting' as s;
 
-@include meta.load-css('component/_people-panel');
-@include meta.load-css('component/_people');
-@include meta.load-css('component/_person');
+@include meta.load-css('component/people-panel');
+@include meta.load-css('component/people');
+@include meta.load-css('component/person');
+
+// utilities / overrides
+@include meta.load-css('critical-epilog');

@@ -1,7 +1,9 @@
+// file: src/styles/home.scss
 @use 'sass:meta';
 
-@include meta.load-css('component/_intro');
-@include meta.load-css('component/_featured-work');
-@include meta.load-css('component/_studio-feed');
+@include meta.load-css('component/intro');
+@include meta.load-css('component/featured-work');
+@include meta.load-css('component/studio-feed');
 
-
+// utilities / overrides
+@include meta.load-css('critical-epilog');
