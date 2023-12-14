@@ -4,7 +4,7 @@ The [Learn Eleventy From Scratch](https://learneleventyfromscratch.com/) course 
 
 Contrast this to ITCSS (used at [web.dev](https://github.com/GoogleChrome/web.dev/blob/3ad2c8a3604358734bb053ec6c406c09ab1388ab/src/styles/README.md)) where [utilities **are overrides**](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/#what-is-itcss-). CUBE's utilities lean into [functional CSS](https://www.browserlondon.com/blog/2019/06/10/functional-css-perils/) and Andy Bell has even gone on to adapt CUBE CSS with Tailwind CSS ([_I used Tailwind for the U in CUBE CSS and I liked it_](https://andy-bell.co.uk/i-used-tailwind-for-the-u-in-cube-css-and-i-liked-it/), [demo](https://cube-css-with-tailwind.netlify.app/), [source](https://github.com/Andy-set-studio/CUBE-with-tailwind)).
 
-I've [pondered](https://dev.to/peerreynders/comment/14c8g) Tailwind (and by extension utility-first) CSS at [some length](https://dev.to/peerreynders/comment/14e75) but ultimately decided it was a trap. I've played this game before. I learned jQuery but eventually had unlearn it and then embrace JavaScript anyway. I put considerable effort into learning AngularJS only to then realize that I still knew nothing about “Web Development”. So this time arround I wasn't going to adopt another tool that projected it's own opinion as “the true way”.
+I've [pondered](https://dev.to/peerreynders/comment/14c8g) Tailwind (and by extension utility-first) CSS at [some length](https://dev.to/peerreynders/comment/14e75) but ultimately decided it was [a trap](https://youtu.be/-cJBt9-W2dQ). I've played this game before. I learned jQuery but eventually had unlearn it and then embrace JavaScript anyway. I put considerable effort into learning AngularJS only to then realize that I still knew nothing about “Web Development”. So this time arround I wasn't going to adopt another tool that projected it's own opinion as “the true way”.
 
 That said the use of [design tokens](https://piccalil.li/tutorial/what-are-design-tokens/) made a _lot_ of sense to me. The course used [Gorko](https://github.com/Andy-set-studio/gorko) to generate utilities from the build time design settings.
 
@@ -156,7 +156,7 @@ This is why all the CSS is managed under `src/styles` even at the cost of having
 
 At the highest level the following source order is desired (inpired by [ITCSS](https://youtu.be/1OKZOV-iLj4?t=409)):
 
-- _setting_: esign tokens
+- _setting_: design tokens
 - _generic_: reset, normalization and other element type level defaults
 - _component_: components, i.e. `c-*` classes
 - _utility_: utilities, options and overrides, i.e. `u-*` classes

@@ -37,6 +37,20 @@ This lesson uses [CUBE](https://cube.fyi/) and [Gorko](https://github.com/Andy-s
 
 ---
 
+### Lesson 28: [Styling the about page](https://learneleventyfromscratch.com/lesson/28.html)
+
+- [Adding an auto-grid utility](docs/28/index.md#adding-an-auto-grid-utility)
+- [Adding a people block](docs/28/index.md#adding-a-people-block)
+- [Adding a person block](docs/28/index.md#adding-a-person-block)
+
+---
+
+### Lesson 29: [Add a contact page](https://learneleventyfromscratch.com/lesson/29.html)
+
+- [Adding the template](docs/29/index.md#adding-the-template)
+
+---
+
 ### Lesson 30: [Styling the work section](https://learneleventyfromscratch.com/lesson/30.html)
 
 - [Styling the work page](docs/30/index.md#styling-the-work-page)
