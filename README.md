@@ -37,6 +37,25 @@ This lesson uses [CUBE](https://cube.fyi/) and [Gorko](https://github.com/Andy-s
 
 ---
 
+### Lesson 26: [Home page panels](https://learneleventyfromscratch.com/lesson/26.html)
+
+- [Call to action block](docs/26/index.md#call-to-action-block)
+- [Headline utility](docs/26/index.md#headline-utility)
+- [Adding our CSS to critical CSS](docs/26/index.md#adding-our-css-to-critical-css)
+- [Featured work feed](docs/26/index.md#featured-work-feed)
+- [Studio feed](docs/26/index.md#studio-feed)
+
+---
+
+### Lesson 27: [Styling the blog](https://learneleventyfromscratch.com/lesson/27.html)
+
+- [Creating a page header block](file:///home/wheatley/sbox/astro/astro-scratch/docs/27/index.md#creating-a-page-header-block)
+- [Creating a post list block](docs/27/index.md#creating-a-post-list-block)
+- [Creating a pagination block](docs/27/index.md#creating-a-pagination-block)
+- [Styling our blog posts](docs/27/index.md#styling-our-blog-posts)
+
+---
+
 ### Lesson 28: [Styling the about page](https://learneleventyfromscratch.com/lesson/28.html)
 
 - [Adding an auto-grid utility](docs/28/index.md#adding-an-auto-grid-utility)

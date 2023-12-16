@@ -22,7 +22,19 @@ The concept of the auto-grid is explained in [Create a responsive grid layout](h
 
 ## Adding a people block
 
-The `src/components/people-panel.astro` wraps `src/components/people.astro` and is targeted by the `c-people-panel` CSS component:
+Recap: The `src/components/people-panel.astro` renders as follows:
+
+```Astro
+<article class="c-people-panel">
+  <div class="c-people-panel__wrapper u-flow">
+    {/* prettier-ignore */}
+    <h2>{title}</h2>
+    <People people={people} />
+  </div>
+</article>
+```
+
+… which is targeted by the `c-people-panel` CSS component:
 
 ```scss
 // file: src/styles/component/_people-panel.scss
@@ -44,7 +56,32 @@ The `src/components/people-panel.astro` wraps `src/components/people.astro` and 
 }
 ```
 
-The auto-grid can now be included in the `c-people` CSS component:
+The nested `src/components/people.astro` component appears as:
+
+```Astro
+<div class="c-people">
+  <ol>
+    {people.map(({ data: { title, name, image } }) => (
+      <li>
+        <figure class="c-person">
+          <Image
+            class="c-person__image"
+            src={image.src}
+            alt={'Image of ' + name}
+            draggable="false"
+          />
+          <figcaption class="c-person__details">
+            <span class="c-person__name">{name}</span>
+            <span>{title}</span>
+          </figcaption>
+        </figure>
+      </li>
+    ))}
+  </ol>
+</div>
+```
+
+The auto-grid can now be included in the `c-people` CSS component, where the ordered list acts as the grid container:
 
 ```scss
 // file: src/styles/component/_people.scss
@@ -60,7 +97,7 @@ The auto-grid can now be included in the `c-people` CSS component:
 
 ## Adding a person block
 
-Each person entry is targeted with a `c-person` CSS component:
+The contents of the grid items are targeted with the `c-person` CSS component:
 
 ```scss
 // file: src/styles/component/_people.scss
