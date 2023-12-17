@@ -172,3 +172,7 @@ Both `src/layouts/about.astro` and `src/layouts/work-item.astro` use the `src/co
 // utilities / overrides
 @include meta.load-css('critical-epilog');
 ```
+
+---
+
+[Next](../../README.md#lesson-29-add-a-contact-page)

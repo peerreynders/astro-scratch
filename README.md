@@ -33,7 +33,23 @@ The previous `README` can be found [here](docs/v00/README.md).
 
 ### Lesson 22: [Global CSS and design tokens](https://learneleventyfromscratch.com/lesson/22.html)
 
-This lesson uses [CUBE](https://cube.fyi/) and [Gorko](https://github.com/Andy-set-studio/gorko). Here a slightly different approach was taken. For more details see [CSS Architecture](docs/css-architecture/index.md).
+This lesson uses [CUBE](https://cube.fyi/) and [Gorko](https://github.com/Andy-set-studio/gorko). Here a slightly different approach was taken. For more details see:
+
+- [CSS Architecture](docs/css-architecture/index.md)
+
+---
+
+### Lesson 24: [Styling the skip link](https://learneleventyfromscratch.com/lesson/24.html)
+
+- [Styling our site’s buttons](docs/24/index.md#styling-our-sites-buttons)
+- [Styling the skip link](docs/24/index.md#styling-the-skip-link)
+- [Wiring it all up](docs/24/index.md#wiring-it-all-up)
+
+---
+
+### Lesson 25: [Home page intro](https://learneleventyfromscratch.com/lesson/25.html)
+
+- [Wiring up our block and critical CSS](docs/25/index.md#wiring-up-our-block-and-critical-css)
 
 ---
 
@@ -49,7 +65,7 @@ This lesson uses [CUBE](https://cube.fyi/) and [Gorko](https://github.com/Andy-s
 
 ### Lesson 27: [Styling the blog](https://learneleventyfromscratch.com/lesson/27.html)
 
-- [Creating a page header block](file:///home/wheatley/sbox/astro/astro-scratch/docs/27/index.md#creating-a-page-header-block)
+- [Creating a page header block](docs/27/index.md#creating-a-page-header-block)
 - [Creating a post list block](docs/27/index.md#creating-a-post-list-block)
 - [Creating a pagination block](docs/27/index.md#creating-a-pagination-block)
 - [Styling our blog posts](docs/27/index.md#styling-our-blog-posts)

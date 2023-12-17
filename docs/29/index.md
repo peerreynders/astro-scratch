@@ -82,3 +82,7 @@ The matching `src/styles/component/_page.scss` CSS component:
 // utilities / overrides
 @include meta.load-css('critical-epilog');
 ```
+
+---
+
+[Next](../../README.md#lesson-30-styling-the-work-section)

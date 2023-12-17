@@ -287,3 +287,7 @@ Earlier within the `c-post-list` component the `page-content` mixin was used. Th
   }
 }
 ```
+
+---
+
+[Next](../../README.md#lesson-28-styling-the-about-page)

@@ -285,7 +285,7 @@ Recap: `src/components/featured-work.astro` renders as
 }
 ```
 
-`src/components/featured-work` being part of the `home.astro` layout gets `c-featured-work` included in the layout's style sheet:
+`src/components/featured-work.astro` being part of the `home.astro` layout `c-featured-work` is included in the layout's style sheet:
 
 ```scss
 // file: src/styles/home.scss
@@ -397,3 +397,7 @@ Recap: `src/components/studio-feed.astro` appears as
 ```
 
 As indicated earlier `c-studio-feed` also is included in the `home.astro` layout's style sheet.
+
+---
+
+[Next](../../README.md#lesson-27-styling-the-blog)

@@ -1,3 +1,4 @@
+// file: src/styles/component/_intro.scss
 @use '../setting' as s;
 @use '../utility/mixin' as u;
 
@@ -29,10 +30,6 @@
 		font-size: s.from-size('400');
 		font-weight: s.from-font-weight('normal');
 
-		@include s.at-breakpoint('md') {
-			font-size: s.from-size('600');
-		}
-
 		em {
 			font-size: s.from-size('800');
 			font-style: normal;
@@ -42,14 +39,6 @@
 			// The weight change creates a weird indent, so this
 			// optical adjustment fixes it
 			transform: translateX(-3px);
-
-			@include s.at-breakpoint('md') {
-				font-size: s.from-size('900');
-			}
-
-			@include s.at-breakpoint('lg') {
-				font-size: s.from-size('major');
-			}
 		}
 	}
 
@@ -89,6 +78,14 @@
 			align-self: end;
 		}
 
+		&__heading {
+			font-size: s.from-size('600');
+
+			em {
+				font-size: s.from-size('900');
+			}
+		}
+
 		&__media {
 			grid-column: 3/2;
 			grid-row: 1/5;
@@ -103,6 +100,12 @@
 	// Flip the ratio for larger breakpoints
 	@include s.at-breakpoint('lg') {
 		grid-template-columns: 1fr minmax(44rem, 1fr);
+
+		&__heading {
+			em {
+				font-size: s.from-size('major');
+			}
+		}
 
 		// Because it's so large, it make sense to limit the image height too
 		&__media {

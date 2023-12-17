@@ -385,3 +385,7 @@ The _key facts_ section renders as:
 ```
 
 As indicated above both `c-hero` and `c-facts-panel` are included in the `work-item.astro` style sheet `src/styles/work-item.scss`.
+
+---
+
+[Next](../../README.md#lesson-31-wrapping-up)
