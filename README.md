@@ -39,6 +39,15 @@ This lesson uses [CUBE](https://cube.fyi/) and [Gorko](https://github.com/Andy-s
 
 ---
 
+### Lesson 23: [Styling global blocks](https://learneleventyfromscratch.com/lesson/23.html)
+
+- [Styling the site header and navigation](docs/23/index.md#styling-the-site-header-and-navigation)
+- [Styling the navigation](docs/23/index.md#styling-the-navigation)
+- [Styling the site footer](docs/23/index.md#styling-the-site-footer)
+- [Wiring it all up](docs/23/index.md#wiring-it-all-up)
+
+---
+
 ### Lesson 24: [Styling the skip link](https://learneleventyfromscratch.com/lesson/24.html)
 
 - [Styling our site’s buttons](docs/24/index.md#styling-our-sites-buttons)
