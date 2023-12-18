@@ -31,6 +31,52 @@ The previous `README` can be found [here](docs/v00/README.md).
 
 ---
 
+### Lesson 1: [Intro](https://learneleventyfromscratch.com/lesson/1.html)
+
+Starter files:
+
+- [Markdown and template files](https://piccalilli.s3.eu-west-2.amazonaws.com/eleventy-from-scratch/eleventy-from-scratch-starter-files.zip)
+- [`*.scss` files](https://piccalilli.s3.eu-west-2.amazonaws.com/eleventy-from-scratch/eleventy-from-scratch-front-end-build-starter-files.zip)
+- [Social media images](https://piccalilli.s3.eu-west-2.amazonaws.com/eleventy-from-scratch/eleventy-from-scratch-meta-images.zip)
+- The [demo site](https://issue33.com/) being implemented
+
+---
+
+### Lesson 2: [Hello world](https://learneleventyfromscratch.com/lesson/2.html)
+
+[Start](https://docs.astro.build/en/install/auto/) with the «minimal» Astro template which is a “Hello World” setup:
+
+```shell
+pnpm create astro@latest -- --template minimal
+```
+
+To start the development server:
+
+```shell
+pnpm run dev
+```
+
+---
+
+### Lesson 3: [Nunjucks basics](https://learneleventyfromscratch.com/lesson/3.html)
+
+Astro uses [Astro syntax](https://docs.astro.build/en/core-concepts/astro-syntax/) for the rendered portion of [Astro components](https://docs.astro.build/en/core-concepts/astro-components/#the-component-template) (in contrast to [framework components](https://docs.astro.build/en/core-concepts/framework-components/)) which take on the role of static page/ static partial /server side templates .
+
+- [Getting started](docs/03/index.md#getting-started)
+- [Assigning our template to our page](docs/03/index.md#assigning-our-template-to-our-page)
+
+---
+
+### Lesson 4: [Front matter basics](https://learneleventyfromscratch.com/lesson/4.html)
+
+- [Adding Front Matter to our home page](docs/04/index.md#adding-front-matter-to-our-home-page)
+
+---
+
+### Lesson 5: [Passthrough basics](https://learneleventyfromscratch.com/lesson/5.html)
+
+---
+
 ### Lesson 22: [Global CSS and design tokens](https://learneleventyfromscratch.com/lesson/22.html)
 
 This lesson uses [CUBE](https://cube.fyi/) and [Gorko](https://github.com/Andy-set-studio/gorko). Here a slightly different approach was taken. For more details see:
