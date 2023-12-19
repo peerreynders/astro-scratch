@@ -146,7 +146,7 @@ Custom properties only become necessary when
 
 ## Prefer control over convenience
 
-Astro is perfectly capable of [scoped styles](https://docs.astro.build/en/guides/styling/#scoped-styles). However the convenience of collocation comes at the control over source order.
+Astro is perfectly capable of [scoped styles](https://docs.astro.build/en/guides/styling/#scoped-styles). However the convenience of collocation comes at the control over the [order of appearance](https://drafts.csswg.org/css-cascade-6/#cascade-order).
 
 > When all else is equal, the last selector wins.
 
@@ -154,7 +154,7 @@ Astro is perfectly capable of [scoped styles](https://docs.astro.build/en/guides
 
 This is why all the CSS is managed under `src/styles` even at the cost of having to work across `.astro` and `.scss` files (typically this isn't an issue as most editors support side-by-side split pane editing of separate files).
 
-At the highest level the following source order is desired (inpired by [ITCSS](https://youtu.be/1OKZOV-iLj4?t=409)):
+At the highest level the following order of appearance is desired (inpired by [ITCSS](https://youtu.be/1OKZOV-iLj4?t=409)):
 
 - _setting_: design tokens
 - _generic_: reset, normalization and other element type level defaults
@@ -184,12 +184,12 @@ Astro's [CSS import](https://docs.astro.build/en/guides/styling/#import-a-local-
 @include meta.load-css('component/_site-foot');
 
 // … and at the end of the last css import
-// to control preferred source order
+// to control preferred order of appearance
 //
 // @include meta.load-css('critical-epilog');
 ```
 
-To achieve the desired source order `utility` is referenced in a separate `_critical-epilog.scss` file to be included in the CSS import of the nested layout _after_ any additional CSS components are included.
+To achieve the desired order of appearance `utility` is referenced in a separate `_critical-epilog.scss` file to be included in the CSS import of the nested layout _after_ any additional CSS components are included.
 
 ```scss
 // file: src/styles/page.scss

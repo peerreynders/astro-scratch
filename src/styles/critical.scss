@@ -80,6 +80,6 @@ h4 {
 @include meta.load-css('component/_site-foot');
 
 // … and at the end of the last css import
-// to control preferred source order
+// to control preferred order of appearance
 //
 // @include meta.load-css('critical-epilog');

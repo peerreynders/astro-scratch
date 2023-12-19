@@ -75,6 +75,37 @@ Astro uses [Astro syntax](https://docs.astro.build/en/core-concepts/astro-syntax
 
 ### Lesson 5: [Passthrough basics](https://learneleventyfromscratch.com/lesson/5.html)
 
+In Astro unprocessed static contents is placed in the [`/public`](https://docs.astro.build/en/core-concepts/project-structure/#public) directory. Astro has it's own [`<Image />`](https://docs.astro.build/en/guides/images/#image--astroassets) component which will optimize images stored under `/src/` but they have to be [imported](https://docs.astro.build/en/guides/imports/) by the component (see also: [Dynamically import images](https://docs.astro.build/en/recipes/dynamically-importing-images)).
+
+So Astro really doesn't have a use case for [Eleventy's passthrough file copy](https://www.11ty.dev/docs/copy/).
+
+For the time being images can be placed under `/public/images` but in [lesson 21](#lesson-21-setting-up-images) images are moved under `/src/assets` for optimization through the [image service](https://docs.astro.build/en/guides/images/#default-image-service).
+
+---
+
+### Lesson 6: [Partials basics](https://learneleventyfromscratch.com/lesson/6.html)
+
+- [Adding our site header](docs/06/index.md#adding-our-site-header)
+
+---
+
+### Lesson 7: [Data basics](https://learneleventyfromscratch.com/lesson/7.html)
+
+- [Wiring up our navigation](docs/07/index.md#wiring-up-our-navigation)
+- [Cascading data](docs/07/index.md#cascading-data)
+
+---
+
+### Lesson 8: [Creating our first collection](https://learneleventyfromscratch.com/lesson/8.html)
+
+---
+
+### Lesson 9: [Adding remote data](https://learneleventyfromscratch.com/lesson/9.html)
+
+---
+
+### Lesson 21: [Setting up images](https://learneleventyfromscratch.com/lesson/21.html)
+
 ---
 
 ### Lesson 22: [Global CSS and design tokens](https://learneleventyfromscratch.com/lesson/22.html)

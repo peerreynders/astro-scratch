@@ -1,5 +1,4 @@
 // file: src/consts.ts
-
 const ISSUE_33 = 'Issue 33';
 
 const SITE_NAME = ISSUE_33;

@@ -148,7 +148,7 @@ However the top level `title`, `summary` and `hero` of each work item are also a
       align-items: flex-end;
 
       // Flips the horizontal layout. Use this with care though,
-      // because changing source order can be problemetic
+      // because changing order of appearance can be problematic
       // for keyboard users
       &:nth-child(odd) {
         flex-direction: row-reverse;

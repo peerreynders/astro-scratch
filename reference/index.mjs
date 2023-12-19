@@ -1,6 +1,8 @@
 import handler from 'serve-handler';
 import http from 'node:http';
 
+const port = 3551;
+
 const options = {
 	public: './public'
 };
@@ -11,6 +13,6 @@ const server = http.createServer((request, response) => {
   return handler(request, response, options);
 });
 
-server.listen(8080, () => {
-  console.log('Running at http://localhost:8080');
+server.listen(port, () => {
+  console.log(`Running at http://localhost:${port}`);
 });
