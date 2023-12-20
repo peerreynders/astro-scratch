@@ -21,10 +21,10 @@ const feed = toStudioFeed(await fromStudio());
 						{feed.map(({ src, alt, width, quality }) => (
 							<li>
 								<Image
-									src={src}
-									alt={alt}
-									width={width}
-									quality={quality}
+									{src}
+									{alt}
+									{width}
+									{quality}
 									draggable="false"
 								/>
 							</li>

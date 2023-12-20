@@ -106,9 +106,21 @@ For the time being images can be placed under `/public/images` but in [lesson 21
 
 ### Lesson 9: [Adding remote data](https://learneleventyfromscratch.com/lesson/9.html)
 
+- [Rendering our new data](docs/09/index.md#rendering-our-new-data)
+
 ---
 
 ### Lesson 10: [Home page complete and recap](https://learneleventyfromscratch.com/lesson/10.html)
+
+- [Home page complete](docs/10/index.md#home-page-complete)
+
+---
+
+### Lesson 11: [Blog feeds, tags and pagination](https://learneleventyfromscratch.com/lesson/11.html)
+
+---
+
+### Lesson 12: [Blog post view, directory data and filters](https://learneleventyfromscratch.com/lesson/12.html)
 
 ---
 
