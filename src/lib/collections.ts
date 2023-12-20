@@ -27,9 +27,8 @@ async function fromWork() {
 }
 
 async function fromFeaturedWork() {
-	const workEntries = await getCollection('work');
-	// filter creates new array, no need to `slice()`
-	return workEntries.filter(isFeatured).sort(byOrderAsc);
+	const workEntries = await getCollection('work', isFeatured);
+	return workEntries.slice().sort(byOrderAsc);
 }
 
 export type Work = CollectionEntry<'work'>;

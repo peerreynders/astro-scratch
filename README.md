@@ -39,6 +39,7 @@ Starter files:
 - [`*.scss` files](https://piccalilli.s3.eu-west-2.amazonaws.com/eleventy-from-scratch/eleventy-from-scratch-front-end-build-starter-files.zip)
 - [Social media images](https://piccalilli.s3.eu-west-2.amazonaws.com/eleventy-from-scratch/eleventy-from-scratch-meta-images.zip)
 - The [demo site](https://issue33.com/) being implemented
+- `reference/issue33.zip` holds the files to run the demo site locally at port `3551` for comparison and inspection.
 
 ---
 
@@ -98,9 +99,16 @@ For the time being images can be placed under `/public/images` but in [lesson 21
 
 ### Lesson 8: [Creating our first collection](https://learneleventyfromscratch.com/lesson/8.html)
 
+- [Creating our first collection](docs/08/index.md#creating-our-first-collection)
+- [Rendering our featured work partial](docs/08/index.md#rendering-our-featured-work-partial)
+
 ---
 
 ### Lesson 9: [Adding remote data](https://learneleventyfromscratch.com/lesson/9.html)
+
+---
+
+### Lesson 10: [Home page complete and recap](https://learneleventyfromscratch.com/lesson/10.html)
 
 ---
 

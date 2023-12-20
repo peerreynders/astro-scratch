@@ -3,6 +3,13 @@
 import { Image } from 'astro:assets';
 import { fromFeaturedWork } from '../lib/collections';
 
+interface Props {
+	featuredWork: {
+		title: string;
+		summary: string;
+	}
+}
+
 const { featuredWork } = Astro.props;
 const collection = await fromFeaturedWork();
 ---
