@@ -1,6 +1,6 @@
 # Lesson 10: Home page complete and recap
 
-## Home page complete
+## Complete home page
 
 The `src/layouts/home.astro` page's full content is:
 

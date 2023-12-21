@@ -112,15 +112,53 @@ For the time being images can be placed under `/public/images` but in [lesson 21
 
 ### Lesson 10: [Home page complete and recap](https://learneleventyfromscratch.com/lesson/10.html)
 
-- [Home page complete](docs/10/index.md#home-page-complete)
+- [Complete home page](docs/10/index.md#complete-home-page)
 
 ---
 
 ### Lesson 11: [Blog feeds, tags and pagination](https://learneleventyfromscratch.com/lesson/11.html)
 
+- [Blog post view, directory data and filters](docs/11/index.md#our-blog-data)
+- [Creating our feeds](docs/11/index.md#creating-our-feeds)
+- [Creating our feed](docs/11/index.md#creating-our-feed)
+- [Wiring up our data](docs/11/index.md#wiring-up-our-data)
+- [Tag feeds](docs/11/index.md#tags-feeds)
+
 ---
 
 ### Lesson 12: [Blog post view, directory data and filters](https://learneleventyfromscratch.com/lesson/12.html)
+
+- [Creating our blog post layout](docs/12/index.md#creating-our-blog-post-layout)
+- [Filters](docs/12/index.md#filters)
+- [Default layout and permalinks](docs/12/index.md#default-layout-and-permalinks)
+
+---
+
+### Lesson 13: [Recommended content](https://learneleventyfromscratch.com/lesson/13.html)
+
+- [Adding our helper](docs/13/index.md#adding-our-helper)
+- [Implementing our recommended content](docs/13/index.md#implementing-our-recommended-content)
+
+---
+
+### Lesson 14: [Adding our about page](https://learneleventyfromscratch.com/lesson/14.html)
+
+- [Add an about page](docs/14/index.md#add-about-page-layout)
+- [Create a people partial](docs/14/index.md#create-a-people-partial)
+- [Create a people collection](docs/14/index.md#create-a-people-collection)
+- [Add an about page](docs/14/index.md#add-an-about-page)
+
+---
+
+### Lesson 15: [Adding our work landing page](https://learneleventyfromscratch.com/lesson/15.html)
+
+---
+
+### Lesson 16: [Creating a work item page](https://learneleventyfromscratch.com/lesson/16.html)
+
+---
+
+### Lesson 17: [Meta info, RSS feeds and module recap](https://learneleventyfromscratch.com/lesson/17.html)
 
 ---
 
