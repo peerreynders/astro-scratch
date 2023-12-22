@@ -203,4 +203,4 @@ agency that are being used as the context for the Piccalilli course,
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-15-adding-our-work-landing-page)
+[Next](../../README.md#lesson-15-adding-our-work-landing-page)

@@ -1,4 +1,5 @@
 ---
+# file: src/content/work/outgoings.md
 title: Outgoings iOS App
 summary: >
   A native iOS app to help people to keep a track of their finances by 

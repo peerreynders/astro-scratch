@@ -105,4 +105,4 @@ Note that this already uses the Astro [`Image`](https://docs.astro.build/en/guid
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-11-blog-feeds-tags-and-pagination)
+[Next](../../README.md#lesson-11-blog-feeds-tags-and-pagination)

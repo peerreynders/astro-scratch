@@ -82,4 +82,4 @@ The layout of markdown content is associated with the [`layout` frontmatter prop
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-4-front-matter-basics)
+[Next](../../README.md#lesson-4-front-matter-basics)

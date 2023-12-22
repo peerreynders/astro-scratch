@@ -164,4 +164,4 @@ primaryCta:
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-8-creating-our-first-collection)
+[Next](../../README.md#lesson-8-creating-our-first-collection)

@@ -83,4 +83,4 @@ The brackets pollute the `class` token list and only their first occurence is tr
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-5-passthrough-basics)
+[Next](../../README.md#lesson-5-passthrough-basics)

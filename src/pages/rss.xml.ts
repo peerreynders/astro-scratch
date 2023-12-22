@@ -28,7 +28,7 @@ const title = `${SITE_NAME} Blog`;
 const summary = 'A feed of the latest posts from our blog.';
 const defaultSite = 'https://issue33.com';
 
-export async function get(context: APIContext) {
+export async function GET(context: APIContext) {
 	const channelCustom = [
 		'<language>en</language>',
 		`<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`,

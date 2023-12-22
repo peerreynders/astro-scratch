@@ -60,12 +60,12 @@ h4 {
 
 ::-webkit-scrollbar-track {
 	background-color: transparent;
-	border: 1px solid from-color('dark-light');
+	border: 1px solid s.from-color('dark-light');
 	border-radius: 0.25rem;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: from-color('dark');
+	background-color: s.from-color('dark');
 	border-radius: 0.25rem;
 }
 

@@ -65,4 +65,4 @@ Any selected `recommendPosts` are then passed to the `src/components/post-list.a
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-14-adding-our-about-page)
+[Next](../../README.md#lesson-14-adding-our-about-page)

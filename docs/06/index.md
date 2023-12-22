@@ -153,4 +153,4 @@ const { title } = Astro.props;
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-7-data-basics)
+[Next](../../README.md#lesson-7-data-basics)

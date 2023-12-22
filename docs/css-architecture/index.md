@@ -146,7 +146,7 @@ Custom properties only become necessary when
 
 ## Prefer control over convenience
 
-Astro is perfectly capable of [scoped styles](https://docs.astro.build/en/guides/styling/#scoped-styles). However the convenience of collocation comes at the control over the [order of appearance](https://drafts.csswg.org/css-cascade-6/#cascade-order).
+Astro is perfectly capable of [scoped styles](https://docs.astro.build/en/guides/styling/#scoped-styles). However the convenience of collocation comes at the cost of control over the [order of appearance](https://drafts.csswg.org/css-cascade-6/#cascade-order).
 
 > When all else is equal, the last selector wins.
 

@@ -1,5 +1,5 @@
 ---
-# file: src/pages/index.md
+# file: src/pages/work/index.md
 title: Our finest work
 layout: ../../layouts/work-landing.astro
 ---

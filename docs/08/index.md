@@ -549,4 +549,4 @@ const {
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-9-adding-remote-data)
+[Next](../../README.md#lesson-9-adding-remote-data)

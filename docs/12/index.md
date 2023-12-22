@@ -159,4 +159,4 @@ To recap:
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-13-recommended-content)
+[Next](../../README.md#lesson-13-recommended-content)

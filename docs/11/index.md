@@ -367,4 +367,4 @@ const { tag, posts } = Astro.props;
 
 ---
 
-[Next](file:///home/wheatley/sbox/astro/astro-scratch/README.md#lesson-12-blog-post-view-directory-data-and-filters)
+[Next](../../README.md#lesson-12-blog-post-view-directory-data-and-filters)

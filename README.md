@@ -29,6 +29,8 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 The previous `README` can be found [here](docs/v00/README.md).
 
+I'd recommend to look at [Lesson 8: Creating our first collection](#lesson-8-creating-our-first-collection) and [Lesson 21: Setting up images](#lesson-21-setting-up-images) at the earliest point where it makes sense to.
+
 ---
 
 ### Lesson 1: [Intro](https://learneleventyfromscratch.com/lesson/1.html)
@@ -152,17 +154,50 @@ For the time being images can be placed under `/public/images` but in [lesson 21
 
 ### Lesson 15: [Adding our work landing page](https://learneleventyfromscratch.com/lesson/15.html)
 
+- [Add a work landing layout](docs/15/index.md#add-a-work-landing-layout)
+
 ---
 
 ### Lesson 16: [Creating a work item page](https://learneleventyfromscratch.com/lesson/16.html)
+
+- [Adding our template](docs/16/index.md#adding-our-template)
+- [Adding related content](16/index.md#adding-related-content)
+- [Assigning our layout to our work items](docs/16/index.md#assigning-our-layout-to-our-work-items)
 
 ---
 
 ### Lesson 17: [Meta info, RSS feeds and module recap](https://learneleventyfromscratch.com/lesson/17.html)
 
+- [Adding meta info](docs/17/index.md#adding-meta-info)
+- [Adding an RSS feed](docs/17/index.md#adding-an-rss-feed)
+- [Adding the RSS meta tag](docs/17/index.md#adding-the-rss-meta-tag)
+
+---
+
+### Lesson 18: [Setting up Gulp](https://learneleventyfromscratch.com/lesson/18.html)
+
+The original course installed [gulp.js](https://gulpjs.com/) to automate/integrate beyond the capabilities of the [Sass command-line interface](https://sass-lang.com/documentation/cli/dart-sass/). As Astro does everything we need to do, gulp.js isn't necessary.
+
+---
+
+### Lesson 19: [Setting up Sass](https://learneleventyfromscratch.com/lesson/19.html)
+
+- [Critical CSS](docs/19/index.md#critical-css)
+- [Getting the CSS on the page](docs/19/index.md#getting-the-css-on-the-page)
+
+---
+
+### Lesson 20: [Setting up fonts](https://learneleventyfromscratch.com/lesson/20.html)
+
+- [Adding fonts](docs/20/index.md#adding-fonts)
+
 ---
 
 ### Lesson 21: [Setting up images](https://learneleventyfromscratch.com/lesson/21.html)
+
+- [Fundamentals](docs/21/index.md#fundamentals)
+- [Case: Work item layout](docs/21/index.md#case-work-item-layout)
+- [Case: Studio feed component](docs/21/index.md#case-studio-feed-component)
 
 ---
 
