@@ -27,7 +27,153 @@ Remaking the 11ty (& [Nunjucks](https://mozilla.github.io/nunjucks/)) `issue33` 
 
 ## Notes
 
-The previous `README` can be found [here](docs/v00/README.md).
+<details>
+<summary>Getting Started</summary>
+
+```shell
+$ cd astro-scratch
+$ pnpm install
+Lockfile is up to date, resolution step is skipped
+Packages: +496
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Progress: resolved 496, reused 496, downloaded 0, added 496, done
+node_modules/.pnpm/esbuild@0.19.8/node_modules/esbuild: Running postinstall script, done in 69ms
+node_modules/.pnpm/sharp@0.33.0/node_modules/sharp: Running install script, done in 81ms
+node_modules/.pnpm/sharp@0.32.6/node_modules/sharp: Running install script, done in 532ms
+
+dependencies:
++ @astrojs/check 0.3.3
++ @astrojs/rss 4.0.1
++ astro 4.0.6
++ github-slugger 2.0.0
++ sharp 0.33.0
+
+devDependencies:
++ @fontsource/literata 5.0.17
++ @fontsource/red-hat-display 5.0.17
++ @types/markdown-it 13.0.7
++ @types/node 20.10.0
++ @types/sanitize-html 2.9.5
++ markdown-it 13.0.2
++ prettier 3.1.0
++ prettier-plugin-astro 0.12.2
++ sanitize-html 2.11.0
++ sass 1.69.5
++ typescript 5.3.2
+
+Done in 2s
+
+$ pnpm run build
+
+> astro-scratch@0.0.0 build /astro-scratch
+> astro build
+
+19:04:30 Types generated 318ms
+19:04:30 [build] output: "static"
+19:04:30 [build] directory: /astro-scratch/dist/
+19:04:30 [build] Collecting build info...
+19:04:30 [build] ✓ Completed in 333ms.
+19:04:30 [build] Building static entrypoints...
+19:04:33 [build] ✓ Completed in 2.84s.
+
+ generating static routes
+19:04:33 ▶ src/pages/index.md
+19:04:33   └─ /index.html (+21ms)
+19:04:33 ▶ src/pages/about-us.md
+19:04:33   └─ /about-us/index.html (+7ms)
+19:04:33 ▶ src/pages/contact.md
+19:04:33   └─ /contact/index.html (+2ms)
+19:04:33 λ src/pages/rss.xml.ts
+19:04:33   └─ /rss.xml (+36ms)
+19:04:33 ▶ src/pages/blog/post/[...slug].astro
+19:04:33   ├─ /blog/post/a-complete-guide-to-wireframe-design/index.html (+5ms)
+19:04:33   ├─ /blog/post/a-font-for-people-with-dyslexia/index.html (+4ms)
+19:04:33   ├─ /blog/post/why-cross-cultural-design-really-matters/index.html (+4ms)
+19:04:33   ├─ /blog/post/laws-of-ux/index.html (+6ms)
+19:04:33   ├─ /blog/post/design-thinking-understanding-the-product-design-process/index.html (+4ms)
+19:04:33   ├─ /blog/post/how-to-create-a-remote-usability-test-for-fast-actionable-insights/index.html (+4ms)
+19:04:33   ├─ /blog/post/10-tips-for-website-redesign-in-2020/index.html (+4ms)
+19:04:33   ├─ /blog/post/making-design-tokens-a-single-source-of-truth/index.html (+4ms)
+19:04:33   ├─ /blog/post/typography-tips-for-the-web/index.html (+4ms)
+19:04:33   ├─ /blog/post/how-to-test-usability-of-websites-remotely/index.html (+5ms)
+19:04:33   ├─ /blog/post/color-palette-generator/index.html (+4ms)
+19:04:33   └─ /blog/post/quick-and-simple-image-placeholder/index.html (+5ms)
+19:04:33 ▶ src/pages/blog/[...page].astro
+19:04:33   ├─ /blog/index.html (+4ms)
+19:04:33   ├─ /blog/2/index.html (+3ms)
+19:04:33   └─ /blog/3/index.html (+3ms)
+19:04:33 ▶ src/pages/work/index.md
+19:04:33   └─ /work/index.html (+3ms)
+19:04:33 ▶ src/pages/work/[...slug].astro
+19:04:33   ├─ /work/outgoings/index.html (+4ms)
+19:04:33   ├─ /work/behind-the-scenes/index.html (+4ms)
+19:04:33   ├─ /work/brunch-and-brew/index.html (+6ms)
+19:04:33   ├─ /work/breakfast-club/index.html (+3ms)
+19:04:33   └─ /work/travel-today/index.html (+3ms)
+19:04:33 ▶ src/pages/tag/[tag].astro
+19:04:33   ├─ /tag/tutorial/index.html (+2ms)
+19:04:33   ├─ /tag/learning/index.html (+2ms)
+19:04:33   ├─ /tag/typography/index.html (+2ms)
+19:04:33   ├─ /tag/resources/index.html (+2ms)
+19:04:33   ├─ /tag/culture/index.html (+1ms)
+19:04:33   ├─ /tag/design-thinking/index.html (+2ms)
+19:04:33   ├─ /tag/ux/index.html (+2ms)
+19:04:33   ├─ /tag/testing/index.html (+2ms)
+19:04:33   ├─ /tag/tips-and-tricks/index.html (+2ms)
+19:04:33   ├─ /tag/design-systems/index.html (+2ms)
+19:04:33   └─ /tag/tools/index.html (+1ms)
+19:04:33 ✓ Completed in 248ms.
+
+ generating optimized images
+19:04:34   ▶ /_astro/toast.lIutO6IL_Z1NKDjt.webp (before: 356kB, after: 166kB) (+333ms) (1/32)
+19:04:34   ▶ /_astro/notepad.ktNw2ZUg_Z2fPaN3.webp (before: 303kB, after: 13kB) (+92ms) (2/32)
+19:04:34   ▶ /_astro/outgoings-hero.Wlsc-FjP_28vogo.webp (before: 143kB, after: 92kB) (+336ms) (3/32)
+19:04:34   ▶ /_astro/brunch-and-brew-hero.thO5ctzO_1EDUwt.webp (before: 171kB, after: 111kB) (+430ms) (4/32)
+19:04:34   ▶ /_astro/behind-the-scenes-hero.fxpS3gup_Z1Lwh0l.webp (before: 300kB, after: 285kB) (+432ms) (5/32)
+19:04:34   ▶ /_astro/screens.XO1QsTKv_1lzWR7.webp (before: 804kB, after: 66kB) (+128ms) (6/32)
+19:04:34   ▶ /_astro/sketching.JjuLWFNR_1nsJ1J.webp (before: 516kB, after: 38kB) (+139ms) (7/32)
+19:04:34   ▶ /_astro/smiling.-yc429Nd_Z1GNXwV.webp (before: 302kB, after: 15kB) (+124ms) (8/32)
+19:04:34   ▶ /_astro/social-share.Ue-paWZP_1MKkD8.webp (before: 90kB, after: 33kB) (+126ms) (9/32)
+19:04:34   ▶ /_astro/studio.KnfDUw93_ZmqBLo.webp (before: 1133kB, after: 87kB) (+160ms) (10/32)
+19:04:34   ▶ /_astro/table-tennis.nTJk98Ls_21JNbo.webp (before: 1034kB, after: 75kB) (+216ms) (11/32)
+19:04:34   ▶ /_astro/1.8DyVJ8ID_ZOUlQA.webp (before: 239kB, after: 87kB) (+204ms) (12/32)
+19:04:34   ▶ /_astro/2.SFcUG2zH_Z1l2RtH.webp (before: 189kB, after: 71kB) (+244ms) (13/32)
+19:04:34   ▶ /_astro/4.7q82XlFW_Z1Dkdzs.webp (before: 144kB, after: 69kB) (+201ms) (14/32)
+19:04:34   ▶ /_astro/3.xpYuojzb_Zi8EIL.webp (before: 302kB, after: 172kB) (+348ms) (15/32)
+19:04:34   ▶ /_astro/6.AdWqI43V_ZlJBst.webp (before: 268kB, after: 139kB) (+246ms) (16/32)
+19:04:34   ▶ /_astro/5.RJqrwHk4_2b7tNv.webp (before: 336kB, after: 239kB) (+330ms) (17/32)
+19:04:34   ▶ /_astro/breakfast-club-hero.tSYQJP6i_Z1hpLPE.webp (before: 117kB, after: 98kB) (+289ms) (18/32)
+19:04:34   ▶ /_astro/outgoings-gallery-2.knf9RTL__Z1628HV.webp (before: 45kB, after: 30kB) (+119ms) (19/32)
+19:04:35   ▶ /_astro/outgoings-gallery-1._sXtgECD_17NNpU.webp (before: 45kB, after: 31kB) (+225ms) (20/32)
+19:04:35   ▶ /_astro/outgoings-gallery-3.vBElM6Sy_S0IyV.webp (before: 49kB, after: 31kB) (+176ms) (21/32)
+19:04:35   ▶ /_astro/behind-the-scenes-gallery-1.LR8mkV_z_USKyQ.webp (before: 74kB, after: 68kB) (+202ms) (22/32)
+19:04:35   ▶ /_astro/behind-the-scenes-gallery-3.AUr406Gs_ZUtHAI.webp (before: 161kB, after: 154kB) (+223ms) (23/32)
+19:04:35   ▶ /_astro/brunch-and-brew-gallery-1.2Nm8JBrf_26mUPL.webp (before: 44kB, after: 29kB) (+140ms) (24/32)
+19:04:35   ▶ /_astro/brunch-and-brew-gallery-2.WzaPO1XS_NE7JS.webp (before: 67kB, after: 48kB) (+176ms) (25/32)
+19:04:35   ▶ /_astro/brunch-and-brew-gallery-3.650rTWoi_Z1aTtAo.webp (before: 35kB, after: 22kB) (+137ms) (26/32)
+19:04:35   ▶ /_astro/breakfast-club-gallery-2.Han_ZTaV_aQivE.webp (before: 39kB, after: 31kB) (+135ms) (27/32)
+19:04:35   ▶ /_astro/breakfast-club-gallery-3.9mvE0-Gv_avLEv.webp (before: 59kB, after: 49kB) (+104ms) (28/32)
+19:04:35   ▶ /_astro/breakfast-club-gallery-1.CIxdI5Bp_hX6jj.webp (before: 81kB, after: 65kB) (+175ms) (29/32)
+19:04:35   ▶ /_astro/travel-today-hero.uK17OT4f_Z2kG9df.webp (before: 358kB, after: 283kB) (+684ms) (30/32)
+19:04:35   ▶ /_astro/travel-today-gallery-1.IAooTzJY_Ze9ceN.webp (before: 89kB, after: 63kB) (+193ms) (31/32)
+19:04:35   ▶ /_astro/travel-today-gallery-2.Vud2a_MU_22VP8E.webp (before: 74kB, after: 49kB) (+153ms) (32/32)
+19:04:35 ✓ Completed in 1.60s.
+
+19:04:35 [build] 35 page(s) built in 5.05s
+19:04:35 [build] Complete!
+$ pnpm run preview
+
+> astro-scratch@0.0.0 preview /astro-scratch
+> astro preview
+
+ astro  v4.0.6 ready in 19 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+```
+
+</details>
 
 I'd recommend to look at [Lesson 8: Creating our first collection](#lesson-8-creating-our-first-collection) and [Lesson 21: Setting up images](#lesson-21-setting-up-images) at the earliest point where it makes sense to.
 

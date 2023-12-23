@@ -8,6 +8,12 @@ If any `.astro` components need to import any optimized images _dynamically_ see
 
 Optimized image support is integrated through [`astro:assets`](https://docs.astro.build/en/guides/images/#image--astroassets) and [`sharpImageService `](https://docs.astro.build/en/guides/images/#remove-astrojsimage) (based on [sharp](https://sharp.pixelplumbing.com/)) is the default service.
 
+The `sharp` dependency has to be installed separately:
+
+```shell
+pnpm add sharp
+```
+
 In this case all images are stored under `src/assets/`:
 
 ```
